@@ -82,5 +82,11 @@
             "allow-contrib": false,
             "require": "5.1.*"
         }
+    },
+    "repositories": {
+      "packagist": {
+        "type": "composer",
+        "url": "https://packagist.org"
+      }
     }
 }

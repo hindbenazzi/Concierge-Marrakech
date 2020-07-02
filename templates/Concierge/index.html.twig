@@ -71,9 +71,10 @@
           <div id="owl-testimonials" class="owl-carousel owl-theme">
           
             <!-- Start Item -->
+            {% for testimonial in testimonials%}
             <div class="item">
               <blockquote class="quote">
-                <cite>John Doe<span class="job">CEO - UOUapps</span></cite>
+                <cite>{{ testimonial.Client}}<span class="job">{{ testimonial.ClientPosition}}</span></cite>
                 <p class="stars">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
@@ -81,42 +82,12 @@
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                 </p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui.
+                {{ testimonial.Testimonial}}
               </blockquote>
             </div>
             <!-- End Item -->
-
-            <!-- Start Item -->
-            <div class="item">
-              <blockquote class="quote">
-                <cite>John Doe<span class="job">CEO - UOUapps</span></cite>
-                <p class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui.
-              </blockquote>
-            </div>
-            <!-- End Item -->
-
-            <!-- Start Item -->
-            <div class="item">
-              <blockquote class="quote">
-                <cite>John Doe<span class="job">CEO - UOUapps</span></cite>
-                <p class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </p>
-                posuere libero dui.
-              </blockquote>
-            </div>
-            <!-- End Item -->
+{% endfor %}
+           
 
           </div>
 
