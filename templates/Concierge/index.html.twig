@@ -10,7 +10,7 @@
 
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h3>About Concierge<span lang="fr"> Marrakech</span></h3>
+            <h3>About Concierge<span lang="fr"> Marrakech</span></h3
             <img src="img/divisor.png" alt="" class="divisor">
             <p>Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</p>
             <p> We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
@@ -28,59 +28,23 @@
              <p><h5>We get you the bests deals for the best products </h5></p>
           </div>
           <!-- End Preamble -->
-
+             {% for field in fields%}
           <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
             <div class="overlay">
-              <img src="img/montgof.png" alt="">
+              
+             <img src="data:image/jpg;base64,{{field.FieldPicture}}"/>
               <div class="overlay-shadow">
                 <div class="overlay-content">
                   <a href="#" class="btn light">Read More</a>
                 </div>
               </div>
             </div>
-            <h5>Adventure</h5>
-            <p>Safety and comfort. more and more idea to discover Morocco</p>
+            <h5>{{ field.FieldName}}</h5>
+         <p>{{ field.FieldDesc}}</p>
+        
           </div>
+          {% endfor %}
           
-          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
-            <div class="overlay">
-              <img src="img/about3.jpg" alt="">
-              <div class="overlay-shadow">
-                <div class="overlay-content">
-                  <a href="#" class="btn light">Read More</a>
-                </div>
-              </div>
-            </div>
-            <h5>Style and luxery</h5>
-            <p>Let you dicover the Moroccan imperial style</p>
-          </div>
-
-         <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
-            <div class="overlay">
-              <img src="img/about4.jpg" alt="">
-              <div class="overlay-shadow">
-                <div class="overlay-content">
-                  <a href="#" class="btn light">Read More</a>
-                </div>
-              </div>
-            </div>
-            <h5>Our Agents</h5>
-            <p>Our  professional licensed local drivers and guides are ready to share with you their knowledge to make your days in Morocco wonderfu</p>
-          </div>
-
-          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
-            <div class="overlay">
-              <img src="img/about2.jpg" alt="">
-              <div class="overlay-shadow">
-                <div class="overlay-content">
-                  <a href="#" class="btn light">Read More</a>
-                </div>
-              </div>
-            </div>
-            <h5>Trips and more</h5>
-            <p>From our one day trip to multi-day Moroccan tour. dicover desert, mountain , valley and history</p>
-          </div>
-
         </div>
       </div>
     </section>
