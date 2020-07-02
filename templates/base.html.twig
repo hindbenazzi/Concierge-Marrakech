@@ -2,11 +2,283 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Concierge-Marrakech{% endblock %}</title>
+        {% block stylesheets %}
+         <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    
+    <!-- STYLESHEETS-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href='css/owl.carousel.css' rel="stylesheet">
+    <link href='css/style.css' rel="stylesheet">
+    <link href='css/responsive.css' rel="stylesheet">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    
+           <!-- Start Header -->
+    <header id="header" class="triangle">
+
+      <!-- Menu toggle Mobile -->
+      <label id="toggle" class="toggle"></label>
+
+      <!-- Start Banner -->
+      <div id="banner">
+        <div class="banner-bg">
+          <div class="banner-bg-item"><img src="img/banner-bg-1X.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/banner-bg-2X.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/banner-bg-3X.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/banner-bg-4X.jpg" alt=""></div>
+        </div>
+
+        <!-- Start Header-Inner -->
+        <div class="header-inner cleafix">
+
+          <!-- Start Header-Logo -->
+          <div class="header-logo">
+            <a href="index.html">
+              <img src="img/logo.png" alt="logo">
+            </a>
+          </div>
+          <!-- End Header-Logo -->
+
+          <!-- Start Header-Tool-Bar -->
+          <div class="header-tool-bar">
+            <div class="container">
+              <div class="row">
+
+                <!-- Start Header-Left -->
+                <div class="col-lg-4 col-md-5 col-xs-12 header-left">
+
+                  <!-- Start Header-Contact -->
+                  <ul class="custom-list header-contact">
+                    <li>
+                      <i class="fa fa-phone"></i>
+                      +212 661216388
+                    </li>
+                    <li>
+                      <i class="fa fa-envelope"></i>
+                        <a href="kechtrans@gmail.com">
+                          kechtrans@gmail.com  <police color:red> we trust our clients No prepayment is needed payment on arrival</police>
+                        </a>
+                    </li>
+                  </ul>
+                  <!-- End Header-Contact -->
+
+                </div>
+                <!-- End Header-Left -->
+
+                <!-- Start Header-Right -->
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-2 header-right">
+
+                  <!-- Start Social -->
+                  <ul class="header-social custom-list">
+                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                  </ul> 
+                  <!-- End Social -->
+
+                  <!-- Start Header-Login -->
+                  <div class="header-login">
+                    <button class="header-btn">
+                    <i class="fa fa-key"></i>
+                    Login
+                    </button>
+                    <div class="header-form">
+                      <form action="index.html" class="default-form">
+                        <p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i> All fields are required! <i class="fa fa-times close"></i></p>
+                        <p class="form-row">
+                          <input class="required email" type="text" placeholder="Email">
+                        </p>
+                        <p class="form-row">
+                          <input class="required" type="password" placeholder="Password">
+                        </p>
+                        <p class="form-row">
+                          <button class="submit-btn btn light">Login</button>
+                        </p>
+                        <p class="form-row forgot-password">
+                          <a href="#">Forgot Password?</a>
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- End Header-Login -->
+
+                </div>
+                <!-- End Header-Right -->
+
+              </div>
+            </div>
+          </div>
+          <!-- End Header-tool-bar -->
+
+          <!-- Start Header-Nav -->
+          <div class="header-nav">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+
+                  <!-- Start Nav -->
+                  <nav role="navigation">
+                    <ul class="nav navbar-nav">
+                      <li class="has-submenu">
+                        <a href="index.html" class="active">Home </a>
+                      </li>
+                      <li class="has-submenu">
+                        <a href="#">Private residences</a>
+                      </li>
+                        <li class="has-submenu"><a href="#">Private palace </a></li>
+                        
+                      <li><a href="drivers.html">vip trips &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    
+                     
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                       &nbsp;&nbsp;&nbsp; <li class="has-submenu"><a href="#" >luxury cars </a></li>
+                        <li class="has-submenu"><a href="#">concierge services </a></li>
+                    <li class="has-submenu">
+                      <a href="about.html">About</a>
+                      
+                    </li>
+                  
+                    <li class="has-submenu">
+                      <a href="news.html">News</a>
+                      
+                    </li>
+                    <li class="has-submenu">
+                      <a href="#">Contact</a>
+                    </li>
+                  </ul>
+                  </nav>
+                          <!-- End Nav -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Header-Nav -->
+
+        </div>
+        <!-- End Header-Inner -->
+
+        <div class="css-table">
+          <div class="css-table-cell">
+
+            <!-- Start Banner-Search -->
+            <div class="banner-search">
+               <div class="container">
+                </div>
+            </div>
+            <!-- End Banner-Search -->
+
+          </div>
+        </div>
+
+      </div>
+      <!-- End Banner -->
+
+    </header>
+        <main role="main">
+        {% block body %}
+        {% endblock %}
+        </main>
+            <!-- Start Footer -->
+    <footer id="footer">
+      <div class="container">
+
+          <!-- Start Preamble -->
+          <div class="col-lg-12 preamble">
+            <img src="img/footer-logo.png" alt="">
+          </div>
+          <!-- End Preamble -->
+
+          <!-- Start Footer-Content -->
+          <div class="footer-content">
+            <div class="row">
+
+              <!-- Start Widget-About -->
+              <div class="col-lg-4 col-md-4 widget widget-about">
+                <h5>About Us</h5>
+                <p>Marrakech concierge</p>
+                <p>VIP services</p>
+                <p> +212 661216388 - kechtrans@gmail.com </p>
+              </div>
+              <!-- End Widget-About -->
+
+              <!-- Start Widget-News -->
+              <div class="col-lg-4 col-md-4 widget widget-news">
+                <h5>Latest News</h5>
+                <ul class="custom-list">
+                  <li><a href="#">Marrakech - Dakhla with Royal Air</a></li>
+                  <li><a href="#">Golf competition</a></li>
+                  <li><a href="#">Marrakech Casinos</a></li>
+                </ul>
+              </div>
+              <!-- End Widget-News -->
+
+              <!-- Start Widget-Newsletter -->
+              <div class="col-lg-4 col-md-4 widget widget-newsletter">
+                <h5>Newsletter</h5>
+                <form class="default-form">
+                  <input type="text" name="newsletter" placeholder="Your Email Here">
+                  <button class="btn light">Sign Up</button>
+                </form>
+              </div>
+              <!-- End Widget-Newsletter -->
+
+              <!-- Start Widget-Social -->
+              <div class="col-lg-4 col-md-4 widget widget-social">
+                <h5>Lets Stay in Touch</h5>
+                <ul class="custom-list">
+                  <li>
+                    <a href="#"><i class="fa fa-facebook-square"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter-square"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- End Widget-Social -->
+            </div>
+        </div>
+      </div>
+      <!-- End Footer-Content -->
+
+      <!-- Start Footer-Copyrights -->
+      <div class="footer-copyrights">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <p>Marrakech Concierge 2019. Powered by <a href="#">IIP</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Footer-Copyrights -->
+
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="btn" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+   
+        {% block javascripts %}
+        <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.vide.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery.ba-outside-events.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+<script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>

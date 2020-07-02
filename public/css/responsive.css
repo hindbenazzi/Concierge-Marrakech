@@ -1,0 +1,1006 @@
+#media-query-breakpoint { display: none; }
+#media-query-breakpoint,
+#media-query-breakpoint span:before { content: "1200"; }
+
+@media (max-width: 1199px) {
+  /* -------------------------------------------------------------------------
+    BANNER
+  ------------------------------------------------------------------------- */
+  #banner {  height: 800px !important; }
+
+  #banner .banner-bg {  height: 800px !important; }
+
+  #banner .banner-bg-item {  height: 800px !important; }
+
+  /* -------------------------------------------------------------------------
+    HEADER LOGO
+  ------------------------------------------------------------------------- */
+  #header.triangle .header-logo:after {
+    width: 240px;
+    border-width: 120px 120px 0 120px;
+  }
+  
+  #header.triangle .header-logo a img { 
+    margin-top: 25px;
+    width: 100px; 
+  }
+
+  #header.classic .header-logo { top: 90px; }
+
+  #header.classic .header-logo a img { width: 120px; }
+  
+  /* -------------------------------------------------------------------------
+    BANNER SEARCH
+  ------------------------------------------------------------------------- */
+  .banner-search .tab-title { width: 185px; }
+
+  .banner-search .submit-btn > a { width: 145px; }
+
+  .banner-search .model-input {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: none;
+  }
+
+  .banner-search .submit-btn { 
+    margin-left: auto;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  /* -------------------------------------------------------------------------
+    BOOKING
+  ------------------------------------------------------------------------- */
+  .booking .heading {
+    padding: 0 0 10px 0;
+    display: block;
+    width: 100%;
+    text-align: center; 
+    border: none;
+  }
+
+  .booking .submit-btn {
+    padding: 20px 0 20px 25px;
+    margin-left: 20px;
+    border-left: 1px solid #3b4553;
+  }
+
+  .booking .submit-btn > a { width: 120px;}
+
+  /* -------------------------------------------------------------------------
+    FLEETS
+  ------------------------------------------------------------------------- */
+  .fleets-listing-header { margin-top: 10px; }
+
+  .fleets .toggle-content { display: none;}
+
+  .fleets .fleets-filters.horizontal { padding: 20px; }
+
+  .fleets-filters.horizontal .fleets-search-type { 
+    margin-right: 40px; 
+    width: 138px;
+  }
+
+  .fleets-filters.horizontal .fleets-availability,
+  .fleets-filters.horizontal .slider-range-container { 
+    margin-right: 30px; 
+    width: 140px;
+  }
+
+  .fleets-filters.horizontal .fleets-capacity {
+    margin-right: 30px;
+    width: 170px;
+  }
+
+  .fleets-filters.horizontal .filter-btn { 
+    padding-left: 29px;
+    width: 165px; 
+  }
+
+  .fleets-filters.horizontal .fleets-additional-services { width: 343px;}
+
+  /* -------------------------------------------------------------------------
+    CUSTOMERS
+  ------------------------------------------------------------------------- */
+  .customers .customer-testimonial .logo img { 
+    position: absolute;
+    top: 50%;
+    left:0;
+    right: 0;
+    margin: -25px auto 0 auto;
+  }
+  
+  /* -------------------------------------------------------------------------
+    MAP
+  ------------------------------------------------------------------------- */
+  .contact-map.style-1 {  height: 820px; }
+
+  /* -------------------------------------------------------------------------
+    ESSENTIALS
+  ------------------------------------------------------------------------- */
+  #essentials .fleet-gallery li,
+  #essentials .drivers-gallery li.driver-profile { width: 292px;}
+
+  /* -------------------------------------------------------------------------
+    SUPERTABS
+  ------------------------------------------------------------------------- */
+  .tabs-navigation { padding-left: 15px; }
+
+  .tabs-content { padding-right: 15px; }
+
+  /* -------------------------------------------------------------------------
+    FOOTER
+  ------------------------------------------------------------------------- */
+  #footer .widget-newsletter input[type="text"] { width: 187px;}
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "1199"; }
+}
+
+@media (max-width: 991px) {
+  /* -------------------------------------------------------------------------
+    HEADER
+  ------------------------------------------------------------------------- */
+  #toggle { display: block; }
+
+  #header { position: relative;}
+
+  #header .owl-buttons { display: none; }
+
+  #header .header-inner {
+    margin-top: 40px;
+    z-index: 9999;
+    height: auto;
+    bottom: inherit;
+  }
+
+  #header .container:before,
+  #header .container:after { display: none; }
+
+  #header.classic .header-logo { 
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.34);
+    top: 0; 
+  }
+
+  #header.classic .header-logo a img { 
+    padding: 39px 0;
+    width: inherit; 
+  }
+
+  #header.triangle.header-title { height: 280px; }
+
+  #header.triangle .header-title-inner { top: 150px; }
+
+  /* -------------------------------------------------------------------------
+    HEADER TOOL-BAR
+  ------------------------------------------------------------------------- */
+  #header .header-tool-bar,
+  #header .header-nav {
+    display: none;
+    background: #162232;
+    z-index: 5;
+  }
+
+  #header .header-tool-bar .header-right {
+    float: left;
+    text-align: center;
+  }
+
+  #header .header-left > .header-contact li { line-height: 40px; }
+
+  #header .header-left > .header-contact { padding: 0; }
+  
+  #header .header-left > .header-contact li,
+  #header .header-right > .header-social,
+  #header .header-login,
+  #header .header-language {
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+  }
+  
+  #header .header-left > .header-contact li:last-child:before { display: none; }
+
+  #header .header-right > .header-social {
+    height: 40px;
+    line-height: 35px;
+  }
+  
+  #header .header-right > .header-social li:first-child { margin-left: 0; }
+
+  #header .header-form {
+    position: relative;
+    padding: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width: 230px;
+  }
+
+  #header .header-login { border-bottom: none; }
+
+  #header .header-login .header-form { left: 0; }
+
+  #header .header-login form {
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #162232;
+  }
+
+  #header .header-language { border-top: 1px solid rgba(255,255,255,0.3); }
+
+  #header .header-language .header-btn { display: none; }
+
+  #header .header-language .header-form {
+    position: relative;
+    display: block;
+  }
+
+  #header .header-language .header-form ul {
+    margin: 0 auto;
+    display: table;
+  }
+
+  #header .header-language .header-form li { float: left; }
+
+  #header .header-language .header-form ul li a { background: #162232; }
+
+  /* -------------------------------------------------------------------------
+    HEADER NAV
+  ------------------------------------------------------------------------- */
+  #header .header-nav .navbar-nav { 
+    display: block;
+    float: none;
+    margin: 0 auto;
+    max-width: 230px;
+  }
+
+  #header .header-nav ul li { line-height: 40px; }
+
+  #header .header-nav .navbar-right { float: none !important; }
+  
+  #header .header-nav li,
+  #header .header-nav .has-submenu li { 
+    position: relative;
+    display: block; 
+    width: auto;
+    float: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    line-height: 40px;
+    color: #fff;
+  }
+
+  #header.triangle .header-nav ul li,
+  #header.classic .header-nav ul li { line-height: 40px; }
+
+  #header .header-nav ul > li { 
+    margin-right: 0; 
+  }
+
+  #header .header-nav .has-submenu li > a {
+    padding: 0;
+    display: inline-block;
+    width: auto;
+    line-height: 40px;
+    color: #fff;
+    height: 40px;
+  }
+
+  #header .header-nav .has-submenu li:hover,
+  #header .header-nav .has-submenu li:hover a {
+    background: transparent;
+    color: #fff;
+  }
+
+  #header .header-nav .sub-menu,
+  #header .header-nav .sub-menu .sub-menu {
+    position: relative;
+    display: none;
+    padding-left: 0;
+    margin-left: 20px;
+    top: auto;
+    left: auto;
+  }
+
+  #header .header-nav .sub-menu li { line-height: 40px;}
+
+  #header .header-nav .has-submenu > .sub-menu {
+    position: relative;
+    padding-left: 0;
+    left: 0;
+  }
+
+  #header .header-nav .has-submenu li {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #162232;
+  }
+
+  #header .header-nav .has-submenu li:first-child { padding-top: 0; }
+
+  #header .header-nav .has-submenu li:last-child { padding-bottom: 0; }
+
+  #header .header-nav .has-submenu li:hover a { background: transparent; }
+
+  #header .header-nav .has-submenu li a { color: #fff; }
+
+  #header .header-nav .has-submenu li > a:hover { color: #d0dae6; }
+
+  #header .header-nav .has-submenu li > a:after,
+  #header .header-nav .has-submenu:after { display: none; }
+
+  #header .header-nav .has-submenu .submenu-toggle { 
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 99999;
+  }
+
+  #header .header-nav .has-submenu a > .submenu-toggle { display: none; }
+
+  /* -------------------------------------------------------------------------
+    HEADER PREAMBLE
+  ------------------------------------------------------------------------- */
+  .header-preamble { height: auto;}
+
+  .header-preamble .logo {
+    position: absolute;
+    width: 180px;
+    height: 100%;
+  }
+
+  .header-preamble .logo img { 
+    position: absolute;
+    top: 50%;
+    left:0;
+    right: 0;
+    margin: -25px auto 0 auto;
+    width: 160px;
+  }
+
+  .header-preamble .content {
+    padding: 30px 30px 30px 210px;
+    height: 179px;
+  }
+
+  /* -------------------------------------------------------------------------
+    BANNER SEARCH
+  ------------------------------------------------------------------------- */
+  .banner-search-inner { padding: 0 25px; }
+
+  .banner-search .tab-title {  width: 180px }
+
+  .banner-search .tab-content-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .banner-search span {  border: none !important; }
+
+  .banner-search .tab-content-list { padding: 25px 5px 10px 5px; }
+
+  .banner-search .where-input,
+  .banner-search .hire-input,
+  .banner-search .departure-input,
+  .banner-search .return-input,
+  .banner-search .departure-input,
+  .banner-search .arrival-input,
+  .banner-search .point-a,
+  .banner-search .point-b,
+  .banner-search .people,
+  .banner-search .model.select-box {
+    padding: 20px 1px;
+    margin-right: 0;
+    margin-left: 0;
+    max-width: 121px;
+  }
+
+  .banner-search .select-box > input,
+  .banner-search .select-box > i { display: none; }
+
+  .banner-search .select-box > select {
+    display: block;
+    width: 100%;
+  }
+
+  .banner-search .submit-btn {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    display: block;
+    border: none;
+  }
+
+  .banner-search .submit-btn a {
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    line-height: 30px;
+  }
+  
+  /* -------------------------------------------------------------------------
+    BOOKING
+  ------------------------------------------------------------------------- */
+  .booking .default-form { padding-bottom: 5px;}
+
+  /* -------------------------------------------------------------------------
+    FLEETS
+  ------------------------------------------------------------------------- */
+  .fleets-filters .select-box > input,
+  .fleets-filters .select-box > i { display: none; }
+
+  .fleets .select-box > select {
+    display: block;
+    width: 100%;
+  }
+
+  .fleets-filters.horizontal { padding: 30px; }
+
+  .fleets-filters.horizontal .fleets-search-basic,
+  .fleets-filters.horizontal form { display: block; }
+
+  .fleets-filters.horizontal .fleets-search-type,
+  .fleets-filters.horizontal .fleets-availability,
+  .fleets-filters.horizontal .fleets-capacity,
+  .fleets-filters.horizontal .fleets-search-filter,
+  .fleets-filters.horizontal .slider-range-container,
+  .fleets-filters.horizontal .fleets-additional-services,
+  .fleets-filters.horizontal .filter-btn { 
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  .fleets-filters.horizontal .fleets-additional-services h5 { 
+    margin: 0;
+    line-height: inherit;
+  }
+
+  .fleets-filters.horizontal .fleets-search-filter { margin: 0;}
+
+  .fleets-filters.horizontal .filter-btn { 
+    padding: 0;
+    margin: 20px 0 0 0;
+    border: none;
+  }
+
+  .fleets .fleet-details-sidebar { 
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  /* -------------------------------------------------------------------------
+    DRIVERS
+  ------------------------------------------------------------------------- */
+  .driver-profile .thumb {
+    float: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .drivers .driver-profile-content { padding-left: 30px;}
+
+  .modal-body .driver-profile-content { padding-left: 270px;}
+
+  /* -------------------------------------------------------------------------
+    OUR LOCATIONS
+  ------------------------------------------------------------------------- */
+  .location-agency { text-align: center; }
+
+  /* -------------------------------------------------------------------------
+    ESSENTIALS
+  ------------------------------------------------------------------------- */
+  #essentials .fleet-gallery li,
+  #essentials .drivers-gallery li.driver-profile { width: 329px;}
+
+  /* -------------------------------------------------------------------------
+    NEWS
+  ------------------------------------------------------------------------- */
+  .news .sidebar { margin-left: 0;}
+
+  .single-post .post-addcomment button { margin-bottom: 50px; }
+
+  .widget #calendar th { width: 130px;}
+
+  .widget #calendar thead tr th:first-child, .widget #calendar tbody tr td:first-child { width: 130px;}
+
+  .widget #calendar thead tr th:last-child, .widget #calendar tbody tr td:last-child { width: 30px;}
+
+  /* -------------------------------------------------------------------------
+    CONTACT FORM
+  ------------------------------------------------------------------------- */
+  .contact-form .select-box > input,
+  .contact-form .select-box > i { display: none; }
+
+  .contact-form .select-box > select {
+    display: block;
+    width: 100%;
+  }
+
+  .contact-info { display: none; }
+
+  /* -------------------------------------------------------------------------
+    SUPERTABS
+  ------------------------------------------------------------------------- */
+  .tabs-navigation .tab-title-list li { margin-left: 0;}
+  
+  .tabs-navigation { padding: 0 15px; }
+
+  .tabs-content {  padding: 0 15px; }
+  
+  /* -------------------------------------------------------------------------
+    TABLE
+  ------------------------------------------------------------------------- */
+  table { 
+    display: block; 
+    max-width: 100%; 
+    overflow-x: scroll; 
+  }
+
+  /* -------------------------------------------------------------------------
+    FOOTER
+  ------------------------------------------------------------------------- */
+  #footer .widget-newsletter button { 
+    position: relative;
+    right: inherit;
+  }
+
+  #footer .widget-social h5 {  float: none; }
+
+  #footer .widget-social ul {  float: left; }
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "991"; }
+}
+  
+@media (max-width: 767px) {
+  /* -------------------------------------------------------------------------
+    BANNER
+  ------------------------------------------------------------------------- */
+  #banner {  height: 800px !important; }
+
+  #banner .banner-bg {  height: 800px !important; }
+
+  #banner .banner-bg-item {  height: 800px !important; }
+
+   /* -------------------------------------------------------------------------
+    PARTNERS
+  ------------------------------------------------------------------------- */
+  .partners .company img { padding: 15px 0; }
+
+  /* -------------------------------------------------------------------------
+    HEADER PREAMBLE
+  ------------------------------------------------------------------------- */
+  .header-preamble { height: auto;}
+
+  .header-preamble .logo {
+    width: 130px;
+    height: 100%;
+  }
+
+  .header-preamble .logo img { 
+    width: 100px;
+  }
+
+  .header-preamble .content {
+    padding-left: 150px;
+    height: auto;
+  }
+
+  /* -------------------------------------------------------------------------
+    ESSENTIALS
+  ------------------------------------------------------------------------- */
+  #essentials .fleet-gallery li,
+  #essentials .drivers-gallery li.driver-profile { width: 289px;}
+
+  /* -------------------------------------------------------------------------
+    FLEETS
+  ------------------------------------------------------------------------- */
+  .fleets .fleets-listing-header h5 {
+    display: block;
+    text-align: center;
+  }
+
+  .fleets .fleets-listing-pagination {
+    display: inline-block;
+    margin:0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .fleets .fleet-list .fleet-thumb {
+    float: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fleets .fleet-list .fleet-vechicle-content { padding-left: 30px; }
+  
+  /* -------------------------------------------------------------------------
+    DRIVERS
+  ------------------------------------------------------------------------- */
+  .drivers .driver-profile.odd { margin-top: 30px;}
+
+  .modal-dialog { 
+    width: 320px;
+    margin: 50px auto;
+  }
+
+  .modal-body .driver-profile-content { 
+    position: relative;
+    padding: 0;
+    clear: both;
+  }
+
+  .modal-body .driver-profile-header { padding-top: 20px; }
+
+  .modal-body .img-caption img { 
+    margin: 0;
+    width: 220px;
+    height: auto;
+  }
+
+  .modal-body .driver-profile-properties li,
+  .modal-body .driver-profile-properties li strong {
+    margin: 0;
+    display: block;
+    float: none !important;
+    text-align: left;
+  }
+
+  /* -------------------------------------------------------------------------
+    NEWS
+  ------------------------------------------------------------------------- */
+  .news .thumb img { margin-bottom: 20px;}
+  
+  /* -------------------------------------------------------------------------
+    CONTACT
+  ------------------------------------------------------------------------- */
+  #map-contact2 { height: 699px !important;}
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "767"; }
+}
+
+@media (max-width: 608px) {
+  /* -------------------------------------------------------------------------
+    BANNER
+  ------------------------------------------------------------------------- */
+  .triangle #banner {  height: 860px !important; }
+
+  .triangle #banner .banner-bg {  height: 860px !important; }
+
+  .triangle #banner .banner-bg-item {  height: 860px !important; }
+
+  .classic #banner {  height: 1000px !important; }
+
+  .classic #banner .banner-bg {  height: 1000px !important; }
+
+  .classic #banner .banner-bg-item {  height: 1000px !important; }
+
+  /* -------------------------------------------------------------------------
+    BANNER-SEARCH
+  ------------------------------------------------------------------------- */
+  .banner-search .tab-title {  width: 100%; }
+
+  .banner-search .tab-content-list {  padding: 20px 20px 10px 20px; }
+
+  .banner-search .model.select-box,
+  .banner-search .people.select-box,
+  .banner-search .departure-input,
+  .banner-search .point-b {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .banner-search .where-input { 
+    padding-right: 0;
+    margin-right: 0;
+    max-width: 121px;
+  }
+
+  .banner-search span > i {  top: 27px; }
+
+  /* -------------------------------------------------------------------------
+    HEADER PREAMBLE
+  ------------------------------------------------------------------------- */
+  .header-preamble { height: auto;}
+
+  .header-preamble .logo {
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+
+  .header-preamble .logo img { 
+    width: initial;
+  }
+
+  .header-preamble .content {
+    padding: 30px;
+    height: auto;
+  }
+  
+  /* -------------------------------------------------------------------------
+    CUSTOMERS
+  ------------------------------------------------------------------------- */
+  .customers .customer-testimonial .logo {
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+
+  .customers  .customer-testimonial-content { padding-left: 30px;}
+
+  /* -------------------------------------------------------------------------
+    FLEETS
+  ------------------------------------------------------------------------- */
+  .fleets .fleet-list .fleet-vechicle-content { padding-bottom: 20px; }
+
+  .fleets .fleet-list .fleet-vechicle-properties {
+    padding: 0;
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    float: none !important;
+  }
+
+  /* -------------------------------------------------------------------------
+    DRIVERS
+  ------------------------------------------------------------------------- */
+  .drivers .driver-profile.odd { margin-top: 30px; }
+  
+  /* -------------------------------------------------------------------------
+    NEWS
+  ------------------------------------------------------------------------- */
+  .single-post .comment { padding-left: 70px; }
+    
+  .single-post .comment .avatar { 
+    width: 50px;  
+    height: 50px;
+  }
+
+  /* -------------------------------------------------------------------------
+    ESSENTIALS
+  ------------------------------------------------------------------------- */
+  #essentials .fleet-gallery li,
+  #essentials .drivers-gallery li.driver-profile { width: 100%;}
+
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "767"; }
+
+}
+
+@media ( max-width: 480px ) {
+  /* -------------------------------------------------------------------------
+    BANNER
+  ------------------------------------------------------------------------- */
+  .triangle #banner {  height: 1140px !important; }
+
+  .triangle #banner .banner-bg {  height: 1140px !important; }
+
+  .triangle #banner .banner-bg-item {  height: 1140px !important; }
+
+  .classic #banner {  height: 1200px !important; }
+
+  .classic #banner .banner-bg {  height: 1200px !important; }
+
+  .classic #banner .banner-bg-item {  height: 1200px !important; }
+
+  /* -------------------------------------------------------------------------
+    BANNER-SEARCH
+  ------------------------------------------------------------------------- */
+  #header .banner-search {
+    position: absolute;
+    top: 100px;
+  }
+
+  .banner-search .return-input { padding-left: 0; }
+
+  .banner-search .where-input,
+  .banner-search .hire-input,
+  .banner-search .departure-input,
+  .banner-search .return-input,
+  .banner-search .departure-input,
+  .banner-search .arrival-input,
+  .banner-search .point-a,
+  .banner-search .point-b,
+  .banner-search .model.select-box,
+  .banner-search .people.select-box {
+    padding: 20px 0;
+    display: block;
+    margin: 0 auto;
+    max-width: 151px;
+  }
+
+  /* -------------------------------------------------------------------------
+    HEADER-TITLE
+  ------------------------------------------------------------------------- */
+  #header .header-title-inner h3 {
+    float: none !important;
+    text-align: center;
+  }
+
+  #header .breadcrumbs { display: none;}
+
+  /* -------------------------------------------------------------------------
+    ESSENTIALS
+  ------------------------------------------------------------------------- */
+  #essentials .tab-title-list .tab-title {
+    display: block;
+    float: none;
+  }
+
+  /* -------------------------------------------------------------------------
+    PARTNERS
+  ------------------------------------------------------------------------- */
+  .partners h5:before,
+  .partners h5:after { display: none; }
+
+
+  /* -------------------------------------------------------------------------
+    FOOTER
+  ------------------------------------------------------------------------- */
+  #footer .widget-newsletter input[type="text"] {
+    margin-right: 10px;
+    width: 152px;
+  }
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "480"; }
+}
+
+@media ( max-width: 320px ) {
+  /* -------------------------------------------------------------------------
+    HEADER PREAMBLE
+  ------------------------------------------------------------------------- */
+  .header-preamble .logo img { 
+    margin-top: -24px;
+    width: 160px;
+  }
+
+  /* -------------------------------------------------------------------------
+    SUPERTABS
+  ------------------------------------------------------------------------- */
+  .tabs-navigation .tab-title-list li { padding-left: 20px; }
+
+  .tabs-navigation .tab-title-list li p, .tabs-content .tab-content-list li p { line-height: 20px; }
+
+  .tabs-navigation .tab-title-list li h5 { margin-top: 35px; }
+
+  .tabs-content .tab-content-list li { 
+    position: relative;
+    padding: 40px 20px;
+    height: auto !important;
+  }
+
+  .tabs-content .tab-content-list li .heading,
+  .tabs-content .tab-content-list li cite { 
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .tabs-content .tab-content-list li cite { 
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  /* -------------------------------------------------------------------------
+    FLEETS
+  ------------------------------------------------------------------------- */
+  .fleets .fleets-listing-pagination li.prev,
+  .fleets .fleets-listing-pagination li.next {
+    margin: 0;
+    width: 100%;
+    display: block;
+    float: none;
+  } 
+  .fleets .layout-list .fleet-vechicle-header h5,
+  .fleets .layout-list .fleet-vechicle-header span,
+  .fleets .layout-list .fleet-vechicle-properties li,
+  .fleets .layout-list .fleet-vechicle-properties li strong,
+  .fleets .layout-grid .fleet-vechicle-properties li,
+  .fleets .layout-grid .fleet-vechicle-properties li strong,
+  .fleets .fleet-details .fleet-vechicle-header h5,
+  .fleets .fleet-details .fleet-vechicle-header span,
+  .fleets .fleet-details-sidebar .fleet-vechicle-properties li,
+  .fleets .fleet-details-sidebar .fleet-vechicle-properties li strong {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .fleets .layout-list .fleet-vechicle-header span,
+  .fleets .fleet-details .fleet-vechicle-header span { top: 0;}
+
+  /* -------------------------------------------------------------------------
+    DRIVERS 
+  ------------------------------------------------------------------------- */
+  .drivers .driver-profile-header h5,
+  .drivers .driver-profile-header span,
+  .drivers .driver-profile-properties li,
+  .drivers .driver-profile-properties li strong {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .drivers .driver-profile-header span { top: 0;}
+
+  .modal-dialog { width: 220px;}
+
+  /* -------------------------------------------------------------------------
+    NEWS
+  ------------------------------------------------------------------------- */
+  .post .post-header h5,
+  .post .post-header span {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .post-meta span {
+    display: block;
+    margin: 0;
+  }
+
+  /* -------------------------------------------------------------------------
+    LOCATIONS
+  ------------------------------------------------------------------------- */
+  .locations .button-overlay { display: none;}
+
+  /* -------------------------------------------------------------------------
+    PRICING
+  ------------------------------------------------------------------------- */
+  .package-cost { font-size: 85px;}
+
+  /* -------------------------------------------------------------------------
+    CUSTOMERS
+  ------------------------------------------------------------------------- */
+  .customers .customer-testimonial-header h5,
+  .customers .customer-testimonial-header span {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .customers .customer-testimonial-header span { top: 0;}
+
+  /* -------------------------------------------------------------------------
+    FOOTER
+  ------------------------------------------------------------------------- */
+  #footer .widget-newsletter input[type="text"] {
+    margin: 0 0 10px 0;
+    width: 100%;
+  }
+
+  #media-query-breakpoint,
+  #media-query-breakpoint span:before { content: "320"; }
+
+}
