@@ -60,7 +60,6 @@
     <section class="about">
       <div class="container">
         <div class="row">
-
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
             <h3>About Concierge<span lang="fr"> Marrakech</span></h3
@@ -228,31 +227,15 @@
             <h5>Our Partners</h5>
           </div>
           <!-- End Preamble -->
-
+           
+          {% for Partner in Partners%}
           <!-- Start Partner -->
           <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img src="img/logo1.jpg" alt=""></a>
+            <a href="#"><img src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
           </div>
           <!-- End Partner -->
-
-          <!-- Start Partner -->
-          <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img src="img/logo2.jpg" alt=""></a>
-          </div>
-          <!-- End Partner -->
-
-          <!-- Start Partner -->
-          <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img src="img/logo3.jpg" alt=""></a>
-          </div>
-          <!-- End Partner -->
-
-          <!-- Start Partner -->
-          <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img src="img/logo4.png" alt=""></a>
-          </div>
-          <!-- End Partner -->
-
+          {% endfor %}
+          
         </div>
       </div>
     </section>

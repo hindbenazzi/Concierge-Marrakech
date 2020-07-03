@@ -9,6 +9,9 @@ use App\Entity\Fields;
 use App\Repository\FieldsRepository;
 use App\Entity\Testimonials;
 use App\Repository\TestimonialsRepository;
+use App\Entity\Partners;
+use App\Repository\PartnersRepository;
+
 
 class HomePageController extends AbstractController
 {
@@ -25,6 +28,12 @@ class HomePageController extends AbstractController
         }
         $repo1=$em->getRepository(Testimonials::class);
         $testimonials=$repo1->findAll();
-        return $this->render('Concierge/index.html.twig',['fields'=>$fields,'testimonials'=>$testimonials]);
+        $repo2=$em->getRepository(Partners::class);
+        $Partners=$repo2->findAll();
+        foreach($Partners as $key => $value){
+            $value->setPartnerImage(base64_encode(stream_get_contents($value->getPartnerImage())));
+        }
+        return $this->render('Concierge/index.html.twig',
+        ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners]);
     }
 }
