@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FieldsController!{% endblock %}
+{% block stylesheets %}
+           <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    
+    <!-- STYLESHEETS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/owl.carousel.css' rel="stylesheet">
+    <link href='../css/style.css' rel="stylesheet">
+    <link href='../css/responsive.css' rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+
+<div class="example-wrapper banner-bg-item">
+   <h3> {{field.FieldDesc}} </h3>
+   <p>  {{field.Contenue}}   </p>
+
+</div>
+{% endblock %}
