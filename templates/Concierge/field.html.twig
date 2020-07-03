@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FieldsController!{% endblock %}
+{% block title %}Concierge-{{field.FieldName}}{% endblock %}
 {% block stylesheets %}
            <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -13,12 +13,25 @@
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
 {% endblock %}
+{% block headerlogo%}
+              <img src="../img/logo.png" alt="logo">
+              {% endblock %}
+{% block logo %}
+            <img src="../img/footer-logo.png" alt="">
+            {% endblock %}
 {% block body %}
 
 
 <div class="example-wrapper banner-bg-item">
    <h3> {{field.FieldDesc}} </h3>
    <p>  {{field.Contenue}}   </p>
-
+   
 </div>
 {% endblock %}
+{% block banner %}
+<div id="banner" >
+<div class="banner-bg">
+          <div class="banner-bg-item"><img style="width: 100%; height:600px;" src="data:image/jpg;base64,{{field.FieldPicture}}" alt=""></div>
+</div>
+</div>
+ {% endblock %}
