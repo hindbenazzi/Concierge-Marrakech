@@ -25,13 +25,8 @@
       <label id="toggle" class="toggle"></label>
 
       <!-- Start Banner -->
-      <div id="banner">
-        <div class="banner-bg">
-          <div class="banner-bg-item"><img src="img/banner-bg-1X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-2X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-3X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-4X.jpg" alt=""></div>
-        </div>
+      {% block banner%}
+      {% endblock %}
 
         <!-- Start Header-Inner -->
         <div class="header-inner cleafix">
@@ -163,22 +158,9 @@
 
         </div>
         <!-- End Header-Inner -->
-
-        <div class="css-table">
-          <div class="css-table-cell">
-
-            <!-- Start Banner-Search -->
-            <div class="banner-search">
-               <div class="container">
-                </div>
-            </div>
-            <!-- End Banner-Search -->
-
-          </div>
-        </div>
-
-      </div>
-      <!-- End Banner -->
+ {% block continuebanner %}
+        {% endblock %}
+        
 
     </header>
         <main role="main">
