@@ -1489,6 +1489,7 @@ button:hover {
   text-transform: none;
   color: #1a1a1a;
   text-shadow: none;
+  
 }
 
 #header .header-nav .has-submenu li:hover > a {
@@ -1503,6 +1504,7 @@ button:hover {
   width: 170px;
   margin: 10px auto 0 auto;
   background: transparent;
+  
 }
 
 #header .header-nav .has-submenu li:last-child a:after { display: none; }
