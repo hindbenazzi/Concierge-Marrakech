@@ -989,11 +989,7 @@ button:hover {
      -moz-background-size: cover;
           background-size: cover;
 }
-#bann{
-  position: relative;
-  width: 0px;
-  height: 0px;
-}
+
 /* -------------------------------------------------------------------------
     HEADER TOGGLE
 ------------------------------------------------------------------------- */
@@ -1165,7 +1161,7 @@ button:hover {
 }
 
 #header .breadcrumbs li a { 
-  margin-left: 13px;
+  margin-left: 5px;
   font-weight: bold;
   color: #fff; 
 }
@@ -1213,7 +1209,9 @@ button:hover {
   position: relative;
   background-color: #162232;
 }
-
+.container {
+  width: 98%;
+}
 #header .header-tool-bar .container:before {
   position: absolute;
   margin-left: -55px;
@@ -1451,9 +1449,10 @@ button:hover {
     HEADER NAVBAR NAV > SUB NAV
 ------------------------------------------------------------------------- */
 #header .header-nav .has-submenu > .sub-menu {
+  margin-left: 10px;;
   position: absolute;
   display: none;
-  left: -0px;
+  left: -10px;
   list-style: none;
   z-index: 100;
 }
