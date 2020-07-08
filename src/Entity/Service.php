@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ServiceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,13 @@ class Service
      * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="Services")
      */
     private $field;
+
+    
+
+    public function __construct()
+    {
+        $this->Budget = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -55,4 +64,6 @@ class Service
 
         return $this;
     }
+
+    
 }

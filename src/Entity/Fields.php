@@ -45,10 +45,7 @@ class Fields
      */
     private $FieldImages;
 
-    /**
-     * @ORM\Column(type="blob", nullable=true)
-     */
-    private $FieldFormImage;
+    
 
     /**
      * @ORM\OneToMany(targetEntity=Service::class, mappedBy="field")
@@ -145,18 +142,7 @@ class Fields
         return $this;
     }
 
-    public function getFieldFormImage()
-    {
-        return $this->FieldFormImage;
-    }
-
-    public function setFieldFormImage($FieldFormImage): self
-    {
-        $this->FieldFormImage = $FieldFormImage;
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection|Service[]
      */
