@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block title %}Concierge-{{field.FieldName}}{% endblock %}
 {% block stylesheets %}
            <!-- GOOGLE FONTS-->
@@ -31,7 +31,7 @@
   border:solid #1e2e42; 
   border-radius: 10px; 
   margin:10px;
-  height:500px;
+  height:700px;
 }
     </style>
 {% endblock %}
@@ -54,13 +54,33 @@
 <div class="separator">
 </div>
 <div class="form-wrapper" >
-<div style="width:50%; background-color:white; height:20px; float:left;"></div>
+<div style="width:50%; background-color:white; height:20px; float:left;">
+<div style="margin:10px;">
+ {{ form_start(form) }}
+    
+    {{ form_row(form.Full_Name,{'attr':{'placeholder':"Name"}}) }}
+    {{ form_row(form.Telephone,{'attr':{'placeholder':"Telephone"}}) }}
+    {{ form_row(form.Email,{'attr':{'placeholder':"Email"}}) }}
+    
+    <label>Which services are you interested in?</label>
+    <div class="selectWrapper">
+    <select name="serviceSelected">
+    {% for service in services %}
+        <option>{{service.Title}}</option>
+    {% endfor %}
+    </select>
+    </div>
+    {{ form_row(form.message,{'attr':{'placeholder':"Message",'rows':"10"}}) }}
+    
+    {{ form_end(form) }}
+</div>
+</div>
 <div style="width:50%; background-color:white; height:20px; float:left; color:#616b6b;  padding:10px;">
 <p style="width: 80%; margin-left:50px; font-size:20px;">If you think you are looking for a specific item or would like further information,
 then feel free to contact us using the enquiry form and one of our executives will aim to 
 get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a><p>
 <br>
-<div ><img style="width: 80%; height:280px; margin-left:50px;" src="data:image/jpg;base64,{{field.FieldPicture}}" alt=""></div>
+<div ><img style="width: 80%; height:350px; margin-left:50px;" src="data:image/jpg;base64,{{field.FieldPicture}}" alt=""></div>
 
 </div>
 </div>

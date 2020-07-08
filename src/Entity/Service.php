@@ -25,15 +25,18 @@ class Service
     private $Title;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="Services")
+     * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="services")
      */
-    private $field;
+    private $Field;
 
-    
+    /**
+     * @ORM\OneToMany(targetEntity=Requete::class, mappedBy="Service")
+     */
+    private $requetes;
 
     public function __construct()
     {
-        $this->Budget = new ArrayCollection();
+        $this->requetes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -55,15 +58,44 @@ class Service
 
     public function getField(): ?Fields
     {
-        return $this->field;
+        return $this->Field;
     }
 
-    public function setField(?Fields $field): self
+    public function setField(?Fields $Field): self
     {
-        $this->field = $field;
+        $this->Field = $Field;
 
         return $this;
     }
 
-    
+    /**
+     * @return Collection|Requete[]
+     */
+    public function getRequetes(): Collection
+    {
+        return $this->requetes;
+    }
+
+    public function addRequete(Requete $requete): self
+    {
+        if (!$this->requetes->contains($requete)) {
+            $this->requetes[] = $requete;
+            $requete->setService($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRequete(Requete $requete): self
+    {
+        if ($this->requetes->contains($requete)) {
+            $this->requetes->removeElement($requete);
+            // set the owning side to null (unless already changed)
+            if ($requete->getService() === $this) {
+                $requete->setService(null);
+            }
+        }
+
+        return $this;
+    }
 }
