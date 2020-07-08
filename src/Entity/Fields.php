@@ -45,9 +45,20 @@ class Fields
      */
     private $FieldImages;
 
+    /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $FieldFormImage;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Service::class, mappedBy="field")
+     */
+    private $Services;
+
     public function __construct()
     {
         $this->FieldImages = new ArrayCollection();
+        $this->Services = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,6 +139,49 @@ class Fields
             // set the owning side to null (unless already changed)
             if ($fieldImage->getFields() === $this) {
                 $fieldImage->setFields(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFieldFormImage()
+    {
+        return $this->FieldFormImage;
+    }
+
+    public function setFieldFormImage($FieldFormImage): self
+    {
+        $this->FieldFormImage = $FieldFormImage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Service[]
+     */
+    public function getServices(): Collection
+    {
+        return $this->Services;
+    }
+
+    public function addService(Service $service): self
+    {
+        if (!$this->Services->contains($service)) {
+            $this->Services[] = $service;
+            $service->setField($this);
+        }
+
+        return $this;
+    }
+
+    public function removeService(Service $service): self
+    {
+        if ($this->Services->contains($service)) {
+            $this->Services->removeElement($service);
+            // set the owning side to null (unless already changed)
+            if ($service->getField() === $this) {
+                $service->setField(null);
             }
         }
 

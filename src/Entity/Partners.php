@@ -27,6 +27,11 @@ class Partners
      */
     private $PartnerImage;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Website;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Partners
     public function setPartnerImage($PartnerImage): self
     {
         $this->PartnerImage = $PartnerImage;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->Website;
+    }
+
+    public function setWebsite(?string $Website): self
+    {
+        $this->Website = $Website;
 
         return $this;
     }
