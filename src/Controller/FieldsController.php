@@ -34,7 +34,7 @@ class FieldsController extends AbstractController
         }
         
         $field->setFieldPicture(base64_encode(stream_get_contents($field->getFieldPicture())));
-        
+        $field->setFieldFormImage(base64_encode(stream_get_contents($field->getFieldFormImage())));
         $req=new Requete();
         $repo=$em->getRepository(Service::class);
         $service=$repo->findBy(array('Field'=>$id));
@@ -47,11 +47,14 @@ class FieldsController extends AbstractController
                      ->getForm();
          $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $serviceselected=($repo->findOneBy(array('Title'=>$request->request->get('serviceSelected'))));
+          $select=$request->request->get('serviceSelected');
+          if($select=='Luxury cars'){
+            return $this->RedirectToRoute("app_luxuryCars");
+          }
+          $serviceselected=($repo->findOneBy(array('Title'=>$select)));
           $req->setService($serviceselected);
           $repo1=$em->getRepository(Fields::class);
           $field=$repo1->findOneBy(array('id'=>$id));
-          dd($req);
           
           $em->persist($req);
           $em->flush();
