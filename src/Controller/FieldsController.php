@@ -8,13 +8,24 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\FieldImage;
 use App\Repository\FieldImageRepository;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Service;
+use App\Repository\ServiceRepository;
+use App\Entity\Requete;
+use App\Repository\RequeteRepository;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class FieldsController extends AbstractController
 {
     /**
      * @Route("/field/{id}", name="fields")
      */
-    public function ShowField(Fields $field,EntityManagerInterface $em)
+    public function ShowField(Fields $field,Request $request,EntityManagerInterface $em,$id)
     {
         $repo=$em->getRepository(FieldImage::class);
         $fieldImages=$repo->findBy(array('fields'=>$field->getId()));
@@ -23,7 +34,32 @@ class FieldsController extends AbstractController
         }
         
         $field->setFieldPicture(base64_encode(stream_get_contents($field->getFieldPicture())));
-        
-        return $this->render('Concierge/field.html.twig',['field'=>$field,'fieldImages'=>$fieldImages]);
+        $field->setFieldFormImage(base64_encode(stream_get_contents($field->getFieldFormImage())));
+        $req=new Requete();
+        $repo=$em->getRepository(Service::class);
+        $service=$repo->findBy(array('Field'=>$id));
+        $form = $this->createFormBuilder($req)
+                     ->add('Full_Name', TextType::class)
+                     ->add('Telephone', TextType::class)
+                     ->add('Email', TextType::class)
+                     ->add('message', TextareaType::class)
+                     ->add('Send_Request', SubmitType::class)
+                     ->getForm();
+         $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+          $select=$request->request->get('serviceSelected');
+          if($select=='Luxury cars'){
+            return $this->RedirectToRoute("app_luxuryCars");
+          }
+          $serviceselected=($repo->findOneBy(array('Title'=>$select)));
+          $req->setService($serviceselected);
+          $repo1=$em->getRepository(Fields::class);
+          $field=$repo1->findOneBy(array('id'=>$id));
+          
+          $em->persist($req);
+          $em->flush();
+                     }
+        return $this->render('Concierge/field.html.twig',['field'=>$field,
+        'fieldImages'=>$fieldImages,'form' => $form->createView(),'services'=>$service]);
     }
 }

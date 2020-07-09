@@ -27,6 +27,8 @@ class Partners
      */
     private $PartnerImage;
 
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,4 +57,8 @@ class Partners
 
         return $this;
     }
+
+    
+
+    
 }
