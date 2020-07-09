@@ -32,6 +32,11 @@ class LuxuryCars
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $Price;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class LuxuryCars
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->Price;
+    }
+
+    public function setPrice(float $Price): self
+    {
+        $this->Price = $Price;
 
         return $this;
     }

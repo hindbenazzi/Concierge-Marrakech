@@ -82,7 +82,7 @@
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
 <center style="font-size: 23px" ><b> Our Luxury Cars<b></center><br>
-<button class="form-control" id="reserv-btn">Réserver</button>
+<button class="form-control" id="reserv-btn">Reserve other cars</button>
 </div>
         <div style="margin-top: 3%" class="row">        
   {% for image in images %}  
@@ -90,9 +90,11 @@
   <div class="card">
   <img id="img" class="card-img-top"  src="data:image/jpg;base64,{{image.CarsImg}}"/> 
   <div class="card-body">
-    <b class="card-title">{{image.Title}}</b>
+   <center> <b class="card-title">{{image.Title}}</b><center>
+    <center><b class="card-title"> Price:{{image.Price}} €</b><center>
     <div class="card-text">
-    <p id="description">{{image.CarsDesc}}</p> </div>
+    <p id="description"><b> Characteristics:</b>{{image.CarsDesc}}</p> </div>
+    <button class="form-control" id="reserv-btn">Reserve</button>
   </div>
 </div>
 
