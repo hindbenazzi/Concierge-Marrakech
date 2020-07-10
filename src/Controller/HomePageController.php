@@ -23,9 +23,7 @@ class HomePageController extends AbstractController
         
         $repo=$em->getRepository(Fields::class);
         $fields=$repo->findAll();
-        foreach($fields as $key => $value){
-            $value->setFieldPicture(base64_encode(stream_get_contents($value->getFieldPicture())));
-        }
+        
         $repo1=$em->getRepository(Testimonials::class);
         $testimonials=$repo1->findAll();
         $repo2=$em->getRepository(Partners::class);
@@ -36,4 +34,13 @@ class HomePageController extends AbstractController
         return $this->render('Concierge/index.html.twig',
         ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners]);
     }
+     /**
+     * @Route("/partner/{id}", name="app_PartnerWeb")
+     */
+    public function redirectToPartner(EntityManagerInterface $em, Partners $partner)
+    {
+        $website='https://'.($partner->getWebsite());
+        return $this->redirect($website);
+    }
+
 }

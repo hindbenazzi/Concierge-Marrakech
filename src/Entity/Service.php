@@ -22,22 +22,25 @@ class Service
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Title;
+    private $title;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="services")
+     * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="Services")
      */
-    private $Field;
+    private $fields;
 
     /**
-     * @ORM\OneToMany(targetEntity=Requete::class, mappedBy="Service")
+     * @ORM\OneToMany(targetEntity=Requete::class, mappedBy="service")
      */
-    private $requetes;
+    private $requete;
 
     public function __construct()
     {
-        $this->requetes = new ArrayCollection();
+        $this->requete = new ArrayCollection();
     }
+
+    
 
     public function getId(): ?int
     {
@@ -46,24 +49,26 @@ class Service
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getField(): ?Fields
+    
+
+    public function getFields(): ?Fields
     {
-        return $this->Field;
+        return $this->fields;
     }
 
-    public function setField(?Fields $Field): self
+    public function setFields(?Fields $fields): self
     {
-        $this->Field = $Field;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -71,15 +76,15 @@ class Service
     /**
      * @return Collection|Requete[]
      */
-    public function getRequetes(): Collection
+    public function getRequete(): Collection
     {
-        return $this->requetes;
+        return $this->requete;
     }
 
     public function addRequete(Requete $requete): self
     {
-        if (!$this->requetes->contains($requete)) {
-            $this->requetes[] = $requete;
+        if (!$this->requete->contains($requete)) {
+            $this->requete[] = $requete;
             $requete->setService($this);
         }
 
@@ -88,8 +93,8 @@ class Service
 
     public function removeRequete(Requete $requete): self
     {
-        if ($this->requetes->contains($requete)) {
-            $this->requetes->removeElement($requete);
+        if ($this->requete->contains($requete)) {
+            $this->requete->removeElement($requete);
             // set the owning side to null (unless already changed)
             if ($requete->getService() === $this) {
                 $requete->setService(null);
@@ -98,4 +103,6 @@ class Service
 
         return $this;
     }
+
+    
 }

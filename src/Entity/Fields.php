@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=FieldsRepository::class)
- * * @ORM\Table(name="Fields")
  */
 class Fields
 {
@@ -26,39 +25,43 @@ class Fields
     private $FieldName;
 
     /**
+     * @ORM\OneToMany(targetEntity=Service::class, mappedBy="fields")
+     */
+    private $Services;
+
+
+    
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $FieldDesc;
+    private $FieldPictureURL;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
-    private $FieldPicture;
+    private $FieldFormImageURL;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $Contenue;
-
-    /**
-     * @ORM\OneToMany(targetEntity=FieldImage::class, mappedBy="fields")
+     * @ORM\OneToMany(targetEntity=FieldImages::class, mappedBy="fields")
      */
     private $FieldImages;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="text")
      */
-    private $FieldFormImage;
+    private $Contenue;
 
     /**
-     * @ORM\OneToMany(targetEntity=Service::class, mappedBy="Field")
+     * @ORM\Column(type="text")
      */
-    private $services;
+    private $fieldDesc;
 
     public function __construct()
     {
+        $this->Services = new ArrayCollection();
+        $this->Requets = new ArrayCollection();
         $this->FieldImages = new ArrayCollection();
-        $this->services = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -78,51 +81,78 @@ class Fields
         return $this;
     }
 
-    public function getFieldDesc(): ?string
+    /**
+     * @return Collection|Service[]
+     */
+    public function getServices(): Collection
     {
-        return $this->FieldDesc;
+        return $this->Services;
     }
 
-    public function setFieldDesc(string $FieldDesc): self
+    public function addService(Service $service): self
     {
-        $this->FieldDesc = $FieldDesc;
+        if (!$this->Services->contains($service)) {
+            $this->Services[] = $service;
+            $service->setFields($this);
+        }
 
         return $this;
     }
 
-    public function getFieldPicture()
+    public function removeService(Service $service): self
     {
-        return $this->FieldPicture;
-    }
-
-    public function setFieldPicture($FieldPicture): self
-    {
-        $this->FieldPicture = $FieldPicture;
+        if ($this->Services->contains($service)) {
+            $this->Services->removeElement($service);
+            // set the owning side to null (unless already changed)
+            if ($service->getFields() === $this) {
+                $service->setFields(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getContenue(): ?string
+    
+
+    
+
+    
+
+    
+
+    public function getFieldPictureURL(): ?string
     {
-        return $this->Contenue;
+        return $this->FieldPictureURL;
     }
 
-    public function setContenue(?string $Contenue): self
+    public function setFieldPictureURL(string $FieldPictureURL): self
     {
-        $this->Contenue = $Contenue;
+        $this->FieldPictureURL = $FieldPictureURL;
+
+        return $this;
+    }
+
+    public function getFieldFormImageURL(): ?string
+    {
+        return $this->FieldFormImageURL;
+    }
+
+    public function setFieldFormImageURL(string $FieldFormImageURL): self
+    {
+        $this->FieldFormImageURL = $FieldFormImageURL;
 
         return $this;
     }
 
     /**
-     * @return Collection|FieldImage[]
+     * @return Collection|FieldImages[]
      */
     public function getFieldImages(): Collection
     {
         return $this->FieldImages;
     }
 
-    public function addFieldImage(FieldImage $fieldImage): self
+    public function addFieldImage(FieldImages $fieldImage): self
     {
         if (!$this->FieldImages->contains($fieldImage)) {
             $this->FieldImages[] = $fieldImage;
@@ -132,7 +162,7 @@ class Fields
         return $this;
     }
 
-    public function removeFieldImage(FieldImage $fieldImage): self
+    public function removeFieldImage(FieldImages $fieldImage): self
     {
         if ($this->FieldImages->contains($fieldImage)) {
             $this->FieldImages->removeElement($fieldImage);
@@ -145,45 +175,26 @@ class Fields
         return $this;
     }
 
-    public function getFieldFormImage()
+    public function getContenue(): ?string
     {
-        return $this->FieldFormImage;
+        return $this->Contenue;
     }
 
-    public function setFieldFormImage($FieldFormImage): self
+    public function setContenue(string $Contenue): self
     {
-        $this->FieldFormImage = $FieldFormImage;
+        $this->Contenue = $Contenue;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Service[]
-     */
-    public function getServices(): Collection
+    public function getFieldDesc(): ?string
     {
-        return $this->services;
+        return $this->fieldDesc;
     }
 
-    public function addService(Service $service): self
+    public function setFieldDesc(string $fieldDesc): self
     {
-        if (!$this->services->contains($service)) {
-            $this->services[] = $service;
-            $service->setField($this);
-        }
-
-        return $this;
-    }
-
-    public function removeService(Service $service): self
-    {
-        if ($this->services->contains($service)) {
-            $this->services->removeElement($service);
-            // set the owning side to null (unless already changed)
-            if ($service->getField() === $this) {
-                $service->setField(null);
-            }
-        }
+        $this->fieldDesc = $fieldDesc;
 
         return $this;
     }

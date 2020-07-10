@@ -5,8 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\LuxuryCars;
- use App\Repository\LuxuryCarsRepository;
- use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Partners;
+use App\Repository\LuxuryCarsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class LuxuryCarsController extends AbstractController
 {

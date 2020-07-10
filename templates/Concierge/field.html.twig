@@ -38,6 +38,7 @@
         text-indent: 0.01px;
         text-overflow: ellipsis;
     }
+    
     #fieldimage{
   background: none;
   width:270px;
@@ -56,7 +57,35 @@
   border:solid #1e2e42; 
   border-radius: 10px; 
   margin:10px;
-  height:700px;
+  display:inline-block;
+}
+.contain{
+    width: 95%;
+    overflow: hidden;
+    margin: 20px auto;
+    padding: 20px;
+}
+.list{
+padding: 0px;
+margin: 0px;
+}
+.part{
+    list-style: none;
+    float: left;
+    width: 45%;
+    margin: 30px;
+    
+}
+@media screen and (max-width:900px){
+    .part{
+        min-width: 95%;
+        margin-left: 10px;
+    }
+    .img-center{
+      min-width: 85%;
+      min-height: 400px;
+      margin-left: 30%;
+    }
 }
     </style>
 {% endblock %}
@@ -69,25 +98,25 @@
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{field.FieldDesc}} </h3>
+   <h3 > {{field.fieldDesc}} </h3>
    <p>  {{field.Contenue}}  </p>
    </div>
  </div>
  {% for fieldImage in fieldImages%}
-             <img id="fieldimage"  src="data:image/jpg;base64,{{fieldImage.Image}}"/>
+             <img id="fieldimage" class="img-center" src="{{asset('../img/field/' ~ fieldImage.ImageURL)}}"/>
              
  {% endfor %} 
 <div class="separator">
 </div>
-<div class="form-wrapper" >
-<div style="width:50%; background-color:white; height:20px; float:left;">
-<div style="margin:10px;">
+
+<div class="form-wrapper contain">
+<ul class="list">
+<li class="part"><div style=" width:100%;   ">
  {{ form_start(form) }}
     
-    {{ form_row(form.Full_Name,{'attr':{'placeholder':"Name"}}) }}
-    {{ form_row(form.Telephone,{'attr':{'placeholder':"Telephone"}}) }}
-    {{ form_row(form.Email,{'attr':{'placeholder':"Email"}}) }}
-    
+    {{ form_row(form.Full_Name,{'attr':{'placeholder':"Your Full Name"}}) }}
+    {{ form_row(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
+    {{ form_row(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
     <label>Which services are you interested in?</label>
     <div class="selectWrapper">
     <select name="serviceSelected">
@@ -96,25 +125,25 @@
     {% endfor %}
     </select>
     </div>
-    {{ form_row(form.message,{'attr':{'placeholder':"Message",'rows':"10"}}) }}
+    {{ form_row(form.message,{'attr':{'placeholder':"Describe the service you desire with more details",'rows':"10"}}) }}
     
     {{ form_end(form) }}
-</div>
-</div>
-<div style="width:50%; background-color:white; height:20px; float:left; color:#616b6b;  padding:10px;">
+</div></li>
+<li class="part"><div  style="  height:100%; width:100%;  " >
 <p style="width: 80%; margin-left:50px; font-size:20px;">If you think you are looking for a specific item or would like further information,
 then feel free to contact us using the enquiry form and one of our executives will aim to 
-get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a><p>
+get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a>
 <br>
-<div ><img style="width: 80%; height:350px; margin-left:50px;" src="data:image/jpg;base64,{{field.FieldFormImage}}" alt=""></div>
-
-</div>
+<div ><img class=" img-fluid " style="width: 80%; height:350px; margin-left:50px;" src="{{asset('../img/field/' ~ field.FieldFormImageURL)}}" alt=""></div>
+</p>
+</div></li>
+</ul>
 </div>
 {% endblock %}
 {% block banner %}
 <div id="banner" >
 <div class="banner-bg">
-          <div class="banner-bg-item"><img style="width: 100%; height:600px;" src="data:image/jpg;base64,{{field.FieldPicture}}" alt=""></div>
+          <div class="banner-bg-item img-fluid"><img style="width: 100%; height:600px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}" alt=""></div>
 </div>
 </div>
  {% endblock %}

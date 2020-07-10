@@ -84,7 +84,7 @@
           <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
             <div class="overlay">
               
-             <img style="width:330px;height: 273px;border-radius: 10px;" src="data:image/jpg;base64,{{field.FieldPicture}}"/>
+             <img style="width:330px;height: 273px;border-radius: 10px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
                   <a href="{{path('fields',{id:field.id})}}" class="btn light">Read More</a>
@@ -231,7 +231,7 @@
           {% for Partner in Partners%}
           <!-- Start Partner -->
           <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img style="width:202px;height: 74px;border-radius: 10px;"  src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
+            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:202px;height: 74px;border-radius: 10px;"  src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
           </div>
           <!-- End Partner -->
           {% endfor %}
