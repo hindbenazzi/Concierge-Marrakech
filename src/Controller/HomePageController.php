@@ -34,4 +34,13 @@ class HomePageController extends AbstractController
         return $this->render('Concierge/index.html.twig',
         ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners]);
     }
+     /**
+     * @Route("/{id}", name="app_PartnerWeb")
+     */
+    public function redirectToPartner(EntityManagerInterface $em, Partners $partner)
+    {
+        $website='https://'.($partner->getWebsite());
+        return $this->redirect($website);
+    }
+
 }

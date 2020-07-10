@@ -231,7 +231,7 @@
           {% for Partner in Partners%}
           <!-- Start Partner -->
           <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="#"><img style="width:202px;height: 74px;border-radius: 10px;"  src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
+            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:202px;height: 74px;border-radius: 10px;"  src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
           </div>
           <!-- End Partner -->
           {% endfor %}
