@@ -23,9 +23,7 @@ class HomePageController extends AbstractController
         
         $repo=$em->getRepository(Fields::class);
         $fields=$repo->findAll();
-        foreach($fields as $key => $value){
-            $value->setFieldPicture(base64_encode(stream_get_contents($value->getFieldPicture())));
-        }
+        
         $repo1=$em->getRepository(Testimonials::class);
         $testimonials=$repo1->findAll();
         $repo2=$em->getRepository(Partners::class);

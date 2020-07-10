@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\FieldImageRepository;
+use App\Repository\FieldImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FieldImageRepository::class)
+ * @ORM\Entity(repositoryClass=FieldImagesRepository::class)
  */
-class FieldImage
+class FieldImages
 {
     /**
      * @ORM\Id()
@@ -18,13 +18,12 @@ class FieldImage
     private $id;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
-    private $Image;
+    private $ImageURL;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="FieldImages")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $fields;
 
@@ -33,14 +32,14 @@ class FieldImage
         return $this->id;
     }
 
-    public function getImage()
+    public function getImageURL(): ?string
     {
-        return $this->Image;
+        return $this->ImageURL;
     }
 
-    public function setImage($Image): self
+    public function setImageURL(string $ImageURL): self
     {
-        $this->Image = $Image;
+        $this->ImageURL = $ImageURL;
 
         return $this;
     }

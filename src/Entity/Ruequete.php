@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RequeteRepository;
+use App\Repository\RuequeteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=RequeteRepository::class)
+ * @ORM\Entity(repositoryClass=RuequeteRepository::class)
  */
-class Requete
+class Ruequete
 {
     /**
      * @ORM\Id()
@@ -30,17 +30,12 @@ class Requete
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Email;
+    private $email;
 
     /**
      * @ORM\Column(type="text")
      */
     private $Message;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Service::class, inversedBy="requete")
-     */
-    private $service;
 
     public function getId(): ?int
     {
@@ -73,12 +68,12 @@ class Requete
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
@@ -91,18 +86,6 @@ class Requete
     public function setMessage(string $Message): self
     {
         $this->Message = $Message;
-
-        return $this;
-    }
-
-    public function getService(): ?Service
-    {
-        return $this->service;
-    }
-
-    public function setService(?Service $service): self
-    {
-        $this->service = $service;
 
         return $this;
     }

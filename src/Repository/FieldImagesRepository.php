@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\FieldImage;
+use App\Entity\FieldImages;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method FieldImage|null find($id, $lockMode = null, $lockVersion = null)
- * @method FieldImage|null findOneBy(array $criteria, array $orderBy = null)
- * @method FieldImage[]    findAll()
- * @method FieldImage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FieldImages|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FieldImages|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FieldImages[]    findAll()
+ * @method FieldImages[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FieldImageRepository extends ServiceEntityRepository
+class FieldImagesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, FieldImage::class);
+        parent::__construct($registry, FieldImages::class);
     }
 
     // /**
-    //  * @return FieldImage[] Returns an array of FieldImage objects
+    //  * @return FieldImages[] Returns an array of FieldImages objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class FieldImageRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?FieldImage
+    public function findOneBySomeField($value): ?FieldImages
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')
