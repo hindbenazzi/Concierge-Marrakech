@@ -6,6 +6,10 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.10",
+<<<<<<< HEAD
+=======
+        "ocramius/proxy-manager": "^2.2",
+>>>>>>> 5492326e4a6e685dbbd476711139c4e170e346f3
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "5.1.*",
         "symfony/console": "5.1.*",

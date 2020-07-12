@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Concierge-Luxury Cars{% endblock %}
+{% block title %}Concierge-Private Palace{% endblock %}
 {% block stylesheets %}
 
   <!-- GOOGLE FONTS-->
@@ -69,38 +69,49 @@
   width: 200px;
   background-color: #162232;
   color: white;
-  margin: 10px;
- 
+margin: 10px;
+}
+#description{
+  float: left;
 }
 
 
 
-
+   
     </style>
     {%endblock%}
 {% block body  %}
 
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
-<center style="font-size: 23px" ><b> Our Luxury Cars<b></center><br>
+<center style="font-size: 23px" ><b> Our Private Palace<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
-  {% for image in images %}  
+  {% for photo in photos %}  
   <div class="col-md-3">
   <div class="card">
-  <img id="img" class="card-img-top"  src="{{asset('../img/cars/' ~ image.ImgUrl)}}"/> 
+  <img id="img" class="card-img-top"  src="{{asset('../img/palace/' ~ photo.ImgUrl)}}"/> 
   <div class="card-body">
-   <center> <b class="card-title">{{image.Title}}</b><center>
-    <center><b class="card-title"> Price:{{image.Price}} €/jour</b><center>
-    <div class="card-text">
-    <p id="description"><b> Characteristics:</b>{{image.CarsDesc}}</p> </div>
+   <center> <b class="card-title">{{photo.Title}}</b><center>
+    <center><b class="card-title"> Price:{{photo.Price}}</b><center>
+    <div id="description" class="card-text">
+    <b> Characteristics:</b>
+    <p ><b> Area:</b>{{photo.Area}}</p> 
+    <p ><b> Number of pieces:</b>{{photo.NumberOfPieces}}</p> 
+    <p ><b> Other Characteristics:</b>{{photo.OtherCharacteristics}}</p>
+    <p ><b> Address:</b>{{photo.Address}}</p>
+    
+    </div>
     <button class="form-control" id="reserv-btn">Reserve</button>
   </div>
-</div>                  
+</div>
+
+                    
   </div>
+  
   {%endfor%}
   </div>
-  <center><button class="form-control" id="reserv-btn">Reserve other cars</button></center>
+ <center> <button class="form-control" id="reserv-btn">Reserve other palace</button><center>
   </div>
   <div style="margin:20px;"></div>
 {%endblock%}
