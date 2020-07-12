@@ -57,7 +57,6 @@
   border:solid #1e2e42; 
   border-radius: 10px; 
   margin:10px;
-<<<<<<< HEAD
   display:inline-block;
 }
 .contain{
@@ -87,10 +86,6 @@ margin: 0px;
       min-height: 400px;
       margin-left: 30%;
     }
-=======
-  height:700px;
-  display:block;
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
 }
     </style>
 {% endblock %}
@@ -108,11 +103,7 @@ margin: 0px;
    </div>
  </div>
  {% for fieldImage in fieldImages%}
-<<<<<<< HEAD
              <img id="fieldimage" class="img-center" src="{{asset('../img/field/' ~ fieldImage.ImageURL)}}"/>
-=======
-             <img id="fieldimage"  src="{{asset('../img/field/' ~ fieldImage.ImageURL)}}"/>
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
              
  {% endfor %} 
 <div class="separator">
@@ -137,38 +128,22 @@ margin: 0px;
     {{ form_row(form.message,{'attr':{'placeholder':"Describe the service you desire with more details",'rows':"10"}}) }}
     
     {{ form_end(form) }}
-<<<<<<< HEAD
 </div></li>
 <li class="part"><div  style="  height:100%; width:100%;  " >
-=======
-</div>
-</div>
-<div class="col-lg-8 col-xs-12 col-centered" style="width:50%; background-color:white; height:20px;  color:#616b6b;  padding:10px;">
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
 <p style="width: 80%; margin-left:50px; font-size:20px;">If you think you are looking for a specific item or would like further information,
 then feel free to contact us using the enquiry form and one of our executives will aim to 
 get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a>
 <br>
-<<<<<<< HEAD
 <div ><img class=" img-fluid " style="width: 80%; height:350px; margin-left:50px;" src="{{asset('../img/field/' ~ field.FieldFormImageURL)}}" alt=""></div>
 </p>
 </div></li>
 </ul>
-=======
-<div ><img class="img-circle " style="width: 80%; height:350px; margin-left:50px;" src="{{asset('../img/field/' ~ field.FieldFormImageURL)}}" alt=""></div>
-
-</div>
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
 </div>
 {% endblock %}
 {% block banner %}
 <div id="banner" >
 <div class="banner-bg">
-<<<<<<< HEAD
           <div class="banner-bg-item img-fluid"><img style="width: 100%; height:600px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}" alt=""></div>
-=======
-          <div class="banner-bg-item"><img style="width: 100%; height:600px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}" alt=""></div>
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
 </div>
 </div>
  {% endblock %}

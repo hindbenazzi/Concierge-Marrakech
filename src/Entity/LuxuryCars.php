@@ -37,6 +37,11 @@ class LuxuryCars
      */
     private $Price;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ImgUrl;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class LuxuryCars
     public function setPrice(float $Price): self
     {
         $this->Price = $Price;
+
+        return $this;
+    }
+
+    public function getImgUrl(): ?string
+    {
+        return $this->ImgUrl;
+    }
+
+    public function setImgUrl(string $ImgUrl): self
+    {
+        $this->ImgUrl = $ImgUrl;
 
         return $this;
     }
