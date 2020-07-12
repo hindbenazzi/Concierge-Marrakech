@@ -32,6 +32,11 @@ class Partners
      */
     private $Website;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ImageUrl;
+
     
 
     public function getId(): ?int
@@ -71,6 +76,18 @@ class Partners
     public function setWebsite(string $Website): self
     {
         $this->Website = $Website;
+
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->ImageUrl;
+    }
+
+    public function setImageUrl(string $ImageUrl): self
+    {
+        $this->ImageUrl = $ImageUrl;
 
         return $this;
     }

@@ -35,11 +35,7 @@ class HomePageController extends AbstractController
         ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners]);
     }
      /**
-<<<<<<< HEAD
      * @Route("/partner/{id}", name="app_PartnerWeb")
-=======
-     * @Route("/{id}", name="app_PartnerWeb")
->>>>>>> 3a804e49082aac6bb44edf49771a111071be7f34
      */
     public function redirectToPartner(EntityManagerInterface $em, Partners $partner)
     {

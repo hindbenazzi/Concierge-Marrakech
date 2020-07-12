@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Service;
 use App\Repository\ServiceRepository;
@@ -36,6 +37,12 @@ class FieldsController extends AbstractController
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
                      ->add('Email', TextType::class)
+                     ->add('StartingON', DateTimeType::class, [
+                      'time_label' => 'From'
+                  ])
+                  ->add('FinishingON', DateTimeType::class, [
+                      'time_label' => 'To'
+                  ])
                      ->add('message', TextareaType::class)
                      ->add('Send_Request', SubmitType::class)
                      ->getForm();

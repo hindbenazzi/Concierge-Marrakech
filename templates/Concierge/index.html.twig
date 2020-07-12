@@ -21,24 +21,6 @@
               <div class="container">
                   <div id="hero-tabs" class="banner-search-inner">
                     
-                    
-                    
-
-                      <!-- Private palaces -->
-                    
-                      <!-- End Palace -->
-
-                      <!-- VIP Trips -->
-                      
-                      <!-- End Privjet -->
-
-                      <!-- Start Luxcars -->
-                      
-                      <!-- End Luxcars -->
-
-                      <!-- Start Car-trans -->
-                     
-                      <!-- End Car-trans -->
 
                     
                 </div>
@@ -62,37 +44,37 @@
         <div class="row">
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h3>About Concierge<span lang="fr"> Marrakech</span></h3
+            <h1 style="font-family:'Brush Script MT';">About Concierge<span lang="fr"> Marrakech</span></h3
             <img src="img/divisor.png" alt="" class="divisor">
-            <p>Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</p>
-            <p> We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
+            <p style="font-family:'Brush Script MT';  font-size:26px;">Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</p>
+            <p style="font-family:'Brush Script MT';  font-size:26px;"> We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
             of guided and independent exploration.</p>
             
-            <p> It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
+            <p style="font-family:'Brush Script MT'; font-size:26px;"> It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
              and the only thing you have to share is creating memories.
              </p>
-            <p> <h3>Our promises: </h3>
+            <p> <h2 style="font-family:'Brush Script MT';">Our promises: </h3>
              </p>
-             <p><h5>0% client comission  <BR>
+             <p ><h5 style="font-family:'Brush Script MT';  font-size:26px;">0% client comission  <BR>
              You pay the same price if go directly to services providers</h5>
              </p>
-            <p> <h5> We trust our clients No prepayment is needed payment on arrival </h5></p>
-             <p><h5>We get you the bests deals for the best products </h5></p>
+            <p> <h5 style="font-family:'Brush Script MT';  font-size:26px;"> We trust our clients No prepayment is needed payment on arrival </h5></p>
+             <p><h5 style="font-family:'Brush Script MT';  font-size:26px;">We get you the bests deals for the best products </h5></p>
           </div>
           <!-- End Preamble -->
              {% for field in fields%}
           <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
             <div class="overlay">
               
-             <img style="width:330px;height: 273px;border-radius: 10px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}"/>
+             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
                   <a href="{{path('fields',{id:field.id})}}" class="btn light">Read More</a>
                 </div>
               </div>
             </div>
-            <h5>{{ field.FieldName}}</h5>
-         <p>{{ field.FieldDesc}}</p>
+            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ field.FieldName}}</h5>
+         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ field.FieldDesc}}</p>
         
           </div>
           {% endfor %}
@@ -231,7 +213,7 @@
           {% for Partner in Partners%}
           <!-- Start Partner -->
           <div class="col-lg-3 col-md-3 col-sm-3 company">
-            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:202px;height: 74px;border-radius: 10px;"  src="data:image/jpg;base64,{{Partner.PartnerImage}}" alt=""></a>
+            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:202px;height: 74px;border-radius: 10px;"  src="{{asset('../img/partners/' ~ Partner.ImageURL)}}" alt=""></a>
           </div>
           <!-- End Partner -->
           {% endfor %}

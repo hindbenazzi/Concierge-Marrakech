@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RequeteRepository;
+use App\Repository\RequetePersonalisableRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=RequeteRepository::class)
+ * @ORM\Entity(repositoryClass=RequetePersonalisableRepository::class)
  */
-class Requete
+class RequetePersonalisable
 {
     /**
      * @ORM\Id()
@@ -33,14 +33,9 @@ class Requete
     private $Email;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\ManyToOne(targetEntity=PrivateResidence::class, inversedBy="requetePersonalisables")
      */
-    private $Message;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Service::class, inversedBy="requete")
-     */
-    private $service;
+    private $ResidenceId;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -51,6 +46,11 @@ class Requete
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $FinishingON;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $Message;
 
     public function getId(): ?int
     {
@@ -93,26 +93,14 @@ class Requete
         return $this;
     }
 
-    public function getMessage(): ?string
+    public function getResidenceId(): ?PrivateResidence
     {
-        return $this->Message;
+        return $this->ResidenceId;
     }
 
-    public function setMessage(string $Message): self
+    public function setResidenceId(?PrivateResidence $ResidenceId): self
     {
-        $this->Message = $Message;
-
-        return $this;
-    }
-
-    public function getService(): ?Service
-    {
-        return $this->service;
-    }
-
-    public function setService(?Service $service): self
-    {
-        $this->service = $service;
+        $this->ResidenceId = $ResidenceId;
 
         return $this;
     }
@@ -137,6 +125,18 @@ class Requete
     public function setFinishingON(?\DateTimeInterface $FinishingON): self
     {
         $this->FinishingON = $FinishingON;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->Message;
+    }
+
+    public function setMessage(?string $Message): self
+    {
+        $this->Message = $Message;
 
         return $this;
     }

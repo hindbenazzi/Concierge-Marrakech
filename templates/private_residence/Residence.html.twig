@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
-{% block title %}Concierge-{{field.FieldName}}{% endblock %}
+{% block title %}Concierge-{{Residence.Name}}{% endblock %}
 {% block stylesheets %}
            <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -98,56 +98,42 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{field.fieldDesc}} </h3>
-   <p>  {{field.Contenue}}  </p>
+   <h3 > {{Residence.Name}} </h3>
+   <h3 > {{Residence.Adress}} </h3>
+   <h5 > size: {{Residence.size}} m²  </h5>
+   <p>  {{Residence.Description}}  </p>
+   <p>  {{Residence.Facilities}}  </p>
    </div>
  </div>
- {% for fieldImage in fieldImages%}
-             <img id="fieldimage" class="img-center" src="{{asset('../img/field/' ~ fieldImage.ImageURL)}}"/>
+ {% for ResidenceImage in ResidencesImages %}
+             <img id="fieldimage" class="img-center" src="{{asset('../img/Residence/' ~ ResidenceImage.ImageURL)}}"/>
              
  {% endfor %} 
 <div class="separator">
 </div>
 
 <div class="form-wrapper contain">
-<ul class="list">
-<li class="part"><div style=" width:100%;   ">
+<div style=" width:100%;   ">
  {{ form_start(form) }}
     
     {{ form_row(form.Full_Name,{'attr':{'placeholder':"Your Full Name"}}) }}
     {{ form_row(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
     {{ form_row(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
-    <label>Which services are you interested in?</label>
-    <div class="selectWrapper">
-    <select name="serviceSelected">
-    {% for service in services %}
-        <option>{{service.Title}}</option>
-    {% endfor %}
-    </select>
-    </div>
     {{ form_label(form.StartingON, 'From') }}
     {{ form_widget(form.StartingON) }}
     {{ form_label(form.StartingON, 'To') }}
     {{ form_widget(form.FinishingON) }}
     {{ form_row(form.message,{'attr':{'placeholder':"Describe the service you desire with more details",'rows':"10"}}) }}
-    
     {{ form_end(form) }}
-</div></li>
-<li class="part"><div  style="  height:100%; width:100%;  " >
-<p style="width: 80%; margin-left:50px; font-size:20px;">If you think you are looking for a specific item or would like further information,
-then feel free to contact us using the enquiry form and one of our executives will aim to 
-get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a>
-<br>
-<div ><img class=" img-fluid " style="width: 80%; height:350px; margin-left:50px;" src="{{asset('../img/field/' ~ field.FieldFormImageURL)}}" alt=""></div>
-</p>
-</div></li>
-</ul>
 </div>
-{% endblock %}
-{% block banner %}
+
+</div>
+
+ {% endblock %}
+ {% block banner %}
 <div id="banner" >
 <div class="banner-bg">
-          <div class="banner-bg-item img-fluid"><img style="width: 100%; height:600px;" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}" alt=""></div>
+          <div class="banner-bg-item img-fluid"><img style="width: 100%; height:600px;" src="{{asset('../img/Residence/' ~ Residence.MainImageUrl)}}" alt=""></div>
 </div>
 </div>
  {% endblock %}
@@ -162,4 +148,4 @@ get back to you immediately. Alternatively, you can email <a href="mailto:kechtr
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/jquery.placeholder.js"></script>
 <script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
-        {% endblock %}
+{% endblock %}
