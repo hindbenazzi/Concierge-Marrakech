@@ -13,38 +13,15 @@
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
     <style>
-    .selectWrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #bbb;
-    border-radius: 2px;
-    background:#FFFFFF url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2211%22%20viewBox%3D%220%200%2011%2011%22%3E%3Cpath%20d%3D%22M4.33%208.5L0%201L8.66%201z%22%20fill%3D%22%2300AEA9%22%2F%3E%3C%2Fsvg%3E') right 13px center no-repeat;
-}
-
-.selectWrapper select {
-        padding: 12px 40px 12px 20px;
-        font-size: 18px;
-        line-height: 18px;
-        width: 100%;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-        background-image: none;
-        -webkit-appearance: none;
-        outline: none;
-        cursor: pointer;
-        -moz-appearance: none;
-        text-indent: 0.01px;
-        text-overflow: ellipsis;
-    }
-    
-    #fieldimage{
+   
+    .img-res{
   background: none;
-  width:270px;
+  width:300px;
   height: 270px;
-  margin: 30px;
+  margin: 20px;
   border-radius: 10px;
+  min-width: 270px;
+  min-height: 270px;
 
 }
 .separator{
@@ -76,15 +53,26 @@ margin: 0px;
     margin: 30px;
     
 }
+.img-res{
+    transition:1s;
+}
+.img-res:hover{
+    
+    width:40%;
+    height:80%;
+    margin:3px;
+    
+    
+}
 @media screen and (max-width:900px){
     .part{
         min-width: 95%;
         margin-left: 10px;
     }
-    .img-center{
+    .img-res{
       min-width: 85%;
       min-height: 400px;
-      margin-left: 30%;
+      
     }
 }
     </style>
@@ -101,15 +89,22 @@ margin: 0px;
    <h3 > {{Residence.Name}} </h3>
    <h3 > {{Residence.Adress}} </h3>
    <h5 > size: {{Residence.size}} m²  </h5>
-   <p>  {{Residence.Description}}  </p>
-   <p>  {{Residence.Facilities}}  </p>
+   <p style="font-family:'Brush Script MT';  font-size:30px; ">  {{Residence.Description}}  </p>
+   
+   
    </div>
+   <p style="margin-left:350px; font-family:'Brush Script MT';  font-size:30px;"> &#10003;  {{Residence.Facilities|replace({',': "\n &#10003; "})|raw|nl2br}}  </p>
  </div>
+ <center><div class="container">
  {% for ResidenceImage in ResidencesImages %}
-             <img id="fieldimage" class="img-center" src="{{asset('../img/Residence/' ~ ResidenceImage.ImageURL)}}"/>
+             <img  class="img-res" src="{{asset('../img/Residence/' ~ ResidenceImage.ImageURL)}}"/>
              
  {% endfor %} 
-<div class="separator">
+ </div></center>
+<div class="separator" >
+<center>
+<h1 style="font-family:'Brush Script MT';  font-size:80px; color:white;">Reserve</h1>
+</center>
 </div>
 
 <div class="form-wrapper contain">

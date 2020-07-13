@@ -33,7 +33,7 @@
 
           <!-- Start Header-Logo -->
           <div class="header-logo">
-            <a href="index.html">
+            <a href="{{path('app_home')}}">
             {% block headerlogo%}
               <img src="img/logo.png" alt="logo">
               {% endblock %}
@@ -98,7 +98,7 @@
                   <nav role="navigation">
                     <ul class="nav navbar-nav">
               
-                        <li class="has-submenu"><a href="{{path('app_home')}}" class="active">Home </a>
+                        <li class="has-submenu"><a href="{{path('app_home')}}" >Home </a>
                       </li>
                       <li class="has-submenu">
                         <a href="{{path('private_residence')}}">Private residences</a>

@@ -29,11 +29,7 @@ class PrivateResidence
      */
     private $Adress;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $size;
-
+    
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -63,6 +59,13 @@ class PrivateResidence
      * @ORM\OneToMany(targetEntity=RequetePersonalisable::class, mappedBy="ResidenceId")
      */
     private $requetePersonalisables;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $size;
+
+    
 
     public function __construct()
     {
@@ -99,17 +102,7 @@ class PrivateResidence
         return $this;
     }
 
-    public function getSize(): ?int
-    {
-        return $this->size;
-    }
-
-    public function setSize(?int $size): self
-    {
-        $this->size = $size;
-
-        return $this;
-    }
+    
 
     public function getDescription(): ?string
     {
@@ -220,4 +213,18 @@ class PrivateResidence
 
         return $this;
     }
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(?string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    
 }

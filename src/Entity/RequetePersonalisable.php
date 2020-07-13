@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RequetePersonalisableRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RequetePersonalisableRepository::class)
@@ -19,16 +20,25 @@ class RequetePersonalisable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $FullName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 10,
+     *      allowEmptyString = false
+     * )
      */
     private $Telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $Email;
 
