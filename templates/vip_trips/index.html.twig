@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block title %}Concierge-Private Residence{% endblock %}
+{% block title %}Concierge-VIP Trips{% endblock %}
 {% block stylesheets %}
 
-<!-- GOOGLE FONTS-->
+  <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
 <!-- STYLESHEETS-->
@@ -15,7 +15,7 @@
 
 
   <style>
-   #body{
+  #body{
       
   }
     #carsImg{
@@ -37,7 +37,7 @@
   border-radius: 4px;
   width: 100%;
   box-shadow: 7px 7px 7px 2px rgba(181, 178, 178, 0.75);
-  min-height:525px;
+  
 }
 
 .card-text{  
@@ -73,9 +73,8 @@
   margin: 10px;
  
 }
-#description{
-  float: left;
-}
+
+
 
 
     </style>
@@ -84,35 +83,30 @@
 
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
-<center style="font-size: 23px" ><b> Our Private Residences<b></center><br>
+<center style="font-size: 23px" ><b> Our Trips<b></center><br>
 </div>
-<div style="margin-top: 3%" class="row">        
-  {% for Residence in Residences %}  
+        <div style="margin-top: 3%" class="row">        
+  {% for Trip in Trips %}  
   <div class="col-md-3">
-  <div class="card" >
-  <img id="img" class="card-img-top"  src="{{asset('../img/Residence/' ~ Residence.MainImageUrl)}}"/> 
+  <div class="card">
+  <img id="img" class="card-img-top"  src="{{asset('../img/Trips/' ~ Trip.TripImageURL)}}"/> 
   <div class="card-body">
-   <center> <b class="card-title">{{Residence.Name}}</b><center>
-    <center><b class="card-title"> {{Residence.Adress}} </b><center>
-    <center><b class="card-title"> size: {{Residence.size}}   </b><center>
-    <center><b class="card-title"> Price:{{Residence.Price}} MAD/Day</b><center>
-    <div id="description" class="card-text">
-    <p ><b> Characteristics:</b>{{Residence.Description}}</p> 
-    
-    </div>
-    <a href="{{path('private_residence_details',{Resname:Residence.Name})}}"> 
-    <button class="form-control" id="reserv-btn">Show Details</button></a>
+   <center> <b class="card-title">{{Trip.TripName}}</b><center>
+    <center><b class="card-title"> Price:{{Trip.Price}} </b><center>
+    <div class="card-text">
+    <p id="description"><b> Characteristics:</b>{{Trip.PackPlanning}}</p> </div>
+    <a href="{{path('Trips_details',{TripName:Trip.TripName})}}"><button class="form-control" id="reserv-btn">Reserve</button></a>
   </div>
-</div>                
+</div>                  
+  </div>
+  {%endfor%}
   </div>
   
-  {% endfor %}
-  </div>
   </div>
   <div style="margin:20px;"></div>
-{% endblock %}
+{%endblock%}
  {% block javascripts %}
-     <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.vide.min.js"></script>
@@ -121,5 +115,5 @@
     <script src="../js/jquery.ba-outside-events.min.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/jquery.placeholder.js"></script>
-    <script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
-{% endblock %}
+<script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
+        {% endblock %}

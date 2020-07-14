@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LuxuryCarsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class LuxuryCars
      * @ORM\Column(type="string", length=255)
      */
     private $ImgUrl;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RequetePersonalisable::class, mappedBy="CarId")
+     */
+    private $requetePersonalisables;
+
+    public function __construct()
+    {
+        $this->requetePersonalisables = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,37 @@ class LuxuryCars
     public function setImgUrl(string $ImgUrl): self
     {
         $this->ImgUrl = $ImgUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RequetePersonalisable[]
+     */
+    public function getRequetePersonalisables(): Collection
+    {
+        return $this->requetePersonalisables;
+    }
+
+    public function addRequetePersonalisable(RequetePersonalisable $requetePersonalisable): self
+    {
+        if (!$this->requetePersonalisables->contains($requetePersonalisable)) {
+            $this->requetePersonalisables[] = $requetePersonalisable;
+            $requetePersonalisable->setCarId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRequetePersonalisable(RequetePersonalisable $requetePersonalisable): self
+    {
+        if ($this->requetePersonalisables->contains($requetePersonalisable)) {
+            $this->requetePersonalisables->removeElement($requetePersonalisable);
+            // set the owning side to null (unless already changed)
+            if ($requetePersonalisable->getCarId() === $this) {
+                $requetePersonalisable->setCarId(null);
+            }
+        }
 
         return $this;
     }

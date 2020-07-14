@@ -62,6 +62,21 @@ class RequetePersonalisable
      */
     private $Message;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=PrivatePalace::class, inversedBy="requetePersonalisables")
+     */
+    private $PalaceId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=LuxuryCars::class, inversedBy="requetePersonalisables")
+     */
+    private $CarId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=VIPTrips::class, inversedBy="requetePersonalisables")
+     */
+    private $TripId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -147,6 +162,42 @@ class RequetePersonalisable
     public function setMessage(?string $Message): self
     {
         $this->Message = $Message;
+
+        return $this;
+    }
+
+    public function getPalaceId(): ?PrivatePalace
+    {
+        return $this->PalaceId;
+    }
+
+    public function setPalaceId(?PrivatePalace $PalaceId): self
+    {
+        $this->PalaceId = $PalaceId;
+
+        return $this;
+    }
+
+    public function getCarId(): ?LuxuryCars
+    {
+        return $this->CarId;
+    }
+
+    public function setCarId(?LuxuryCars $CarId): self
+    {
+        $this->CarId = $CarId;
+
+        return $this;
+    }
+
+    public function getTripId(): ?VIPTrips
+    {
+        return $this->TripId;
+    }
+
+    public function setTripId(?VIPTrips $TripId): self
+    {
+        $this->TripId = $TripId;
 
         return $this;
     }

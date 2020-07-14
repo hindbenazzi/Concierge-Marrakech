@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PrivatePalaceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,16 @@ class PrivatePalace
      * @ORM\Column(type="string", length=255)
      */
     private $img_Url;
+
+    /**
+     * @ORM\OneToMany(targetEntity=RequetePersonalisable::class, mappedBy="PalaceId")
+     */
+    private $requetePersonalisables;
+
+    public function __construct()
+    {
+        $this->requetePersonalisables = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +166,37 @@ class PrivatePalace
     public function setImgUrl(string $img_Url): self
     {
         $this->img_Url = $img_Url;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RequetePersonalisable[]
+     */
+    public function getRequetePersonalisables(): Collection
+    {
+        return $this->requetePersonalisables;
+    }
+
+    public function addRequetePersonalisable(RequetePersonalisable $requetePersonalisable): self
+    {
+        if (!$this->requetePersonalisables->contains($requetePersonalisable)) {
+            $this->requetePersonalisables[] = $requetePersonalisable;
+            $requetePersonalisable->setPalaceId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRequetePersonalisable(RequetePersonalisable $requetePersonalisable): self
+    {
+        if ($this->requetePersonalisables->contains($requetePersonalisable)) {
+            $this->requetePersonalisables->removeElement($requetePersonalisable);
+            // set the owning side to null (unless already changed)
+            if ($requetePersonalisable->getPalaceId() === $this) {
+                $requetePersonalisable->setPalaceId(null);
+            }
+        }
 
         return $this;
     }
