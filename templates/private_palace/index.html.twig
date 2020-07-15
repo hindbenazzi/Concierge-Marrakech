@@ -102,13 +102,11 @@ margin: 10px;
     <p ><b> Address:</b>{{photo.Address}}</p>
     
     </div>
+    <a href="{{path('private_palace_details',{Resname:photo.Title})}}"> 
     <button class="form-control" id="reserv-btn">Reserve</button>
   </div>
-</div>
-
-                    
+</div>                  
   </div>
-  
   {%endfor%}
   </div>
  <center> <button class="form-control" id="reserv-btn">Reserve other palace</button><center>
