@@ -547,6 +547,7 @@
     overflow-x: scroll; 
   }
 
+  
   /* -------------------------------------------------------------------------
     FOOTER
   ------------------------------------------------------------------------- */
@@ -1003,4 +1004,16 @@
   #media-query-breakpoint,
   #media-query-breakpoint span:before { content: "320"; }
 
+}
+@media screen and (max-width:900px){
+  .img-center{
+    min-width: 95%;
+    min-height: 400px;
+    margin-left: 3%;
+  }
+  .feature{
+       min-width: 85%;
+    min-height: 400px;
+    margin-left: 30%;
+  }
 }

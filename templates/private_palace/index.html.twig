@@ -84,6 +84,11 @@ margin: 10px;
 
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
+      {% for message in app.flashes('info') %}
+<div class="alert alert-success">
+{{message}}
+</div>
+{% endfor %}
 <center style="font-size: 23px" ><b> Our Private Palace<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        

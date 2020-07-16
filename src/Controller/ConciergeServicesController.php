@@ -32,7 +32,7 @@ class ConciergeServicesController extends AbstractController
     /**
      * @Route("/concierge_services/{Servicename}", name="concierge_services_reservation")
      */
-    public function GoToReservation(EntityManagerInterface $em, $Servicename,Request $request)
+    public function GoToReservation(EntityManagerInterface $em, $Servicename,Request $request, \Swift_Mailer $mailer)
     {
       
         $repo=$em->getRepository(ConciergeService::class);
@@ -57,7 +57,23 @@ class ConciergeServicesController extends AbstractController
           $req->setService($Service);
           $em->persist($req);
           $em->flush();
-          return $this->RedirectToRoute("app_home");
+          $message = (new \Swift_Message('Hello Email'))
+          ->setFrom('hindouxa.hida@gmail.com')
+          ->setTo('hindb788@gmail.com')
+          ->setBody( $this->renderView(
+            'concierge_services/email.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
+            ,'SpecialRequirements' => $req->getSpecialRequirements(),'nbrperson'=>$req->getNumberPersons(),'Service'=>$req->getService()->getTitle(),
+            'Du'=>date_format($req->getStartDate(),"Y/m/d H:i:s"),'until'=>date_format($req->getEndDate(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+           $this->addFlash(
+               'info',
+               'Reserved Successfuly'
+           );
+          return $this->RedirectToRoute("concierge_services");
                      }
         return $this->render('concierge_services/Reservation.html.twig', [
             'Service' => $Service,'form' => $form->createView()

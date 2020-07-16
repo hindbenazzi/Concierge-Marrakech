@@ -1,6 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Concierge Home{% endblock %}
+{% block stylesheets %}
+           <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    
+    <!-- STYLESHEETS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/owl.carousel.css' rel="stylesheet">
+    <link href='../css/style.css' rel="stylesheet">
+    <link href='../css/responsive.css' rel="stylesheet">
+    
+  
+    <style>
+    @media screen and (max-width:900px){
+    .part{
+        min-width: 95%;
+        margin-left: 10px;
+    }
+    .img-center{
+      min-width: 95%;
+      min-height: 400px;
+      margin-left: 3%;
+    }
+    .feature{
+         min-width: 85%;
+      min-height: 400px;
+      margin-left: 5%;
+    }
+}
+    </style>
+{% endblock %}
 {% block banner%}
 <div id="banner">
         <div class="banner-bg">
@@ -83,7 +115,11 @@
       </div>
     </section>
     <!-- End About -->
-    
+      {% for message in app.flashes('info') %}
+          <div class="alert alert-success">
+            {{message}}
+          </div>
+        {% endfor %}
     <!-- Start Testimonials -->
     <section class="testimonials">
 

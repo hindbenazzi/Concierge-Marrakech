@@ -38,7 +38,7 @@ class LuxuryCarsController extends AbstractController
       /**
      * @Route("/luxury_cars/{Resname}", name="luxury_cars_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request)
+    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer)
     {
         
         $repo6=$em->getRepository(LuxuryCars::class);
@@ -62,10 +62,26 @@ class LuxuryCarsController extends AbstractController
                      ->getForm();
                      $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $req->setPalaceId( $cars);
+          $req->setCarId( $cars);
           $em->persist($req);
           $em->flush();
-          return $this->RedirectToRoute("app_home");
+          $message = (new \Swift_Message('Emaile de Reservation '))
+          ->setFrom('hindouxa.hida@gmail.com')
+          ->setTo('hindb788@gmail.com')
+          ->setBody( $this->renderView(
+            'luxury_cars/email.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
+            ,'message' => $req->getMessage(),'Car'=>$req->getCarId()->getTitle(),
+            'Du'=>date_format($req->getStartingON(),"Y/m/d H:i:s"),'until'=>date_format($req->getFinishingON(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+           $this->addFlash(
+               'info',
+               'Reserved Successfuly'
+           );
+          return $this->RedirectToRoute("app_luxuryCars");
                      }
         return $this->render('luxury_cars/cars.html.twig', [
             'CarsImages' => $CarsImages,'Cars' => $cars,

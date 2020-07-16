@@ -83,6 +83,11 @@
 
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
+      {% for message in app.flashes('info') %}
+<div class="alert alert-success">
+{{message}}
+</div>
+{% endfor %}
 <center style="font-size: 23px" ><b> Our Luxury Cars<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
@@ -95,8 +100,8 @@
     <center><b class="card-title"> Price:{{image.Price}} €/jour</b><center>
     <div class="card-text">
     <p id="description"><b> Characteristics:</b>{{image.CarsDesc}}</p> </div>
-    <a href="{{path('luxury_cars_details',{Resname:image.Title})}}"></a> 
-    <button class="form-control" id="reserv-btn">Reserve</button>
+    <a href="{{path('luxury_cars_details',{Resname:image.Title})}}">
+    <button class="form-control" id="reserv-btn">Reserve</button></a> 
   </div>
 </div>                  
   </div>

@@ -34,7 +34,7 @@ class VipTripsController extends AbstractController
     /**
      * @Route("/vip_trips/{TripName}", name="Trips_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $TripName,Request $request)
+    public function ShowDetails(EntityManagerInterface $em, $TripName,Request $request,\Swift_Mailer $mailer)
     {
         
         $repo=$em->getRepository(VIPTrips::class);
@@ -61,7 +61,23 @@ class VipTripsController extends AbstractController
           $req->setTripId($Trip);
           $em->persist($req);
           $em->flush();
-          return $this->RedirectToRoute("app_home");
+          $message = (new \Swift_Message('Emaile de Reservation '))
+          ->setFrom('hindouxa.hida@gmail.com')
+          ->setTo('hindb788@gmail.com')
+          ->setBody( $this->renderView(
+            'vip_trips/email.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
+            ,'message' => $req->getMessage(),'Trip'=>$req->getTripId()->getTripName(),
+            'Du'=>date_format($req->getStartingON(),"Y/m/d H:i:s"),'until'=>date_format($req->getFinishingON(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+           $this->addFlash(
+               'info',
+               'Reserved Successfuly'
+           );
+          return $this->RedirectToRoute("app_vipTrips");
                      }
         return $this->render('vip_trips/Trip.html.twig', [
             'TripImages' => $TripImages,'Trip' => $Trip,

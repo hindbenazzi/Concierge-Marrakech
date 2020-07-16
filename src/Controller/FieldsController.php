@@ -26,7 +26,7 @@ class FieldsController extends AbstractController
     /**
      * @Route("/field/{id}", name="fields")
      */
-    public function ShowField(Fields $field,Request $request,EntityManagerInterface $em,$id)
+    public function ShowField(Fields $field,Request $request,EntityManagerInterface $em,$id,\Swift_Mailer $mailer)
     {
         $repo=$em->getRepository(FieldImages::class);
         $fieldImages=$repo->findBy(array('fields'=>$field->getId()));
@@ -56,6 +56,22 @@ class FieldsController extends AbstractController
           $req->setService($serviceselected);
           $em->persist($req);
           $em->flush();
+          $message = (new \Swift_Message('Emaile de Reservation '))
+          ->setFrom('hindouxa.hida@gmail.com')
+          ->setTo('hindb788@gmail.com')
+          ->setBody( $this->renderView(
+            'Concierge/email.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
+            ,'message' => $req->getMessage(),'Service'=>$req->getService()->getTitle(),
+            'Du'=>date_format($req->getStartingON(),"Y/m/d H:i:s"),'until'=>date_format($req->getFinishingON(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+           $this->addFlash(
+               'info',
+               'Reserved Successfuly'
+           );
           return $this->RedirectToRoute("app_home");
                      }
         return $this->render('Concierge/field.html.twig',['field'=>$field,

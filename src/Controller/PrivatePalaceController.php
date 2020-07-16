@@ -36,7 +36,7 @@ class PrivatePalaceController extends AbstractController
       /**
      * @Route("/private_palace/{Resname}", name="private_palace_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request)
+    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer)
     {
         
         $repo1=$em->getRepository(PrivatePalace::class);
@@ -63,7 +63,23 @@ class PrivatePalaceController extends AbstractController
           $req->setPalaceId( $palace);
           $em->persist($req);
           $em->flush();
-          return $this->RedirectToRoute("app_home");
+          $message = (new \Swift_Message('Hello Email'))
+          ->setFrom('hindouxa.hida@gmail.com')
+          ->setTo('hindb788@gmail.com')
+          ->setBody( $this->renderView(
+            'private_palace/email.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
+            ,'message' => $req->getMessage(),'Palace'=>$req->getPalaceId()->getTitle(),
+            'Du'=>date_format($req->getStartingON(),"Y/m/d H:i:s"),'until'=>date_format($req->getFinishingON(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+           $this->addFlash(
+               'info',
+               'Reserved Successfuly'
+           );
+          return $this->RedirectToRoute("app_privatepalace");
                      }
         return $this->render('private_palace/palace.html.twig', [
             'PalaceImages' => $PalaceImages,'Palace' => $palace,
