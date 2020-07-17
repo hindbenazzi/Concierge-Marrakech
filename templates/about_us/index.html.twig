@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+{% block title %}Concierge-About Us{% endblock %}
+{% block stylesheets %}
+
+  <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <link href="//db.onlinewebfonts.com/c/2bd3372d24f66349c0f3c5d10d0735c8?family=SnellRoundhand+Script" rel="stylesheet" type="text/css"/>
+<!-- STYLESHEETS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/owl.carousel.css' rel="stylesheet">
+    <link href='../css/style.css' rel="stylesheet">
+    <link href='../css/responsive.css' rel="stylesheet">
+    
+  
+    
+ {%endblock%}
+ {% block body %}
+ <section class="about">
+ <div class="container">
+  <div class="row">
+   <!-- Start Preamble -->
+  <div class="col-lg-12 preamble">
+    <h1 style="font-family: 'Brush Script MT'; margin-top:10%;">About <span lang="fr"> Us</span></h3>
+<p style="font-family:'Brush Script MT';  font-size:26px;"> Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.</p>
+<p style="font-family:'Brush Script MT';  font-size:26px;"> Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.</p>
+<br>
+<div class="container text-center border">
+<img src="img/chauff.jpg" alt="" width="300" height="300" >
+<h5 style="font-family:'Brush Script MT';  font-size:35px;"><b> Mr Monsif Senhaji</b></h5>
+<p style="font-family:'Brush Script MT';  font-size:26px;">Founder</p>
+<p style="font-family:'Brush Script MT';  font-size:26px;"><b>Experience:</b> Commercial Director in a travel agency. <br>
+President General Manager of car rental agency. <br>
+President Director general of tourist transport agency.<br>
+</p>
+</div>
+<div class="container"> 
+    
+    <div class="row">
+        <div class="col-xs-3">
+        <img src="img/palace/akkin.jpg" alt="palace" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Private Palace</b></center><br> With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city
+            <a href="{{path('app_privatepalace')}}"class="thumbnail" data-gallery="gallery1">Read More   </a>
+        </div>
+        <div class="row">
+        <div class="col-xs-3">
+        <img src="img/Residence/Residence1main.jpeg" alt="Residence" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Private Residence</b></center><br> With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city
+            <a href="{{path('private_residence')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        </div>
+    <div class="row">
+        <div class="col-xs-3">
+        <img src="img/Trips/Trip1main.jpeg" alt="Trips" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Vip Trips</b></center><br> With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city
+            <a href="{{path('app_vipTrips')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        </div>  
+        <div class="row">
+        <div class="col-xs-3">
+        <img src="img/cars/bentley.jpg" alt="Cars" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Luxury Cars</b></center><br> You will find at Concierge Marrakech luxury cars for purchase or rental
+            <a href="{{path('app_luxuryCars')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        </div>         
+        </div
+          
+
+    </div>
+    <div class="container"> 
+    
+    <div class="row">
+        <div class="col-xs-3">
+        <img src="img/conciergeServices/DayExcursion.jpg" alt="excursion" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Excursion</b></center><br> One Day Excursion ,A little one day trip to various locations
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        </div
+        <div class="row">
+        <div class="col-xs-3">
+        <img src="img/conciergeServices/RestauReservation.jpg" alt="restaurant" width="300" height="200"/>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Reservation</b></center><br> Make your Reservation for any restaurant or club
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        </div>
+ 
+         
+                 
+        </div
+          
+
+    </div>
+        
+
+</div>
+  </div>
+ </div>
+ </section>
+ <!-- Start Partners -->
+    <section class="partners">
+      <div class="container">
+        <div class="row">
+
+          <!-- Start Preamble -->
+          <div class="col-lg-12 preamble">
+            <h5>Our Partners</h5>
+          </div>
+          <!-- End Preamble -->
+           
+          {% for Partner in partners%}
+          <!-- Start Partner -->
+          <div class="col-lg-3 col-md-3 col-sm-3 company">
+            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:202px;height: 74px;border-radius: 10px;"  src="{{asset('../img/partners/' ~ Partner.ImageURL)}}" alt=""></a>
+          </div>
+          <!-- End Partner -->
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+    <!-- End Partners -->
+ {%endblock%}
+ {% block javascripts %}
+     <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.vide.min.js"></script>
+    <script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/jquery.ba-outside-events.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.placeholder.js"></script>
+    <script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
+{% endblock %}
