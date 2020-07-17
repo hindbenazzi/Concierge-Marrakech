@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html>
     <head>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
         <meta charset="UTF-8">
-        <title>{% block title %}Concierge-Marrakech{% endblock %}</title>
-        {% block stylesheets %}
+    <title>Concierge-Contact</title>
          <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
     
     <!-- STYLESHEETS-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href='css/owl.carousel.css' rel="stylesheet">
-    <link href='css/style.css' rel="stylesheet">
-    <link href='css/responsive.css' rel="stylesheet">
-        {% endblock %}
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/owl.carousel.css' rel="stylesheet">
+    <link href='../css/style.css' rel="stylesheet">
+    <link href='../css/responsive.css' rel="stylesheet">
+    <style>
+ /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map_canvas {
+        height: 100%;
+      }
+
+.top-bann{
+height:148px;
+
+}
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        
+      }
+  .form-div{
+      height:750px; 
+      left: 70%; 
+  }
+@media screen and (max-width:900px){
+    .form-div{
+      margin:10px;
+      
+      
+    }
+    .top-bann{
+      height:10px;
+    }
+   
+}
+    </style>
+       
     </head>
     <body>
     
@@ -25,8 +60,10 @@
       <label id="toggle" class="toggle"></label>
 
       <!-- Start Banner -->
-      {% block banner%}
-      {% endblock %}
+
+    <div class="top-bann"  >
+
+    </div>
 
         <!-- Start Header-Inner -->
         <div class="header-inner cleafix">
@@ -34,18 +71,18 @@
           <!-- Start Header-Logo -->
           <div class="header-logo">
             <a href="{{path('app_home')}}">
-            {% block headerlogo%}
+           
               <img src="img/logo.png" alt="logo">
-              {% endblock %}
+              
             </a>
           </div>
           <!-- End Header-Logo -->
 
           <!-- Start Header-Tool-Bar -->
           <div class="header-tool-bar">
-            <div class="container">
-              <div class="row">
-
+            <div class="container" style="width:95%;">
+              <div class="row" >
+               
                 <!-- Start Header-Left -->
                 <div class="col-lg-4 col-md-5 col-xs-12 header-left">
 
@@ -59,7 +96,7 @@
                       <i class="fa fa-envelope"></i>
                         <a href="mailto:kechtrans@gmail.com">
                           kechtrans@gmail.com  
-                        </a><br><police color:red> we trust our clients No prepayment is needed payment on arrival</police>
+                        </a><br><police > we trust our clients No prepayment is needed payment on arrival</police>
                     </li>
                   </ul>
                   <!-- End Header-Contact -->
@@ -132,14 +169,57 @@
 
         </div>
         <!-- End Header-Inner -->
- {% block continuebanner %}
-        {% endblock %}
+ 
+      
         
 
     </header>
         <main role="main">
-        {% block body %}
-        {% endblock %}
+        <div >
+        <div id="map_canvas" style="height:810px;"></div>
+        <div style="background-color: white; font-weight: 500; 
+        font-family: Roboto, sans-serif; padding: 15px 25px; box-sizing: border-box;
+         top: 30%; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 5px;
+          max-width: 775px; position: absolute; transform: translateX(-50%); 
+          width: 500px; z-index: 0;" class="form-div">
+          <div class="col-lg-12 preamble" style="margin:5px;">
+           {% for message in app.flashes('info') %}
+<div class="alert alert-success">
+{{message}}
+</div>
+{% endfor %}
+            <h5>Send Us a  Message</h5>
+          </div>
+           {{ form_start(form) }}
+    
+    {{ form_row(form.Name,{'attr':{'placeholder':"Your Full Name"}}) }}
+    {{ form_row(form.Phone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
+    {{ form_row(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
+    {{ form_row(form.Topic,{'attr':{'placeholder':"Topic of the message"}}) }}
+    {{ form_row(form.Message,{'attr':{'placeholder':"How can we help you ?",'rows':"7"}}) }}
+    {{ form_end(form) }}
+          
+          </div>
+        
+        </div>
+        
+        
+        
+        
+       <div  style="height:330px;">
+    <div class="col-lg-12 preamble" style="margin:20px;">
+            <h5>Our Partners</h5>
+          </div>
+          <!-- End Preamble -->
+           
+          {% for Partner in Partners%}
+          <!-- Start Partner -->
+          <div class="col-lg-3 col-md-3 col-sm-3 company">
+            <a href="{{path('app_PartnerWeb',{id:Partner.id})}}"><img style="width:250px;height:90px;border-radius: 10px; margin-left:10px;"  src="{{asset('../img/partners/' ~ Partner.ImageURL)}}" alt=""></a>
+          </div>
+          <!-- End Partner -->
+          {% endfor %}
+    </div>
         </main>
             <!-- Start Footer -->
     <footer id="footer">
@@ -147,9 +227,9 @@
 
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-          {% block logo %}
+          
             <img src="img/footer-logo.png" alt="">
-            {% endblock %}
+            
           </div>
           <!-- End Preamble -->
 
@@ -224,17 +304,38 @@
     <a href="#" class="btn" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
 
    
-        {% block javascripts %}
-        <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.vide.min.js"></script>
-    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery.ba-outside-events.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.placeholder.js"></script>
+
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfl46f3f7P2l5DaV0PFSPOQ8CvNFnM-Qw&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+      <script>
+      (function(exports) {
+        "use strict";
+
+        function initMap() {
+          exports.map = new google.maps.Map(document.getElementById("map_canvas"), {
+            center: {
+              lat: 31.632310,
+              lng: -8.009370
+            },
+            zoom: 15
+          });
+        }
+
+        exports.initMap = initMap;
+      })((this.window = this.window || {}));
+    </script>
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.vide.min.js"></script>
+    <script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/jquery.ba-outside-events.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.placeholder.js"></script>
 <script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
-        {% endblock %}
-    </body>
+       
+</body>
 </html>
