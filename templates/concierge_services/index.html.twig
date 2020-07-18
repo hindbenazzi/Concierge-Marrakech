@@ -53,7 +53,7 @@ margin: 0px;
         min-width: 95%;
         margin-left: 10px;
     }
-    .img-center{
+   .img-center{
       min-width: 95%;
       min-height: 400px;
       margin-left: 3%;
@@ -61,7 +61,7 @@ margin: 0px;
     .feature{
          min-width: 85%;
       min-height: 400px;
-      margin-left: 30%;
+      margin-left: 1%;
     }
 }
     </style>
@@ -84,10 +84,10 @@ margin: 0px;
    </div>
   
  {% for Service in Services%}
-          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center" style="margin:10px;">
+          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center" >
             <div class="overlay">
               
-             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/conciergeServices/' ~ Service.ImageURL)}}"/>
+             <img  style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/conciergeServices/' ~ Service.ImageURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
                   <a href="{{path('concierge_services_reservation',{Servicename:Service.title})}}" class="btn light">Go to Reservation</a>
