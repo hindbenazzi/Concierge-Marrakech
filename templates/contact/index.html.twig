@@ -14,10 +14,12 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <style>
  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map_canvas {
+      #map {
         height: 100%;
       }
 
@@ -39,7 +41,7 @@ height:148px;
   }
 @media screen and (max-width:900px){
     .form-div{
-      margin:10px;
+      margin-right:90%;
       
       
     }
@@ -47,8 +49,8 @@ height:148px;
       height:10px;
     }
     .img-center{
-      min-width: 85%;
-      min-height: 400px;
+      min-width: 65%;
+      min-height: 200px;
       margin-left: 30%;
     }
    
@@ -181,7 +183,7 @@ height:148px;
     </header>
         <main role="main">
         <div >
-        <div id="map_canvas" style="height:810px;"></div>
+        <div id="map" style=" z-index: 0; height:810px;"></div>
         <div style="background-color: white; font-weight: 500; 
         font-family: Roboto, sans-serif; padding: 15px 25px; box-sizing: border-box;
          top: 30%; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 5px;
@@ -211,7 +213,9 @@ height:148px;
         
         
         
-       <div  style="height:330px;">
+    <section class="partners">
+      <div class="container">
+        <div class="row">
     <div class="col-lg-12 preamble" style="margin:20px;">
             <h5>Our Partners</h5>
           </div>
@@ -225,7 +229,9 @@ height:148px;
           <!-- End Partner -->
           {% endfor %}
     </div>
-    
+      </div>
+    </section>
+    <!-- End Partners -->
         </main>
             <!-- Start Footer -->
     <footer id="footer">
@@ -316,21 +322,12 @@ height:148px;
       defer
     ></script>
       <script>
-      (function(exports) {
-        "use strict";
-
-        function initMap() {
-          exports.map = new google.maps.Map(document.getElementById("map_canvas"), {
-            center: {
-              lat: 31.632310,
-              lng: -8.009370
-            },
-            zoom: 15
-          });
-        }
-
-        exports.initMap = initMap;
-      })((this.window = this.window || {}));
+      var map=L.map('map').setView([31.6333043,-7.969038],14);
+      L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Oc2UmNCjHznowB3s7NBU',{
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+      }).addTo(map);
+      var Marker =L.marker([31.63385009765625,-7.987066745758057]).addTo(map);
+      Marker.bindPopup("<b> Concierge Marrakech</b><br><p>11,Zawiyat lhdar haret soura Marrakech</p><p><b>Phone:</b> +212 661216388</p><p><b>Email:</b>kechtrans@gmail.com</p>").openPopup();
     </script>
     <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="../js/bootstrap.min.js"></script>
