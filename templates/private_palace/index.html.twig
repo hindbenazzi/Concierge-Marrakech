@@ -89,7 +89,7 @@ margin: 10px;
 {{message}}
 </div>
 {% endfor %}
-<center style="font-size: 23px" ><b> Our Private Palace<b></center><br>
+<center style="font-size: 23px" ><b> {% trans %}Our Private Palace{% endtrans %}<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
   {% for photo in photos %}  
@@ -98,23 +98,23 @@ margin: 10px;
   <img id="img" class="card-img-top"  src="{{asset('../img/palace/' ~ photo.ImgUrl)}}"/> 
   <div class="card-body">
    <center> <b class="card-title">{{photo.Title}}</b><center>
-    <center><b class="card-title"> Price:{{photo.Price}}</b><center>
+    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{photo.Price}}</b><center>
     <div id="description" class="card-text">
-    <b> Characteristics:</b>
-    <p ><b> Area:</b>{{photo.Area}}</p> 
-    <p ><b> Number of pieces:</b>{{photo.NumberOfPieces}}</p> 
-    <p ><b> Other Characteristics:</b>{{photo.OtherCharacteristics}}</p>
-    <p ><b> Address:</b>{{photo.Address}}</p>
+    <b> {% trans %}Characteristics:{% endtrans %}</b>
+    <p ><b> {% trans %}Area:{% endtrans %}</b>{{photo.Area}}</p> 
+    <p ><b> {% trans %}Number of pieces:{% endtrans %}</b>{{photo.NumberOfPieces}}</p> 
+    <p ><b> {% trans %}Other Characteristics:{% endtrans %}</b>{{photo.OtherCharacteristics}}</p>
+    <p ><b> {% trans %}Address:{% endtrans %}</b>{{photo.Address}}</p>
     
     </div>
     <a href="{{path('private_palace_details',{Resname:photo.Title})}}"> 
-    <button class="form-control" id="reserv-btn">Reserve</button></a> 
+    <button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a> 
   </div>
 </div>                  
   </div>
   {%endfor%}
   </div>
- <center> <button class="form-control" id="reserv-btn">Reserve other palace</button><center>
+ <center> <button class="form-control" id="reserv-btn">{% trans %}Reserve other palace{% endtrans %}</button><center>
   </div>
   <div style="margin:20px;"></div>
 {%endblock%}

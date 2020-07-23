@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PrivateResidence;
+use App\Entity\PrivateResidenceFR;
 use App\Entity\RequetePersonalisable;
 use App\Entity\RequetePersonalisableRepository;
 use App\Repository\PrivateResidenceRepository;
@@ -17,15 +18,32 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 class PrivateResidenceController extends AbstractController
 {
     /**
      * @Route("/private_residence", name="private_residence")
      */
-    public function index(EntityManagerInterface $em)
+    public function privateResidence(EntityManagerInterface $em ,Request $request)
     {
         $repo=$em->getRepository(PrivateResidence::class);
         $Residence= $repo->findAll();
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo1=$em->getRepository(PrivateResidenceFR::class);
+        $ResidenceFR= $repo1->findAll();
+        foreach($Residence as $key=>$value){
+            $value->setName($ResidenceFR[$key]->getName());
+            $value->setDescription($ResidenceFR[$key]->getDescription());
+            $value->setFacilities($ResidenceFR[$key]->getFacilities());
+            $value->setAdress($ResidenceFR[$key]->getAdress());
+
+        }
+
+        }else{
+
+        }
         return $this->render('private_residence/index.html.twig', [
             'Residences' => $Residence,
         ]);
@@ -33,15 +51,28 @@ class PrivateResidenceController extends AbstractController
     /**
      * @Route("/private_residence/{Resname}", name="private_residence_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer)
+    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer,TranslatorInterface $translator)
     {
-        ;
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo2=$em->getRepository(PrivateResidenceFR::class);
+        $Residence= $repo2->findOneBy(array('Name'=>$Resname));
         $repo=$em->getRepository(PrivateResidence::class);
-        $Residence= $repo->findOneBy(array('Name'=>$Resname));
-        $ResId=$Residence->getId();
+        $ResidenceEN= $repo->findOneBy(array('id'=>$Residence->getId()));
+        $ResId=$ResidenceEN->getId();
+        $ResidenceEN->setName($Residence->getName());
+        $ResidenceEN->setDescription($Residence->getDescription());
+        $ResidenceEN->setFacilities($Residence->getFacilities());
+        $ResidenceEN->setAdress($Residence->getAdress());
+        }else{
+        $repo=$em->getRepository(PrivateResidence::class);
+        $ResidenceEN= $repo->findOneBy(array('Title'=>$Resname));
+        $ResId=$ResidenceEN->getId();
+        }
         $repo1=$em->getRepository(ResidenceImages::class);
         $ResidenceImages=$repo1->findBy(array('ResidenceId'=>$ResId));
         $req=new RequetePersonalisable();
+        $submiMessage=$translator->trans('Send_Request');
         $form = $this->createFormBuilder($req)
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
@@ -53,11 +84,11 @@ class PrivateResidenceController extends AbstractController
                       'time_label' => 'To'
                   ])
                      ->add('message', TextareaType::class)
-                     ->add('Send_Request', SubmitType::class)
+                     ->add($submiMessage, SubmitType::class)
                      ->getForm();
                      $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $req->setResidenceId($Residence);
+          $req->setResidenceId($ResidenceEN);
           $em->persist($req);
           $em->flush();
           $message = (new \Swift_Message('Emaile de Reservation '))
@@ -72,14 +103,15 @@ class PrivateResidenceController extends AbstractController
           )
       ;
       $mailer->send($message);
-           $this->addFlash(
-               'info',
-               'Reserved Successfuly'
-           );
+      $flashMessage=$translator->trans('Reserved Successfuly');
+      $this->addFlash(
+          'info',
+          $flashMessage
+      );
           return $this->RedirectToRoute("private_residence");
                      }
         return $this->render('private_residence/Residence.html.twig', [
-            'ResidencesImages' => $ResidenceImages,'Residence' => $Residence,
+            'ResidencesImages' => $ResidenceImages,'Residence' => $ResidenceEN,
             'form' => $form->createView()
         ]);
     }

@@ -27,6 +27,11 @@ class CarsImages
      */
     private $CarsId;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $t;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class CarsImages
     public function setCarsId(?LuxuryCars $CarsId): self
     {
         $this->CarsId = $CarsId;
+
+        return $this;
+    }
+
+    public function getT(): ?string
+    {
+        return $this->t;
+    }
+
+    public function setT(string $t): self
+    {
+        $this->t = $t;
 
         return $this;
     }

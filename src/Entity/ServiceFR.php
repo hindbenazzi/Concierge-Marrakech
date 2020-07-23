@@ -27,6 +27,11 @@ class ServiceFR
      */
     private $fieldsFR;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Fields::class, inversedBy="serviceFRs")
+     */
+    private $fields;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class ServiceFR
     public function setFieldsFR(?FieldsFR $fieldsFR): self
     {
         $this->fieldsFR = $fieldsFR;
+
+        return $this;
+    }
+
+    public function getFields(): ?Fields
+    {
+        return $this->fields;
+    }
+
+    public function setFields(?Fields $fields): self
+    {
+        $this->fields = $fields;
 
         return $this;
     }

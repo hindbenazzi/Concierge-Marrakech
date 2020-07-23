@@ -88,7 +88,7 @@
 {{message}}
 </div>
 {% endfor %}
-<center style="font-size: 23px" ><b> Our Trips<b></center><br>
+<center style="font-size: 23px" ><b> {% trans %}Our Trips{% endtrans %}<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
   {% for Trip in Trips %}  
@@ -97,10 +97,10 @@
   <img id="img" class="card-img-top"  src="{{asset('../img/Trips/' ~ Trip.TripImageURL)}}"/> 
   <div class="card-body">
    <center> <b class="card-title">{{Trip.TripName}}</b><center>
-    <center><b class="card-title"> Price:{{Trip.Price}} </b><center>
+    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{Trip.Price}} </b><center>
     <div class="card-text">
-    <p id="description"><b> Characteristics:</b>{{Trip.PackPlanning}}</p> </div>
-    <a href="{{path('Trips_details',{TripName:Trip.TripName})}}"><button class="form-control" id="reserv-btn">Reserve</button></a>
+    <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{Trip.PackPlanning}}</p> </div>
+    <a href="{{path('Trips_details',{TripName:Trip.TripName})}}"><button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a>
   </div>
 </div>                  
   </div>

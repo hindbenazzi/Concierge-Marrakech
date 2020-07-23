@@ -97,17 +97,17 @@
   <img id="img" class="card-img-top"  src="{{asset('../img/cars/' ~ image.ImgUrl)}}"/> 
   <div class="card-body">
    <center> <b class="card-title">{{image.Title}}</b><center>
-    <center><b class="card-title"> Price:{{image.Price}} MAD/Day</b><center>
+    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{image.Price}} MAD/Day</b><center>
     <div class="card-text">
-    <p id="description"><b> Characteristics:</b>{{image.CarsDesc}}</p> </div>
+    <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{image.CarsDesc}}</p> </div>
     <a href="{{path('luxury_cars_details',{Resname:image.Title})}}">
-    <button class="form-control" id="reserv-btn">Reserve</button></a> 
+    <button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a> 
   </div>
 </div>                  
   </div>
   {%endfor%}
   </div>
-  <center><button class="form-control" id="reserv-btn">Reserve other cars</button></center>
+  <center><button class="form-control" id="reserv-btn">{% trans %}Reserve other cars{% endtrans %}</button></center>
   </div>
   <div style="margin:20px;"></div>
 {%endblock%}

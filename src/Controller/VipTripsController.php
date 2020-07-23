@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\RequetePersonalisable;
 use App\Entity\RequetePersonalisableRepository;
 use App\Entity\TripImages;
+use App\Entity\VIPTripsFR;
 use App\Repository\TripImagesRepository;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -17,16 +18,31 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class VipTripsController extends AbstractController
 {
     /**
      * @Route("/vip_trips", name="app_vipTrips")
      */
-    public function index(EntityManagerInterface $em)
+    public function index(EntityManagerInterface $em,Request $request)
     {
         $repo3=$em->getRepository(VIPTrips::class);
         $Trips= $repo3->findAll();
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+            $repo1=$em->getRepository(VIPTripsFR::class);
+            $TripsFR= $repo1->findAll();
+            foreach($Trips as $key=>$value){
+                $value->setTripName($TripsFR[$key]->getTripName());
+                $value->setPackPlanning($TripsFR[$key]->getPackPlanning());
+                $value->setTripDescription($TripsFR[$key]->getTripDescription());
+    
+            }
+    
+            }else{
+    
+            }
         return $this->render('vip_trips/index.html.twig', [
             'Trips'=>$Trips
         ]);
@@ -34,15 +50,27 @@ class VipTripsController extends AbstractController
     /**
      * @Route("/vip_trips/{TripName}", name="Trips_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $TripName,Request $request,\Swift_Mailer $mailer)
+    public function ShowDetails(EntityManagerInterface $em, $TripName,Request $request,\Swift_Mailer $mailer,TranslatorInterface $translator)
     {
-        
-        $repo=$em->getRepository(VIPTrips::class);
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo=$em->getRepository(VIPTripsFR::class);
         $Trip= $repo->findOneBy(array('TripName'=>$TripName));
-        $TripId=$Trip->getId();
+        $repo2=$em->getRepository(VIPTrips::class);
+        $TripEN= $repo2->findOneBy(array('id'=>$Trip->getId()));
+        $TripId=$TripEN->getId();
+        $TripEN->setTripName($Trip->getTripName());
+        $TripEN->setPackPlanning($Trip->getPackPlanning());
+        $TripEN->setTripDescription($Trip->getTripDescription());
+        }else{
+        $repo=$em->getRepository(VIPTrips::class);
+        $TripEN= $repo->findOneBy(array('TripName'=>$TripName));
+        $TripId=$TripEN->getId();
+        }
         $repo1=$em->getRepository(TripImages::class);
         $TripImages=$repo1->findBy(array('TripId'=>$TripId));
         $req=new RequetePersonalisable();
+        $submiMessage=$translator->trans('Send_Request');
         $form = $this->createFormBuilder($req)
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
@@ -54,11 +82,11 @@ class VipTripsController extends AbstractController
                       'time_label' => 'To'
                   ])
                      ->add('message', TextareaType::class)
-                     ->add('Send_Request', SubmitType::class)
+                     ->add($submiMessage, SubmitType::class)
                      ->getForm();
                      $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $req->setTripId($Trip);
+          $req->setTripId($TripEN);
           $em->persist($req);
           $em->flush();
           $message = (new \Swift_Message('Emaile de Reservation '))
@@ -73,14 +101,15 @@ class VipTripsController extends AbstractController
           )
       ;
       $mailer->send($message);
-           $this->addFlash(
-               'info',
-               'Reserved Successfuly'
-           );
+      $flashMessage=$translator->trans('Reserved Successfuly');
+      $this->addFlash(
+          'info',
+          $flashMessage
+      );
           return $this->RedirectToRoute("app_vipTrips");
                      }
         return $this->render('vip_trips/Trip.html.twig', [
-            'TripImages' => $TripImages,'Trip' => $Trip,
+            'TripImages' => $TripImages,'Trip' => $TripEN,
             'form' => $form->createView()
         ]);
     }

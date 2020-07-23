@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\ConciergeService;
+use App\Entity\ConciergeServiceFR;
 use App\Repository\ConciergeServiceRepository;
 use App\Entity\ConciergeServiceRequete;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -14,17 +15,31 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ConciergeServicesController extends AbstractController
 {
     /**
      * @Route("/concierge_services", name="concierge_services")
      */
-    public function index(EntityManagerInterface $em)
+    public function index(EntityManagerInterface $em,Request $request)
     {
         $repo=$em->getRepository(ConciergeService::class);
         $Services=$repo->findAll();
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo2=$em->getRepository(ConciergeServiceFR::class);
+        $Servicesfr=$repo2->findAll();
+        foreach($Services as $key => $value){
+            $value->setTitle($Servicesfr[$key]->getTitle());
+            $value->setDescription($Servicesfr[$key]->getDescription());
+            
 
+        }
+        
+        }else{
+            
+        }
         return $this->render('concierge_services/index.html.twig', [
             'Services' => $Services,
         ]);
@@ -32,12 +47,21 @@ class ConciergeServicesController extends AbstractController
     /**
      * @Route("/concierge_services/{Servicename}", name="concierge_services_reservation")
      */
-    public function GoToReservation(EntityManagerInterface $em, $Servicename,Request $request, \Swift_Mailer $mailer)
-    {
-      
-        $repo=$em->getRepository(ConciergeService::class);
+    public function GoToReservation(EntityManagerInterface $em, $Servicename,Request $request, \Swift_Mailer $mailer, TranslatorInterface $translator)
+    {   
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo=$em->getRepository(ConciergeServiceFr::class);
         $Service= $repo->findOneBy(array('title'=>$Servicename));
+        $repo1=$em->getRepository(ConciergeService::class);
+        $serviceEN=$repo1->findOneBy(array('id'=>$Service->getId()));
+        }else{
+            $repo=$em->getRepository(ConciergeService::class);
+            $Service= $repo->findOneBy(array('title'=>$Servicename));
+            $serviceEN= $repo->findOneBy(array('title'=>$Servicename));
+        }
         $req=new ConciergeServiceRequete();
+        $submiMessage=$translator->trans('Send_Request');
         $form = $this->createFormBuilder($req)
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
@@ -50,14 +74,14 @@ class ConciergeServicesController extends AbstractController
                       'time_label' => 'To'
                   ])
                      ->add('SpecialRequirements', TextareaType::class)
-                     ->add('Send_Request', SubmitType::class)
+                     ->add($submiMessage, SubmitType::class)
                      ->getForm();
                      $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $req->setService($Service);
+          $req->setService($serviceEN);
           $em->persist($req);
           $em->flush();
-          $message = (new \Swift_Message('Hello Email'))
+          $message = (new \Swift_Message('Emaile de Reservation '))
           ->setFrom('hindouxa.hida@gmail.com')
           ->setTo('hindb788@gmail.com')
           ->setBody( $this->renderView(
@@ -69,9 +93,10 @@ class ConciergeServicesController extends AbstractController
           )
       ;
       $mailer->send($message);
+      $flashMessage=$translator->trans('Reserved Successfuly');
            $this->addFlash(
                'info',
-               'Reserved Successfuly'
+               $flashMessage
            );
           return $this->RedirectToRoute("concierge_services");
                      }

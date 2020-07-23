@@ -59,7 +59,7 @@
                       <i class="fa fa-envelope"></i>
                         <a href="mailto:kechtrans@gmail.com">
                           kechtrans@gmail.com  
-                        </a><br><police color:red> we trust our clients No prepayment is needed payment on arrival</police>
+                        </a><br><police color:red> {% trans %}we trust our clients No prepayment is needed payment on arrival{% endtrans %}</police>
                     </li>
                   </ul>
                   <!-- End Header-Contact -->
@@ -75,9 +75,29 @@
                     <li><a href="https://web.facebook.com/semoncef"><i class="fa fa-facebook-square"></i></a></li>
                     <li><a href="https://www.instagram.com/concierge_vip_marrakech/"><i class="fab fa-instagram"></i></a></li>
                   </ul> 
-                  <!-- End Social -->
+                  <!-- End Social --> &nbsp;&nbsp;&nbsp;&nbsp;
+                  {% block lang %}
+      
+                 <!-- Start Header-Language -->
+                  <div class="header-language">
+                    <button class="header-btn">
+                    <i class="fa fa-globe"></i>
+                    EN
+                    </button>
+                    <nav class="header-form" >
+                      <ul class="custom-list" style="width:80px;">
+                        <li ><a href="{{path('translation',{locale:'en'})}}"><img style="width:30px; height:30px; " src="img/flags/united-states.png" style="display:inline-block;">EN</a></li>
+                        <li ><a href="{{path('translation',{locale:'fr'})}}" ><img style="width:30px; height:30px; " src="img/flags/france.png" style="display:inline-block;">FR</a></li>
+                        <li><a href="{{path('translation',{locale:'es'})}}"><img style="width:30px; height:30px; " src="img/flags/spain.png" style="display:inline-block;">ES</a></li>
+                        <li><a href="{{path('translation',{locale:'ar'})}}"><img style="width:30px; height:30px; " src="img/flags/morocco.png" style="display:inline-block;">AR</a></li>
+                        <li><a href="{{path('translation',{locale:'rus'})}}"><img style="width:30px; height:30px; " src="img/flags/russia.png" style="display:inline-block;">Rus</a></li>
+                        <li><a href="{{path('translation',{locale:'chi'})}}"><img style="width:30px; height:30px; "src="img/flags/china.png" style="display:inline-block;">Chi</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <!-- End Header-Language -->
 
-                  
+                  {% endblock %}
 
                 </div>
                 <!-- End Header-Right -->
@@ -97,28 +117,28 @@
                   <nav role="navigation">
                     <ul class="nav navbar-nav">
               
-                        <li class="has-submenu"><a href="{{path('app_home')}}" >Home </a>
+                        <li class="has-submenu"><a href="{{path('app_home')}}" >{% trans %}Home{% endtrans %} </a>
                       </li>
                       <li class="has-submenu">
-                        <a href="{{path('private_residence')}}">Private residences</a>
+                        <a href="{{path('private_residence')}}">{% trans %}Private residences{% endtrans %}</a>
                       </li>
-                        <li class="has-submenu"><a href="{{path('app_privatepalace')}}">Private palace </a></li>
+                        <li class="has-submenu"><a href="{{path('app_privatepalace')}}">{% trans %}Private palace{% endtrans %} </a></li>
                         
-                      <li><a href="{{path('app_vipTrips')}}">vip trips &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                      <li><a href="{{path('app_vipTrips')}}">{% trans %}vip trips{% endtrans %} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
                     
                      
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                      <li class="has-submenu"><a href="{{path('app_luxuryCars')}}" >luxury cars </a></li>
-                        <li class="has-submenu"><a href="{{path('concierge_services')}}">concierge services </a></li>
+                      <li class="has-submenu"><a href="{{path('app_luxuryCars')}}" >{% trans %}luxury cars{% endtrans %} </a></li>
+                        <li class="has-submenu"><a href="{{path('concierge_services')}}">{% trans %}concierge services{% endtrans %} </a></li>
                     <li class="has-submenu">
-                      <a href="{{path('app_aboutus')}}">About</a>
+                      <a href="{{path('app_aboutus')}}">{% trans %}About{% endtrans %}</a>
                       
                     </li>
                   
                     
                     <li class="has-submenu">
-                      <a href="{{path('app_contact')}}">Contact</a>
+                      <a href="{{path('app_contact')}}">{% trans %}Contact{% endtrans %}</a>
                     </li>
                   </ul>
                   </nav>
@@ -159,16 +179,16 @@
 
               <!-- Start Widget-About -->
               <div class="col-lg-4 col-md-4 widget widget-about">
-                <h5>About Us</h5>
+                <h5>{% trans %}About Us{% endtrans %}</h5>
                 <p>Marrakech concierge</p>
-                <p>VIP services</p>
+                <p>{% trans %}VIP services{% endtrans %}</p>
                 <p> +212 661216388 - kechtrans@gmail.com </p>
               </div>
               <!-- End Widget-About -->
 
               <!-- Start Widget-News -->
               <div class="col-lg-4 col-md-4 widget widget-news">
-                <h5>Latest News</h5>
+                <h5>{% trans %}Latest News{% endtrans %}</h5>
                 <ul class="custom-list">
                   <li><a href="#">Marrakech - Dakhla with Royal Air</a></li>
                   <li><a href="#">Golf competition</a></li>
@@ -179,17 +199,17 @@
 
               <!-- Start Widget-Newsletter -->
               <div class="col-lg-4 col-md-4 widget widget-newsletter">
-                <h5>Newsletter</h5>
+                <h5>{% trans %}Newsletter{% endtrans %}</h5>
                 <form class="default-form">
                   <input type="text" name="newsletter" placeholder="Your Email Here">
-                  <button class="btn light">Sign Up</button>
+                  <button class="btn light">{% trans %}Sign Up{% endtrans %}</button>
                 </form>
               </div>
               <!-- End Widget-Newsletter -->
 
               <!-- Start Widget-Social -->
               <div class="col-lg-4 col-md-4 widget widget-social">
-                <h5>Lets Stay in Touch</h5>
+                <h5>{% trans %}Lets Stay in Touch{% endtrans %}</h5>
                 <ul class="custom-list">
                   <li>
                     <a href="https://web.facebook.com/semoncef"><i class="fa fa-facebook-square"></i></a>

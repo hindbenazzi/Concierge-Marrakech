@@ -12,13 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ContactController extends AbstractController
 {
     /**
      * @Route("/contact", name="app_contact")
      */
-    public function index(EntityManagerInterface $em,Request $request, \Swift_Mailer $mailer)
+    public function index(EntityManagerInterface $em,Request $request, \Swift_Mailer $mailer,TranslatorInterface $translator)
     {
         $rec=new Reclamation();
         $repo2=$em->getRepository(Partners::class);
@@ -47,10 +48,11 @@ if ($form->isSubmitted() && $form->isValid()) {
     )
 ;
 $mailer->send($message);
-     $this->addFlash(
-         'info',
-         'Your message has been sent'
-     );
+$flashMessage=$translator->trans('Your message has been sent');
+$this->addFlash(
+    'info',
+    $flashMessage
+);
     return $this->RedirectToRoute("app_contact");
                }
         return $this->render('contact/index.html.twig', [

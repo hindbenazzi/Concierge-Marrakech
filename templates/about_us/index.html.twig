@@ -22,17 +22,17 @@
   <div class="row">
    <!-- Start Preamble -->
   <div class="col-lg-12 preamble">
-    <h1 style="font-family: 'Brush Script MT'; margin-top:10%;">About <span lang="fr"> Us</span></h3>
-<p style="font-family:'Brush Script MT';  font-size:26px;"> Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.</p>
-<p style="font-family:'Brush Script MT';  font-size:26px;"> Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.</p>
+    <h1 style="font-family: 'Brush Script MT'; margin-top:10%;">{% trans %}About{% endtrans %} <span lang="fr"> {% trans %}Us{% endtrans %}</span></h3>
+<p style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.{% endtrans %}</p>
+<p style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.{% endtrans %}</p>
 <br>
 <div class="container text-center border">
 <img src="img/chauff.jpg" alt="" width="300" height="300" >
 <h5 style="font-family:'Brush Script MT';  font-size:35px;"><b> Mr Monsif Senhaji</b></h5>
-<p style="font-family:'Brush Script MT';  font-size:26px;">Founder</p>
-<p style="font-family:'Brush Script MT';  font-size:26px;"><b>Experience:</b> Commercial Director in a travel agency. <br>
-President General Manager of car rental agency. <br>
-President Director general of tourist transport agency.<br>
+<p style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}Founder{% endtrans %}</p>
+<p style="font-family:'Brush Script MT';  font-size:26px;"><b>Experience:</b> {% trans %}Commercial Director in a travel agency.{% endtrans %} <br>
+{% trans %}President General Manager of car rental agency.{% endtrans %} <br>
+{% trans %}President Director general of tourist transport agency.{% endtrans %}<br>
 </p>
 </div>
 <div class="container"> 
@@ -40,25 +40,25 @@ President Director general of tourist transport agency.<br>
     <div class="row">
         <div class="col-xs-3">
         <img src="img/palace/akkin.jpg" alt="palace" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Private Palace</b></center><br> With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city
-            <a href="{{path('app_privatepalace')}}"class="thumbnail" data-gallery="gallery1">Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Private Palace{% endtrans %}</b></center><br> {% trans %}With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city{% endtrans %}
+            <a href="{{path('app_privatepalace')}}"class="thumbnail" data-gallery="gallery1">{% trans %}Read More{% endtrans %}   </a>
         </div>
         <div class="row">
         <div class="col-xs-3">
         <img src="img/Residence/Residence1main.jpeg" alt="Residence" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Private Residence</b></center><br> With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city
-            <a href="{{path('private_residence')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Private Residence{% endtrans %}</b></center><br> {% trans %}With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city{% endtrans %}
+            <a href="{{path('private_residence')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div>
     <div class="row">
         <div class="col-xs-3">
         <img src="img/Trips/Trip1main.jpeg" alt="Trips" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Vip Trips</b></center><br> With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world            <a href="{{path('app_vipTrips')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Vip Trips{% endtrans %}</b></center><br> {% trans %}With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world{% endtrans %}<a href="{{path('app_vipTrips')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}  </a>
         </div>  
         <div class="row">
         <div class="col-xs-3">
         <img src="img/cars/bentley.jpg" alt="Cars" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Luxury Cars</b></center><br> You will find at Concierge Marrakech luxury cars for purchase or rental
-            <a href="{{path('app_luxuryCars')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Luxury Cars{% endtrans %}</b></center><br> {% trans %}You will find at Concierge Marrakech luxury cars for purchase or rental{% endtrans %}
+            <a href="{{path('app_luxuryCars')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div>         
         </div
           
@@ -69,26 +69,26 @@ President Director general of tourist transport agency.<br>
     <div class="row">
         <div class="col-xs-3">
         <img src="img/conciergeServices/DayExcursion.jpg" alt="excursion" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Excursion</b></center><br> One Day Excursion ,A little one day trip to various locations
-            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Excursion{% endtrans %}</b></center><br> {% trans %}One Day Excursion ,A little one day trip to various locations{% endtrans %}
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div
         <div class="row">
         <div class="col-xs-3">
         <img src="img/conciergeServices/RestauReservation.jpg" alt="restaurant" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>Reservation</b></center><br> Make your Reservation for any restaurant or club
-            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b>{% trans %}Reservation{% endtrans %}</b></center><br> {% trans %}Make your Reservation for any restaurant or club{% endtrans %}
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div>
          <div class="row">
         <div class="col-xs-3">
         <img src="img/conciergeServices/soiréeprivée.jpg" alt="soirée" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b> Private events</b></center><br>Marrakech is the city of all possibilities to party! You just have to imagine and let us do it.
-            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b> {% trans %}Private events{% endtrans %}</b></center><br>{% trans %}Marrakech is the city of all possibilities to party! You just have to imagine and let us do it.{% endtrans %}
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div>
          <div class="row">
         <div class="col-xs-3">
         <img src="img/conciergeServices/visiteGuide.jpg" alt="soirée" width="300" height="200"/>
-        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b> Visite Cities with guide</b></center><br> Organised Trips to morrocan cities with the company of a guide
-            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> Read More   </a>
+        <p style="font-family:'Brush Script MT';  font-size:26px;"><center><b> {% trans %}Visite Cities with guide{% endtrans %}</b></center><br> {% trans %}Organised Trips to morrocan cities with the company of a guide{% endtrans %}
+            <a href="{{path('concierge_services')}}"class="thumbnail" data-gallery="gallery1"> {% trans %}Read More{% endtrans %}   </a>
         </div>
      
         </div>
@@ -100,7 +100,7 @@ President Director general of tourist transport agency.<br>
   </div>
  </div>
  </section>
- <center> <p style="font-family:'Brush Script MT';  font-size:35px;"> We still have a lot of services and surprise you will not regret having chosen Concierge Marrakech</p></center>
+ <center> <p style="font-family:'Brush Script MT';  font-size:35px;"> {% trans %}We still have a lot of services and surprise you will not regret having chosen Concierge Marrakech{% endtrans %}</p></center>
  <!-- Start Partners -->
     <section class="partners">
       <div class="container">
@@ -108,7 +108,7 @@ President Director general of tourist transport agency.<br>
 
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h5>Our Partners</h5>
+            <h5>{% trans %}Our Partners{% endtrans %}</h5>
           </div>
           <!-- End Preamble -->
            

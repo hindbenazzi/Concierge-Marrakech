@@ -1284,6 +1284,7 @@ button:hover {
   position: relative;
   float: right;
   text-align: right; 
+  
 }
 
 #header .header-right button {
@@ -1336,7 +1337,7 @@ button:hover {
   border-right: 1px solid #2e3947;
 }
 
-#header .header-login .header-form { left: 133px; }
+#header .header-login .header-form { left: 123px; }
 
 #header .header-login form {
   padding: 20px;

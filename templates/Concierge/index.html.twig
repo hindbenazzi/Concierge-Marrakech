@@ -76,22 +76,22 @@
         <div class="row">
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h1 style="font-family:'Brush Script MT';">About Concierge<span lang="fr"> Marrakech</span></h3>
+            <h1 style="font-family:'Brush Script MT';">{% trans %}About Concierge{% endtrans %}<span lang="fr"> Marrakech</span></h3>
             <img src="img/divisor.png" alt="" class="divisor">
-            <p style="font-family:'Brush Script MT';  font-size:26px;">Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</p>
-            <p style="font-family:'Brush Script MT';  font-size:26px;"> We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
-            of guided and independent exploration.</p>
+            <p style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.{% endtrans %}</p>
+            <p style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
+            of guided and independent exploration.{% endtrans %}</p>
             
-            <p style="font-family:'Brush Script MT'; font-size:26px;"> It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
-             and the only thing you have to share is creating memories.
+            <p style="font-family:'Brush Script MT'; font-size:26px;"> {% trans %}It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
+             and the only thing you have to share is creating memories.{% endtrans %}
              </p>
-            <p> <h2 style="font-family:'Brush Script MT';">Our promises: </h3>
+            <p> <h2 style="font-family:'Brush Script MT';">{% trans %}Our promises:{% endtrans %} </h3>
              </p>
-             <p ><h5 style="font-family:'Brush Script MT';  font-size:26px;">0% client comission  <BR>
-             You pay the same price if go directly to services providers</h5>
+             <p ><h5 style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}0% client comission {% endtrans %} <BR>
+             {% trans %}You pay the same price if go directly to services providers{% endtrans %}</h5>
              </p>
-            <p> <h5 style="font-family:'Brush Script MT';  font-size:26px;"> We trust our clients No prepayment is needed payment on arrival </h5></p>
-             <p><h5 style="font-family:'Brush Script MT';  font-size:26px;">We get you the bests deals for the best products </h5></p>
+            <p> <h5 style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}We trust our clients No prepayment is needed payment on arrival {% endtrans %}</h5></p>
+             <p><h5 style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}We get you the bests deals for the best products {% endtrans %}</h5></p>
           </div>
           <!-- End Preamble -->
              {% for field in fields%}
@@ -101,7 +101,7 @@
              <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
-                  <a href="{{path('fields',{id:field.id})}}" class="btn light">Read More</a>
+                  <a href="{{path('fields',{id:field.id})}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@
 
           <!-- Start Preamble -->
           <div class="preamble">
-            <h3>Testimonials</h3>
+            <h3>{% trans %}Testimonials{% endtrans %}</h3>
             <img src="img/divisor2.png" alt="" class="divisor">
           </div>
           <!-- End Preamble -->
@@ -175,16 +175,16 @@
           <div class="col-lg-4 col-md-4 tabs-navigation">
             <ul class="custom-list tab-title-list">
               <li data-href="#fleet">
-                <h5>Marrakech by night</h5>
-                <p>Modern. Safe. Luxurious.</p>
+                <h5>{% trans %}Marrakech by night{% endtrans %}</h5>
+                <p>{% trans %}Modern. Safe. Luxurious.{% endtrans %}</p>
               </li>
               <li data-href="#drivers">
-                <h5>Drivers On Call</h5>
-                <p>Experience & Class</p>
+                <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
+                <p>Experience and Class</p>
               </li>
               <li data-href="#ourlocs">
-                <h5>Our Locations</h5>
-                <p>We Are Available</p>
+                <h5>{% trans %}Our Locations{% endtrans %}</h5>
+                <p>{% trans %}We Are Available{% endtrans %}</p>
               </li>
             </ul>
           </div>
@@ -199,8 +199,8 @@
               <!-- Start Fleet -->
               <li id="fleet" data-bgimage="img/marrakech-night.jpg">
                 <div class="heading">
-                  <h5>Marrakech by night</h5>
-                  <p>Modern. Safe. Luxurious.</p>
+                  <h5>{% trans %}Marrakech by night{% endtrans %}</h5>
+                  <p>{% trans %}Modern. Safe. Luxurious.{% endtrans %}</p>
                 </div>
                 <cite></cite>
               </li>
@@ -209,8 +209,8 @@
               <!-- Start Drivers -->
               <li id="drivers" data-bgimage="img/driver.JPG">
                 <div class="heading">
-                  <h5>Drivers On Call</h5>
-                  <p>Experience & Class</p>
+                  <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
+                  <p>{% trans %}Experience & Class{% endtrans %}</p>
                 </div>
                 <cite></cite>
               </li>
@@ -219,8 +219,8 @@
               <!-- Start Ourlocs -->
               <li id="ourlocs" data-bgimage="img/location.JPG">
                 <div class="heading">
-                  <h5>Our Locations</h5>
-                  <p>We Are Available</p>
+                  <h5>{% trans %}Our Locations{% endtrans %}</h5>
+                  <p>{% trans %}We Are Available{% endtrans %}</p>
                 </div>
                 <cite></cite>
               </li>          
@@ -242,7 +242,7 @@
 
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h5>Our Partners</h5>
+            <h5>{% trans %}Our Partners{% endtrans %}</h5>
           </div>
           <!-- End Preamble -->
            

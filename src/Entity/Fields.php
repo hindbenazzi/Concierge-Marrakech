@@ -57,11 +57,23 @@ class Fields
      */
     private $fieldDesc;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ServiceFR::class, mappedBy="fields")
+     */
+    private $serviceFRs;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ServiceAR::class, mappedBy="fields")
+     */
+    private $serviceARs;
+
     public function __construct()
     {
         $this->Services = new ArrayCollection();
         $this->Requets = new ArrayCollection();
         $this->FieldImages = new ArrayCollection();
+        $this->serviceFRs = new ArrayCollection();
+        $this->serviceARs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +207,68 @@ class Fields
     public function setFieldDesc(string $fieldDesc): self
     {
         $this->fieldDesc = $fieldDesc;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ServiceFR[]
+     */
+    public function getServiceFRs(): Collection
+    {
+        return $this->serviceFRs;
+    }
+
+    public function addServiceFR(ServiceFR $serviceFR): self
+    {
+        if (!$this->serviceFRs->contains($serviceFR)) {
+            $this->serviceFRs[] = $serviceFR;
+            $serviceFR->setFields($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServiceFR(ServiceFR $serviceFR): self
+    {
+        if ($this->serviceFRs->contains($serviceFR)) {
+            $this->serviceFRs->removeElement($serviceFR);
+            // set the owning side to null (unless already changed)
+            if ($serviceFR->getFields() === $this) {
+                $serviceFR->setFields(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ServiceAR[]
+     */
+    public function getServiceARs(): Collection
+    {
+        return $this->serviceARs;
+    }
+
+    public function addServiceAR(ServiceAR $serviceAR): self
+    {
+        if (!$this->serviceARs->contains($serviceAR)) {
+            $this->serviceARs[] = $serviceAR;
+            $serviceAR->setFields($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServiceAR(ServiceAR $serviceAR): self
+    {
+        if ($this->serviceARs->contains($serviceAR)) {
+            $this->serviceARs->removeElement($serviceAR);
+            // set the owning side to null (unless already changed)
+            if ($serviceAR->getFields() === $this) {
+                $serviceAR->setFields(null);
+            }
+        }
 
         return $this;
     }

@@ -80,7 +80,7 @@ margin: 0px;
 {{message}}
 </div>
 {% endfor %}
-   <center><h1>Concierge services</h1></center>
+   <center><h1>{% trans %}Concierge services{% endtrans %}</h1></center>
    </div>
   
  {% for Service in Services%}
@@ -90,7 +90,7 @@ margin: 0px;
              <img  style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/conciergeServices/' ~ Service.ImageURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
-                  <a href="{{path('concierge_services_reservation',{Servicename:Service.title})}}" class="btn light">Go to Reservation</a>
+                  <a href="{{path('concierge_services_reservation',{Servicename:Service.title})}}" class="btn light">{% trans %}Go to Reservation {% endtrans %}</a>
                 </div>
               </div>
             </div>

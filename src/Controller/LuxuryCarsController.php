@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\LuxuryCars;
+use App\Entity\LuxuryCarsFR;
 use App\Entity\CarsImages;
 use App\Entity\Partners;
 use App\Entity\RequetePersonalisable;
@@ -18,35 +19,59 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LuxuryCarsController extends AbstractController
 {
     /**
      * @Route("/luxury_cars", name="app_luxuryCars")
      */
-    public function luxury_cars(EntityManagerInterface $em)
+    public function luxury_cars(EntityManagerInterface $em,Request $request)
     {
         $repo3=$em->getRepository(LuxuryCars::class);
         $images= $repo3->findAll();
         foreach($images as $key=>$value){
             $value->setCarsImg(base64_encode(stream_get_contents($value->getCarsImg())));
         }
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+            $repo4=$em->getRepository(LuxuryCarsFR::class);
+            $imagesFR= $repo4->findAll();
+            foreach($images as $key => $value){
+                $value->setTitle($imagesFR[$key]->getTitle());
+                $value->setCarsDesc($imagesFR[$key]->getCarsDesc());
+                
+    
+            }
+        }else {
 
+        }
         return $this->render('luxury_cars/index.html.twig',array('images'=>$images));
-    }
+    } 
     
       /**
      * @Route("/luxury_cars/{Resname}", name="luxury_cars_details")
      */
-    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer)
+    public function ShowDetails(EntityManagerInterface $em, $Resname,Request $request,\Swift_Mailer $mailer,TranslatorInterface $translator)
     {
-        
-        $repo6=$em->getRepository(LuxuryCars::class);
+        $lang=$request->getSession()->get('_locale');
+        if($lang=='fr'){
+        $repo6=$em->getRepository(LuxuryCarsFR::class);
         $cars= $repo6->findOneBy(array('title'=>$Resname));
-        $CarId=$cars->getId();
+        $repo7=$em->getRepository(LuxuryCars::class);
+        $carsEN= $repo7->findOneBy(array('id'=>$cars->getId()));
+        $CarId=$carsEN->getId();
+        $carsEN->setTitle($cars->getTitle());
+        $carsEN->setCarsDesc($cars->getCarsDesc());
+    }else {
+        $repo7=$em->getRepository(LuxuryCars::class);
+        $carsEN= $repo7->findOneBy(array('title'=>$Resname));
+        $CarId=$carsEN->getId();
+    }
         $repo4=$em->getRepository(CarsImages::class);
         $CarsImages=$repo4->findBy(array('CarsId'=> $CarId));
         $req=new RequetePersonalisable();
+        $submiMessage=$translator->trans('Send_Request');
         $form = $this->createFormBuilder($req)
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
@@ -58,11 +83,11 @@ class LuxuryCarsController extends AbstractController
                       'time_label' => 'To'
                   ])
                      ->add('message', TextareaType::class)
-                     ->add('Send_Request', SubmitType::class)
+                     ->add($submiMessage, SubmitType::class)
                      ->getForm();
                      $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $req->setCarId( $cars);
+          $req->setCarId( $carsEN);
           $em->persist($req);
           $em->flush();
           $message = (new \Swift_Message('Emaile de Reservation '))
@@ -77,14 +102,15 @@ class LuxuryCarsController extends AbstractController
           )
       ;
       $mailer->send($message);
-           $this->addFlash(
-               'info',
-               'Reserved Successfuly'
-           );
+      $flashMessage=$translator->trans('Reserved Successfuly');
+      $this->addFlash(
+          'info',
+          $flashMessage
+      );
           return $this->RedirectToRoute("app_luxuryCars");
                      }
         return $this->render('luxury_cars/cars.html.twig', [
-            'CarsImages' => $CarsImages,'Cars' => $cars,
+            'CarsImages' => $CarsImages,'Cars' => $carsEN,
             'form' => $form->createView()
         ]);
     }

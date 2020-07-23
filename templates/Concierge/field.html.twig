@@ -114,10 +114,13 @@ margin: 0px;
 <li class="part"><div style=" width:100%;   ">
  {{ form_start(form) }}
     
-    {{ form_row(form.Full_Name,{'attr':{'placeholder':"Your Full Name"}}) }}
-    {{ form_row(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
-    {{ form_row(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
-    <label>Which services are you interested in?</label>
+    <b>{% trans %}Full Name:{% endtrans %}</b>
+    {{ form_widget(form.Full_Name,{'attr':{'placeholder':"Your Full Name"}}) }}
+    <b>{% trans %}Telephone:{% endtrans %}</b>
+    {{ form_widget(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
+    <b>{% trans %}Email:{% endtrans %}</b>
+    {{ form_widget(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
+    <label>{% trans %}Which services are you interested in?{% endtrans %}</label>
     <div class="selectWrapper">
     <select name="serviceSelected">
     {% for service in services %}
@@ -125,18 +128,18 @@ margin: 0px;
     {% endfor %}
     </select>
     </div>
-    {{ form_label(form.StartingON, 'From') }}
+    <b>{% trans %}From:{% endtrans %}</b>
     {{ form_widget(form.StartingON) }}
-    {{ form_label(form.StartingON, 'To') }}
+    <b>{% trans %}To:{% endtrans %}</b>
     {{ form_widget(form.FinishingON) }}
     {{ form_row(form.message,{'attr':{'placeholder':"Describe the service you desire with more details",'rows':"10"}}) }}
     
     {{ form_end(form) }}
 </div></li>
 <li class="part"><div  style="  height:100%; width:100%;  " >
-<p style="width: 80%; margin-left:50px; font-size:20px;">If you think you are looking for a specific item or would like further information,
+<p style="width: 80%; margin-left:50px; font-size:20px;">{% trans %}If you think you are looking for a specific item or would like further information,
 then feel free to contact us using the enquiry form and one of our executives will aim to 
-get back to you immediately. Alternatively, you can email <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a>
+get back to you immediately. Alternatively, you can email{% endtrans %} <a href="mailto:kechtrans@gmail.com">kechtrans@gmail.com  </a>
 <br>
 <div ><img class=" img-fluid " style="width: 80%; height:350px; margin-left:50px;" src="{{asset('../img/field/' ~ field.FieldFormImageURL)}}" alt=""></div>
 </p>

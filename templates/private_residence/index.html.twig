@@ -84,7 +84,12 @@
 
       <div  class="container">
       <div class="row" style="margin-top: 13%; text-align: center;">
-<center style="font-size: 23px" ><b> Our Private Residences<b></center><br>
+      {% for message in app.flashes('info') %}
+<div class="alert alert-success">
+{{message}}
+</div>
+{% endfor %}
+<center style="font-size: 23px" ><b> {% trans %}Our Private Residences{% endtrans %}<b></center><br>
 </div>
 <div style="margin-top: 3%" class="row">        
   {% for Residence in Residences %}  
@@ -94,14 +99,14 @@
   <div class="card-body">
    <center> <b class="card-title">{{Residence.Name}}</b><center>
     <center><b class="card-title"> {{Residence.Adress}} </b><center>
-    <center><b class="card-title"> size: {{Residence.size}}   </b><center>
-    <center><b class="card-title"> Price:{{Residence.Price}} MAD/Day</b><center>
+    <center><b class="card-title"> {% trans %}size:{% endtrans %} {{Residence.size}}   </b><center>
+    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{Residence.Price}} MAD/Day</b><center>
     <div id="description" class="card-text">
-    <p ><b> Characteristics:</b>{{Residence.Description}}</p> 
+    <p ><b> {% trans %}Characteristics:{% endtrans %}</b>{{Residence.Description}}</p> 
     
     </div><a href="{{path('private_residence_details',{Resname:Residence.Name})}}"> 
     
-    <button class="form-control" id="reserv-btn">Show Details</button></a>
+    <button class="form-control" id="reserv-btn">{% trans %}Show Details{% endtrans %}</button></a>
   </div>
 </div>                
   </div>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="chi" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="av5tVkx" resname="Reserved Successfuly">
+        <source>Reserved Successfuly</source>
+        <target>__Reserved Successfuly</target>
+      </trans-unit>
+      <trans-unit id="TTbtqfm" resname="Your message has been sent">
+        <source>Your message has been sent</source>
+        <target>__Your message has been sent</target>
+      </trans-unit>
+      <trans-unit id="Tvyg0Qx" resname="About">
+        <source>About</source>
+        <target>__About</target>
+      </trans-unit>
+      <trans-unit id="0H6zVDL" resname="Us">
+        <source>Us</source>
+        <target>__Us</target>
+      </trans-unit>
+      <trans-unit id="k9lxPZ9" resname="Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.">
+        <source>Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.</source>
+        <target>__Concierge Marrakech is a leading luxury concierge and lifestyle management company.Concierge Marrakech was first created by and for lovers of the red city in search of confidential places and exceptional moments.</target>
+      </trans-unit>
+      <trans-unit id="E0FJLBB" resname="Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.">
+        <source>Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.</source>
+        <target>__Among the characteristics of the agency, it is undoubtedly that of having chosen this unique Moroccan destination to hold a perfect knowledge, a perfect mastery.</target>
+      </trans-unit>
+      <trans-unit id="I65F9CX" resname="Founder">
+        <source>Founder</source>
+        <target>__Founder</target>
+      </trans-unit>
+      <trans-unit id="Vmzgaf9" resname="Commercial Director in a travel agency.">
+        <source>Commercial Director in a travel agency.</source>
+        <target>__Commercial Director in a travel agency.</target>
+      </trans-unit>
+      <trans-unit id="YoJTOPp" resname="President General Manager of car rental agency.">
+        <source>President General Manager of car rental agency.</source>
+        <target>__President General Manager of car rental agency.</target>
+      </trans-unit>
+      <trans-unit id="F.u1ZFq" resname="President Director general of tourist transport agency.">
+        <source>President Director general of tourist transport agency.</source>
+        <target>__President Director general of tourist transport agency.</target>
+      </trans-unit>
+      <trans-unit id="WcDtd9f" resname="Private Palace">
+        <source>Private Palace</source>
+        <target>__Private Palace</target>
+      </trans-unit>
+      <trans-unit id="13RIb.M" resname="With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city">
+        <source>With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city</source>
+        <target>__With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city</target>
+      </trans-unit>
+      <trans-unit id="wpYC9Hd" resname="Read More">
+        <source>Read More</source>
+        <target>__Read More</target>
+      </trans-unit>
+      <trans-unit id="2.AIGyY" resname="Private Residence">
+        <source>Private Residence</source>
+        <target>__Private Residence</target>
+      </trans-unit>
+      <trans-unit id="ucvRN1x" resname="With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city">
+        <source>With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city</source>
+        <target>__With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city</target>
+      </trans-unit>
+      <trans-unit id="EwRGIoi" resname="Vip Trips">
+        <source>Vip Trips</source>
+        <target>__Vip Trips</target>
+      </trans-unit>
+      <trans-unit id="vU8qpmH" resname="With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world">
+        <source>With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world</source>
+        <target>__With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world</target>
+      </trans-unit>
+      <trans-unit id="H8X4LcI" resname="Luxury Cars">
+        <source>Luxury Cars</source>
+        <target>__Luxury Cars</target>
+      </trans-unit>
+      <trans-unit id="jVJwGF6" resname="You will find at Concierge Marrakech luxury cars for purchase or rental">
+        <source>You will find at Concierge Marrakech luxury cars for purchase or rental</source>
+        <target>__You will find at Concierge Marrakech luxury cars for purchase or rental</target>
+      </trans-unit>
+      <trans-unit id="jwympQ6" resname="Excursion">
+        <source>Excursion</source>
+        <target>__Excursion</target>
+      </trans-unit>
+      <trans-unit id="d5urrqI" resname="One Day Excursion ,A little one day trip to various locations">
+        <source>One Day Excursion ,A little one day trip to various locations</source>
+        <target>__One Day Excursion ,A little one day trip to various locations</target>
+      </trans-unit>
+      <trans-unit id="tFbm1a5" resname="Reservation">
+        <source>Reservation</source>
+        <target>__Reservation</target>
+      </trans-unit>
+      <trans-unit id="FlmHrV5" resname="Make your Reservation for any restaurant or club">
+        <source>Make your Reservation for any restaurant or club</source>
+        <target>__Make your Reservation for any restaurant or club</target>
+      </trans-unit>
+      <trans-unit id="wUVDCHV" resname="Private events">
+        <source>Private events</source>
+        <target>__Private events</target>
+      </trans-unit>
+      <trans-unit id="imtiXnf" resname="Marrakech is the city of all possibilities to party! You just have to imagine and let us do it.">
+        <source>Marrakech is the city of all possibilities to party! You just have to imagine and let us do it.</source>
+        <target>__Marrakech is the city of all possibilities to party! You just have to imagine and let us do it.</target>
+      </trans-unit>
+      <trans-unit id="HR1PXT8" resname="Visite Cities with guide">
+        <source>Visite Cities with guide</source>
+        <target>__Visite Cities with guide</target>
+      </trans-unit>
+      <trans-unit id="6RTpRwB" resname="Organised Trips to morrocan cities with the company of a guide">
+        <source>Organised Trips to morrocan cities with the company of a guide</source>
+        <target>__Organised Trips to morrocan cities with the company of a guide</target>
+      </trans-unit>
+      <trans-unit id="glIvYqR" resname="We still have a lot of services and surprise you will not regret having chosen Concierge Marrakech">
+        <source>We still have a lot of services and surprise you will not regret having chosen Concierge Marrakech</source>
+        <target>__We still have a lot of services and surprise you will not regret having chosen Concierge Marrakech</target>
+      </trans-unit>
+      <trans-unit id="inh74j8" resname="Our Partners">
+        <source>Our Partners</source>
+        <target>__Our Partners</target>
+      </trans-unit>
+      <trans-unit id="tFul.P2" resname="we trust our clients No prepayment is needed payment on arrival">
+        <source>we trust our clients No prepayment is needed payment on arrival</source>
+        <target>__we trust our clients No prepayment is needed payment on arrival</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>__Home</target>
+      </trans-unit>
+      <trans-unit id="X8j2Mb8" resname="Private residences">
+        <source>Private residences</source>
+        <target>__Private residences</target>
+      </trans-unit>
+      <trans-unit id="0muhb4." resname="Private palace">
+        <source>Private palace</source>
+        <target>__Private palace</target>
+      </trans-unit>
+      <trans-unit id="aCLByt3" resname="vip trips">
+        <source>vip trips</source>
+        <target>__vip trips</target>
+      </trans-unit>
+      <trans-unit id="IM.4BfW" resname="luxury cars">
+        <source>luxury cars</source>
+        <target>__luxury cars</target>
+      </trans-unit>
+      <trans-unit id="6W5I4nS" resname="concierge services">
+        <source>concierge services</source>
+        <target>__concierge services</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>__Contact</target>
+      </trans-unit>
+      <trans-unit id="XYxxq8U" resname="About Us">
+        <source>About Us</source>
+        <target>__About Us</target>
+      </trans-unit>
+      <trans-unit id="GgWdjOL" resname="VIP services">
+        <source>VIP services</source>
+        <target>__VIP services</target>
+      </trans-unit>
+      <trans-unit id="CW5CFUB" resname="Latest News">
+        <source>Latest News</source>
+        <target>__Latest News</target>
+      </trans-unit>
+      <trans-unit id="_Eyi53F" resname="Newsletter">
+        <source>Newsletter</source>
+        <target>chinese Newsletter</target>
+      </trans-unit>
+      <trans-unit id="R94jWG5" resname="Sign Up">
+        <source>Sign Up</source>
+        <target>__Sign Up</target>
+      </trans-unit>
+      <trans-unit id="VQCBKI7" resname="Lets Stay in Touch">
+        <source>Lets Stay in Touch</source>
+        <target>__Lets Stay in Touch</target>
+      </trans-unit>
+      <trans-unit id="T9AJM.B" resname="&lt;b&gt;Full Name:&lt;/b&gt;">
+        <source>&lt;b&gt;Full Name:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>Full Name:</b>]]></target>
+      </trans-unit>
+      <trans-unit id=".uU5I9x" resname="&lt;b&gt;Telephone:&lt;/b&gt;">
+        <source>&lt;b&gt;Telephone:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>Telephone:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="9hafBH1" resname="&lt;b&gt;Email:&lt;/b&gt;">
+        <source>&lt;b&gt;Email:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>Email:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="wtIH4fA" resname="Which services are you interested in?">
+        <source>Which services are you interested in?</source>
+        <target>__Which services are you interested in?</target>
+      </trans-unit>
+      <trans-unit id="axABFCH" resname="&lt;b&gt;From:&lt;/b&gt;">
+        <source>&lt;b&gt;From:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>From:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="F7pYRgQ" resname="&lt;b&gt;To:&lt;/b&gt;">
+        <source>&lt;b&gt;To:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>To:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="I054QmM" resname="If you think you are looking for a specific item or would like further information,&#10;then feel free to contact us using the enquiry form and one of our executives will aim to &#10;get back to you immediately. Alternatively, you can email">
+        <source>If you think you are looking for a specific item or would like further information,
+then feel free to contact us using the enquiry form and one of our executives will aim to 
+get back to you immediately. Alternatively, you can email</source>
+        <target>__If you think you are looking for a specific item or would like further information,
+then feel free to contact us using the enquiry form and one of our executives will aim to 
+get back to you immediately. Alternatively, you can email</target>
+      </trans-unit>
+      <trans-unit id="2DiezUq" resname="About Concierge">
+        <source>About Concierge</source>
+        <target>__About Concierge</target>
+      </trans-unit>
+      <trans-unit id="3MHXHj5" resname="Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.">
+        <source>Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</source>
+        <target>__Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.</target>
+      </trans-unit>
+      <trans-unit id="e9JdYNI" resname="We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend &#10;            of guided and independent exploration.">
+        <source>We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
+            of guided and independent exploration.</source>
+        <target>__We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
+            of guided and independent exploration.</target>
+      </trans-unit>
+      <trans-unit id="HGS6hU3" resname="It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,&#10;             and the only thing you have to share is creating memories.">
+        <source>It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
+             and the only thing you have to share is creating memories.</source>
+        <target>__It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
+             and the only thing you have to share is creating memories.</target>
+      </trans-unit>
+      <trans-unit id="ZMFnbWQ" resname="Our promises:">
+        <source>Our promises:</source>
+        <target>__Our promises:</target>
+      </trans-unit>
+      <trans-unit id="usqjnGb" resname="0% client comission">
+        <source>0% client comission</source>
+        <target>__0% client comission</target>
+      </trans-unit>
+      <trans-unit id="LJwIB_O" resname="You pay the same price if go directly to services providers">
+        <source>You pay the same price if go directly to services providers</source>
+        <target>__You pay the same price if go directly to services providers</target>
+      </trans-unit>
+      <trans-unit id="6ftJlNc" resname="We trust our clients No prepayment is needed payment on arrival">
+        <source>We trust our clients No prepayment is needed payment on arrival</source>
+        <target>__We trust our clients No prepayment is needed payment on arrival</target>
+      </trans-unit>
+      <trans-unit id="zxksNFp" resname="We get you the bests deals for the best products">
+        <source>We get you the bests deals for the best products</source>
+        <target>__We get you the bests deals for the best products</target>
+      </trans-unit>
+      <trans-unit id="0oJctry" resname="Testimonials">
+        <source>Testimonials</source>
+        <target>__Testimonials</target>
+      </trans-unit>
+      <trans-unit id=".4mJ4iS" resname="Marrakech by night">
+        <source>Marrakech by night</source>
+        <target>__Marrakech by night</target>
+      </trans-unit>
+      <trans-unit id="jrgez7Y" resname="Modern. Safe. Luxurious.">
+        <source>Modern. Safe. Luxurious.</source>
+        <target>__Modern. Safe. Luxurious.</target>
+      </trans-unit>
+      <trans-unit id="ULoeQ8z" resname="Drivers On Call">
+        <source>Drivers On Call</source>
+        <target>__Drivers On Call</target>
+      </trans-unit>
+      <trans-unit id="xv0Fs.q" resname="Our Locations">
+        <source>Our Locations</source>
+        <target>__Our Locations</target>
+      </trans-unit>
+      <trans-unit id="27WOfU7" resname="We Are Available">
+        <source>We Are Available</source>
+        <target>__We Are Available</target>
+      </trans-unit>
+      <trans-unit id="FL0EPzr" resname="Experience &amp; Class">
+        <source>Experience &amp; Class</source>
+        <target><![CDATA[__Experience & Class]]></target>
+      </trans-unit>
+      <trans-unit id="svza0nL" resname="Concierge services">
+        <source>Concierge services</source>
+        <target>__Concierge services</target>
+      </trans-unit>
+      <trans-unit id="zITr6CK" resname="Go to Reservation">
+        <source>Go to Reservation</source>
+        <target>__Go to Reservation</target>
+      </trans-unit>
+      <trans-unit id="DrwHutp" resname="Make Reservation">
+        <source>Make Reservation</source>
+        <target>__Make Reservation</target>
+      </trans-unit>
+      <trans-unit id="Vnz9Z.x" resname="&lt;b&gt;How Many Persons:&lt;/b&gt;">
+        <source>&lt;b&gt;How Many Persons:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>How Many Persons:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="tphOmcv" resname="&lt;b&gt;Other Requirements:&lt;/b&gt;">
+        <source>&lt;b&gt;Other Requirements:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>Other Requirements:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="fKumOpP" resname="Send Us a  Message">
+        <source>Send Us a  Message</source>
+        <target>__Send Us a  Message</target>
+      </trans-unit>
+      <trans-unit id="xQWl5a0" resname="&lt;b&gt;Topic:&lt;/b&gt;">
+        <source>&lt;b&gt;Topic:&lt;/b&gt;</source>
+        <target><![CDATA[__<b>Topic:</b>]]></target>
+      </trans-unit>
+      <trans-unit id="3S1QSD2" resname="&lt;b&gt;How can we help you ?&lt;/b&gt;">
+        <source>&lt;b&gt;How can we help you ?&lt;/b&gt;</source>
+        <target><![CDATA[__<b>How can we help you ?</b>]]></target>
+      </trans-unit>
+      <trans-unit id="WubzDCl" resname="Reserve">
+        <source>Reserve</source>
+        <target>__Reserve</target>
+      </trans-unit>
+      <trans-unit id="v8id2CK" resname="Price:">
+        <source>Price:</source>
+        <target>__Price:</target>
+      </trans-unit>
+      <trans-unit id="JkBu4ul" resname="Characteristics:">
+        <source>Characteristics:</source>
+        <target>__Characteristics:</target>
+      </trans-unit>
+      <trans-unit id="VikXVjo" resname="Reserve other cars">
+        <source>Reserve other cars</source>
+        <target>__Reserve other cars</target>
+      </trans-unit>
+      <trans-unit id="HN0soTH" resname="Our Private Palace">
+        <source>Our Private Palace</source>
+        <target>__Our Private Palace</target>
+      </trans-unit>
+      <trans-unit id="rR83jrs" resname="Area:">
+        <source>Area:</source>
+        <target>__Area:</target>
+      </trans-unit>
+      <trans-unit id="5HEEy1q" resname="Number of pieces:">
+        <source>Number of pieces:</source>
+        <target>__Number of pieces:</target>
+      </trans-unit>
+      <trans-unit id="TJVSGis" resname="Other Characteristics:">
+        <source>Other Characteristics:</source>
+        <target>__Other Characteristics:</target>
+      </trans-unit>
+      <trans-unit id="_giC4hY" resname="Address:">
+        <source>Address:</source>
+        <target>__Address:</target>
+      </trans-unit>
+      <trans-unit id="whXC8Vy" resname="Reserve other palace">
+        <source>Reserve other palace</source>
+        <target>__Reserve other palace</target>
+      </trans-unit>
+      <trans-unit id="O.uQqEd" resname="size:">
+        <source>size:</source>
+        <target>__size:</target>
+      </trans-unit>
+      <trans-unit id="Q2D9Huu" resname="Our Private Residences">
+        <source>Our Private Residences</source>
+        <target>__Our Private Residences</target>
+      </trans-unit>
+      <trans-unit id="pSW_mMS" resname="Show Details">
+        <source>Show Details</source>
+        <target>__Show Details</target>
+      </trans-unit>
+      <trans-unit id="vvjsG0T" resname="Our Trips">
+        <source>Our Trips</source>
+        <target>__Our Trips</target>
+      </trans-unit>
+      <trans-unit id="Wjr_Mb5" resname="Full Name:">
+        <source>Full Name:</source>
+        <target>__Full Name:</target>
+      </trans-unit>
+      <trans-unit id="dC6e8J." resname="Telephone:">
+        <source>Telephone:</source>
+        <target>__Telephone:</target>
+      </trans-unit>
+      <trans-unit id="F1B9z4R" resname="Email:">
+        <source>Email:</source>
+        <target>__Email:</target>
+      </trans-unit>
+      <trans-unit id="3EXTbzX" resname="From:">
+        <source>From:</source>
+        <target>__From:</target>
+      </trans-unit>
+      <trans-unit id="K1.FyU9" resname="To:">
+        <source>To:</source>
+        <target>__To:</target>
+      </trans-unit>
+      <trans-unit id="kO5qHIW" resname="How Many Persons:">
+        <source>How Many Persons:</source>
+        <target>__How Many Persons:</target>
+      </trans-unit>
+      <trans-unit id="ABIrcN8" resname="Other Requirements:">
+        <source>Other Requirements:</source>
+        <target>__Other Requirements:</target>
+      </trans-unit>
+      <trans-unit id="zkb1IGU" resname="Topic:">
+        <source>Topic:</source>
+        <target>__Topic:</target>
+      </trans-unit>
+      <trans-unit id="nXLAhzP" resname="How can we help you ?">
+        <source>How can we help you ?</source>
+        <target>__How can we help you ?</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
