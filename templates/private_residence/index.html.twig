@@ -97,14 +97,14 @@
   <div class="card" >
   <img id="img" class="card-img-top"  src="{{asset('../img/Residence/' ~ Residence.MainImageUrl)}}"/> 
   <div class="card-body">
-   <center> <b class="card-title">{{Residence.Name}}</b><center>
-    <center><b class="card-title"> {{Residence.Adress}} </b><center>
+   <center> <b class="card-title">{{ResidenceName[Residence.Id -1]}}</b><center>
+    <center><b class="card-title"> {{ResidenceAdress[Residence.Id -1]}} </b><center>
     <center><b class="card-title"> {% trans %}size:{% endtrans %} {{Residence.size}}   </b><center>
     <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{Residence.Price}} MAD/Day</b><center>
     <div id="description" class="card-text">
-    <p ><b> {% trans %}Characteristics:{% endtrans %}</b>{{Residence.Description}}</p> 
+    <p ><b> {% trans %}Characteristics:{% endtrans %}</b>{{ResidenceDesc[Residence.Id -1]}}</p> 
     
-    </div><a href="{{path('private_residence_details',{Resname:Residence.Name})}}"> 
+    </div><a href="{{path('private_residence_details',{Resname:ResidenceTo[Residence.Id -1]})}}"> 
     
     <button class="form-control" id="reserv-btn">{% trans %}Show Details{% endtrans %}</button></a>
   </div>

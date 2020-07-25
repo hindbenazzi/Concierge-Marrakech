@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\RequetePersonalisable;
 use App\Entity\RequetePersonalisableRepository;
 use App\Entity\TripImages;
+use App\Entity\VIPTripsAR;
 use App\Entity\VIPTripsFR;
 use App\Repository\TripImagesRepository;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -29,22 +30,59 @@ class VipTripsController extends AbstractController
     {
         $repo3=$em->getRepository(VIPTrips::class);
         $Trips= $repo3->findAll();
+        $TripTo=array();
+        $TripName=array();
+        $TripPlanning=array();
+        $TripDesc=array();
+        foreach($Trips as $key => $value){
+            $TripTo[$key]=$value->getTripName();
+        }
         $lang=$request->getSession()->get('_locale');
         if($lang=='fr'){
             $repo1=$em->getRepository(VIPTripsFR::class);
             $TripsFR= $repo1->findAll();
-            foreach($Trips as $key=>$value){
-                $value->setTripName($TripsFR[$key]->getTripName());
-                $value->setPackPlanning($TripsFR[$key]->getPackPlanning());
-                $value->setTripDescription($TripsFR[$key]->getTripDescription());
+            foreach($TripsFR as $key=>$value){
+                $TripName[$key]=$value->getTripName();
+                $TripPlanning[$key]=$value->getPackPlanning();
+                $TripDesc[$key]=$value->getTripDescription();
     
             }
-    
-            }else{
+            foreach($TripsFR as $key => $value){
+                $TripTo[$key]=$value->getTripName();
+            }
+            }elseif($lang=='ar'){
+                $repo1=$em->getRepository(VIPTripsAR::class);
+                $TripsAR= $repo1->findAll();
+                foreach($TripsAR as $key=>$value){
+                    $TripName[$key]=$value->getTripName();
+                    $TripPlanning[$key]=$value->getPackPlanning();
+                    $TripDesc[$key]=$value->getTripDescription();
+        
+                }
+                $repo2=$em->getRepository(VIPTrips::class);
+                $Trips= $repo2->findAll();
+                foreach($Trips as $key => $value){
+                    $TripTo[$key]=$value->getTripName();
+                }
+        
+                }
+            else{
+                $repo1=$em->getRepository(VIPTrips::class);
+                $Trips= $repo1->findAll();
+                foreach($Trips as $key=>$value){
+                    $TripName[$key]=$value->getTripName();
+                    $TripPlanning[$key]=$value->getPackPlanning();
+                    $TripDesc[$key]=$value->getTripDescription();
+        
+                }
+                foreach($Trips as $key => $value){
+                    $TripTo[$key]=$value->getTripName();
+                }
     
             }
         return $this->render('vip_trips/index.html.twig', [
-            'Trips'=>$Trips
+            'Trips'=>$Trips,'TripTo'=>$TripTo,'TripName'=>$TripName,'TripPlanning'=>$TripPlanning,
+            'TripDesc'=>$TripDesc
         ]);
     }
     /**
@@ -59,13 +97,26 @@ class VipTripsController extends AbstractController
         $repo2=$em->getRepository(VIPTrips::class);
         $TripEN= $repo2->findOneBy(array('id'=>$Trip->getId()));
         $TripId=$TripEN->getId();
-        $TripEN->setTripName($Trip->getTripName());
-        $TripEN->setPackPlanning($Trip->getPackPlanning());
-        $TripEN->setTripDescription($Trip->getTripDescription());
-        }else{
+        $VTripName=$Trip->getTripName();
+        $TripPlanning=$Trip->getPackPlanning();
+        $TripDesc=$Trip->getTripDescription();
+        }elseif($lang=='ar'){
+            $repo=$em->getRepository(VIPTrips::class);
+            $TripEN= $repo->findOneBy(array('TripName'=>$TripName));
+            $repo2=$em->getRepository(VIPTripsAR::class);
+            $Trip= $repo2->findOneBy(array('id'=>$TripEN->getId()));
+            $TripId=$TripEN->getId();
+            $VTripName=$Trip->getTripName();
+            $TripPlanning=$Trip->getPackPlanning();
+            $TripDesc=$Trip->getTripDescription();
+            }
+        else{
         $repo=$em->getRepository(VIPTrips::class);
         $TripEN= $repo->findOneBy(array('TripName'=>$TripName));
         $TripId=$TripEN->getId();
+        $VTripName=$TripEN->getTripName();
+        $TripPlanning=$TripEN->getPackPlanning();
+        $TripDesc=$TripEN->getTripDescription();
         }
         $repo1=$em->getRepository(TripImages::class);
         $TripImages=$repo1->findBy(array('TripId'=>$TripId));
@@ -110,7 +161,8 @@ class VipTripsController extends AbstractController
                      }
         return $this->render('vip_trips/Trip.html.twig', [
             'TripImages' => $TripImages,'Trip' => $TripEN,
-            'form' => $form->createView()
+            'form' => $form->createView(),'VTripName'=>$VTripName,'TripPlanning'=>$TripPlanning,
+            'TripDesc'=>$TripDesc
         ]);
     }
 }

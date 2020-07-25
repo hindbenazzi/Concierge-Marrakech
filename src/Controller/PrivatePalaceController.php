@@ -10,6 +10,7 @@ use App\Entity\RequetePersonalisableRepository;
 use App\Repository\PrivatePalaceRepository;
 use App\Repository\PalaceImagesRepository;
 use App\Entity\PalaceImages;
+use App\Entity\PrivatePalaceAR;
 use App\Entity\PrivatePalaceFR;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -29,6 +30,15 @@ class PrivatePalaceController extends AbstractController
     {
         $repo4=$em->getRepository(PrivatePalace::class);
         $photos= $repo4->findAll();
+        $PalaceTo=array();
+        $PalaceTitle=array();
+        $PalaceArea=array();
+        $PalaceNbrPieces=array();
+        $PalaceChars=array();
+        $PalaceAdress=array();
+        foreach($photos as $key => $value){
+            $PalaceTo[$key]=$value->getTitle();
+        }
         foreach($photos as $key=>$value){
             $value->setPhoto(base64_encode(stream_get_contents($value->getPhoto())));
         }
@@ -36,19 +46,55 @@ class PrivatePalaceController extends AbstractController
         if($lang=='fr'){
         $repo5=$em->getRepository(PrivatePalaceFR::class);
         $photosFR= $repo5->findAll();
-        foreach($photos as $key=>$value){
-            $value->setTitle($photosFR[$key]->getTitle());
-            $value->setArea($photosFR[$key]->getArea());
-            $value->setNumberOfPieces($photosFR[$key]->getNumberOfPieces());
-            $value->setOtherCharacteristics($photosFR[$key]->getOtherCharacteristics());
-            $value->setAddress($photosFR[$key]->getAddress());
+        foreach($photosFR as $key=>$value){
+        $PalaceTitle[$key]=$value->getTitle();
+        $PalaceArea[$key]=$value->getArea();
+        $PalaceNbrPieces[$key]=$value->getNumberOfPieces();
+        $PalaceChars[$key]=$value->getOtherCharacteristics();
+        $PalaceAdress[$key]=$value->getAddress();
 
         }
+        foreach($photosFR as $key => $value){
+            $PalaceTo[$key]=$value->getTitle();
+        }
 
-        }else{
+        }elseif($lang=='ar'){
+            $repo5=$em->getRepository(PrivatePalaceAR::class);
+            $photosAR= $repo5->findAll();
+            foreach($photosAR as $key=>$value){
+             $PalaceTitle[$key]=$value->getTitle();
+             $PalaceArea[$key]=$value->getArea();
+             $PalaceNbrPieces[$key]=$value->getNumberOfPieces();
+             $PalaceChars[$key]=$value->getOtherCharacteristics();
+             $PalaceAdress[$key]=$value->getAddress();
+    
+            }
+            $repo6=$em->getRepository(PrivatePalace::class);
+            $photos= $repo6->findAll();
+            foreach($photos as $key => $value){
+                $PalaceTo[$key]=$value->getTitle();
+            }
+            }
+        else{
+            $repo5=$em->getRepository(PrivatePalace::class);
+            $photos= $repo5->findAll();
+            foreach($photos as $key=>$value){
+             $PalaceTitle[$key]=$value->getTitle();
+             $PalaceArea[$key]=$value->getArea();
+             $PalaceNbrPieces[$key]=$value->getNumberOfPieces();
+             $PalaceChars[$key]=$value->getOtherCharacteristics();
+             $PalaceAdress[$key]=$value->getAddress();
+    
+            }
+            foreach($photos as $key => $value){
+                $PalaceTo[$key]=$value->getTitle();
+            }
 
         }
-        return $this->render('private_palace/index.html.twig',array('photos'=>$photos));
+        return $this->render('private_palace/index.html.twig',array('photos'=>$photos ,'PalaceTo'=>$PalaceTo,
+        'PalaceTitle'=>$PalaceTitle,'PalaceArea'=>$PalaceArea,'PalaceNbrPieces'=>$PalaceNbrPieces,
+        'PalaceChars'=>$PalaceChars,'PalaceAdress'=>$PalaceAdress
+               ));
     }
       /**
      * @Route("/private_palace/{Resname}", name="private_palace_details")
@@ -64,15 +110,33 @@ class PrivatePalaceController extends AbstractController
             $repo3=$em->getRepository(PrivatePalace::class);
             $palaceEN= $repo3->findOneBy(array('id'=>$palace->getId()));
             $PalId=$palaceEN->getId();
-            $palaceEN->setTitle($palace->getTitle());
-            $palaceEN->setArea($palace->getArea());
-            $palaceEN->setNumberOfPieces($palace->getNumberOfPieces());
-            $palaceEN->setOtherCharacteristics($palace->getOtherCharacteristics());
-            $palaceEN->setAddress($palace->getAddress());
-        }else{
+            $palaceTitle=$palace->getTitle();
+            $palaceArea=$palace->getArea();
+            $palaceNbrPiece=$palace->getNumberOfPieces();
+            $palaceChars=$palace->getOtherCharacteristics();
+            $palaceAdress=$palace->getAddress();
+        }elseif($lang=='ar'){
+           
+            $repo3=$em->getRepository(PrivatePalace::class);
+            $palaceEN= $repo3->findOneBy(array('Title'=>$Resname));
+            $repo1=$em->getRepository(PrivatePalaceAR::class);
+            $palace= $repo1->findOneBy(array('id'=>$palaceEN->getId()));
+            $PalId=$palaceEN->getId();
+            $palaceTitle=$palace->getTitle();
+            $palaceArea=$palace->getArea();
+            $palaceNbrPiece=$palace->getNumberOfPieces();
+            $palaceChars=$palace->getOtherCharacteristics();
+            $palaceAdress=$palace->getAddress();
+        }
+        else{
             $repo3=$em->getRepository(PrivatePalace::class);
             $palaceEN= $repo3->findOneBy(array('Title'=>$Resname));
             $PalId=$palaceEN->getId();
+            $palaceTitle=$palaceEN->getTitle();
+            $palaceArea=$palaceEN->getArea();
+            $palaceNbrPiece=$palaceEN->getNumberOfPieces();
+            $palaceChars=$palaceEN->getOtherCharacteristics();
+            $palaceAdress=$palaceEN->getAddress();
         }
         $repo2=$em->getRepository(PalaceImages::class);
         $PalaceImages=$repo2->findBy(array('PalaceId'=> $PalId));
@@ -117,7 +181,8 @@ class PrivatePalaceController extends AbstractController
                      }
         return $this->render('private_palace/palace.html.twig', [
             'PalaceImages' => $PalaceImages,'Palace' => $palaceEN,
-            'form' => $form->createView()
+            'form' => $form->createView(),'palaceTitle'=>$palaceTitle,'palaceArea'=>$palaceArea,
+            'palaceNbrPiece'=>$palaceNbrPiece,'palaceChars'=>$palaceChars,'palaceAdress'=>$palaceAdress
         ]);
     }
 }

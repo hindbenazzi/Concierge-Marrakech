@@ -86,10 +86,10 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{Cars.Title}} </h3>
+   <h3 > {{carsTitle}} </h3>
    <h3 > {{Cars.Price}} MAD/Day </h3>
    </div>
-   <p style="margin-left:350px; font-family:'Brush Script MT';  font-size:30px;"> &#10003;  {{Cars.CarsDesc|replace({',': "\n &#10003; "})|raw|nl2br}}  </p>
+   <p style="margin-left:350px; font-family:'Brush Script MT';  font-size:30px;"> &#10003;  {{carsDesc|replace({',': "\n &#10003; "})|raw|nl2br}}  </p>
  </div>
  <center><div class="container">
  {% for carImage in CarsImages %}

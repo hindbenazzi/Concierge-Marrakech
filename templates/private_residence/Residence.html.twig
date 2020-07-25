@@ -97,15 +97,15 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{Residence.Name}} </h3>
-   <h3 > {{Residence.Adress}} </h3>
+   <h3 > {{ResidenceName}} </h3>
+   <h3 > {{ResidenceAdress}} </h3>
    <h5 > {% trans %}size:{% endtrans %} {{Residence.size}} m²  </h5>
-   <p style="font-family:'Brush Script MT';  font-size:30px; ">  {{Residence.Description}}  </p>
+   <p style="font-family:'Brush Script MT';  font-size:30px; ">  {{ResidenceDesc}}  </p>
    
    
    </div>
    <div class="facilitie">
-   <p  style=""> &nbsp; &#10003;  {{Residence.Facilities|replace({',': "\n &nbsp; &#10003; "})|raw|nl2br}}  </p>
+   <p  style=""> &nbsp; &#10003;  {{ResidenceFaci|replace({',': "\n &nbsp; &#10003; "})|raw|nl2br}}  </p>
     </div>
  </div>
  <center><div class="container">

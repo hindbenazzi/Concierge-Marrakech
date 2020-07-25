@@ -76,7 +76,7 @@
         <div class="row">
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h1 style="font-family:'Brush Script MT';">{% trans %}About Concierge{% endtrans %}<span lang="fr"> Marrakech</span></h3>
+            <h1 style="font-family:'Brush Script MT';">{% trans %}About Concierge{% endtrans %}<span lang="fr"> {% trans %}Marrakech{% endtrans %}</span></h3>
             <img src="img/divisor.png" alt="" class="divisor">
             <p style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.{% endtrans %}</p>
             <p style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
@@ -105,8 +105,8 @@
                 </div>
               </div>
             </div>
-            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ field.FieldName}}</h5>
-         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ field.FieldDesc}}</p>
+            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ fieldName[field.Id -1]}}</h5>
+         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ fieldDescription[field.Id -1]}}</p>
         
           </div>
           {% endfor %}
@@ -144,7 +144,7 @@
             {% for testimonial in testimonials%}
             <div class="item">
               <blockquote class="quote">
-                <cite>{{ testimonial.Client}}<span class="job">{{ testimonial.ClientPosition}}</span></cite>
+                <cite>{{ testClient[testimonial.Id -1]}}<span class="job">{{ testClientPos[testimonial.Id -1]}}</span></cite>
                 <p class="stars">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
@@ -152,7 +152,7 @@
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                 </p>
-                {{ testimonial.Testimonial}}
+                {{ testTest[testimonial.Id -1]}}
               </blockquote>
             </div>
             <!-- End Item -->
@@ -180,7 +180,7 @@
               </li>
               <li data-href="#drivers">
                 <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
-                <p>Experience and Class</p>
+                <p>{% trans %}Experience and Class{% endtrans %}</p>
               </li>
               <li data-href="#ourlocs">
                 <h5>{% trans %}Our Locations{% endtrans %}</h5>
@@ -210,7 +210,7 @@
               <li id="drivers" data-bgimage="img/driver.JPG">
                 <div class="heading">
                   <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
-                  <p>{% trans %}Experience & Class{% endtrans %}</p>
+                  <p>{% trans %}Experience and Class{% endtrans %}</p>
                 </div>
                 <cite></cite>
               </li>

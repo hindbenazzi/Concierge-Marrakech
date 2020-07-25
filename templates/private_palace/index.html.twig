@@ -97,17 +97,17 @@ margin: 10px;
   <div class="card">
   <img id="img" class="card-img-top"  src="{{asset('../img/palace/' ~ photo.ImgUrl)}}"/> 
   <div class="card-body">
-   <center> <b class="card-title">{{photo.Title}}</b><center>
+   <center> <b class="card-title">{{PalaceTitle[photo.Id -1]}}</b><center>
     <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{photo.Price}}</b><center>
     <div id="description" class="card-text">
     <b> {% trans %}Characteristics:{% endtrans %}</b>
-    <p ><b> {% trans %}Area:{% endtrans %}</b>{{photo.Area}}</p> 
-    <p ><b> {% trans %}Number of pieces:{% endtrans %}</b>{{photo.NumberOfPieces}}</p> 
-    <p ><b> {% trans %}Other Characteristics:{% endtrans %}</b>{{photo.OtherCharacteristics}}</p>
-    <p ><b> {% trans %}Address:{% endtrans %}</b>{{photo.Address}}</p>
+    <p ><b> {% trans %}Area:{% endtrans %}</b>{{PalaceArea[photo.Id -1]}}</p> 
+    <p ><b> {% trans %}Number of pieces:{% endtrans %}</b>{{PalaceNbrPieces[photo.Id -1]}}</p> 
+    <p ><b> {% trans %}Other Characteristics:{% endtrans %}</b>{{PalaceChars[photo.Id -1]}}</p>
+    <p ><b> {% trans %}Address:{% endtrans %}</b>{{PalaceAdress[photo.Id -1]}}</p>
     
     </div>
-    <a href="{{path('private_palace_details',{Resname:photo.Title})}}"> 
+    <a href="{{path('private_palace_details',{Resname:PalaceTo[photo.Id -1]})}}"> 
     <button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a> 
   </div>
 </div>                  

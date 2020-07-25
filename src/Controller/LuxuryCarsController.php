@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\LuxuryCars;
 use App\Entity\LuxuryCarsFR;
 use App\Entity\CarsImages;
+use App\Entity\LuxuryCarsAR;
 use App\Entity\Partners;
 use App\Entity\RequetePersonalisable;
 use App\Entity\RequetePersonalisableRepository;
@@ -30,6 +31,12 @@ class LuxuryCarsController extends AbstractController
     {
         $repo3=$em->getRepository(LuxuryCars::class);
         $images= $repo3->findAll();
+        $CarsTitle=array();
+        $CarsTitleTO=array();
+        $CarsDescription=array();
+        foreach($images as $key => $value){
+            $CarsTitleTo[$key]=$value->getTitle();
+        }
         foreach($images as $key=>$value){
             $value->setCarsImg(base64_encode(stream_get_contents($value->getCarsImg())));
         }
@@ -37,16 +44,38 @@ class LuxuryCarsController extends AbstractController
         if($lang=='fr'){
             $repo4=$em->getRepository(LuxuryCarsFR::class);
             $imagesFR= $repo4->findAll();
-            foreach($images as $key => $value){
-                $value->setTitle($imagesFR[$key]->getTitle());
-                $value->setCarsDesc($imagesFR[$key]->getCarsDesc());
-                
-    
+            foreach($imagesFR as $key => $value){
+                $CarsTitle[$key]=$value->getTitle();
+                $CarsTitleTO[$key]=$value->getTitle();
+                $CarsDescription[$key]=$value->getCarsDesc();
             }
-        }else {
+        }elseif($lang=='ar'){
+            $repo4=$em->getRepository(LuxuryCarsAR::class);
+            $imagesAR= $repo4->findAll();
+            foreach($imagesAR as $key => $value){
+                $CarsTitle[$key]=$value->getTitle();
+                $CarsDescription[$key]=$value->getCarsDesc();
+            }
+            $repo5=$em->getRepository(LuxuryCars::class);
+            $imagesen= $repo5->findAll();
+            foreach($imagesen as $key => $value){
+                
+                $CarsTitleTO[$key]=$value->getTitle();
+                
+            }
+        }
+        else {
+            $repo4=$em->getRepository(LuxuryCars::class);
+            $imagesFR= $repo4->findAll();
+            foreach($imagesFR as $key => $value){
+                $CarsTitle[$key]=$value->getTitle();
+                $CarsTitleTO[$key]=$value->getTitle();
+                $CarsDescription[$key]=$value->getCarsDesc();
+            }
 
         }
-        return $this->render('luxury_cars/index.html.twig',array('images'=>$images));
+        return $this->render('luxury_cars/index.html.twig',array('images'=>$images ,'CarsTitle'=>$CarsTitle,
+        'CarsTitleTO'=>$CarsTitleTO,'CarsDescription'=>$CarsDescription));
     } 
     
       /**
@@ -61,11 +90,23 @@ class LuxuryCarsController extends AbstractController
         $repo7=$em->getRepository(LuxuryCars::class);
         $carsEN= $repo7->findOneBy(array('id'=>$cars->getId()));
         $CarId=$carsEN->getId();
-        $carsEN->setTitle($cars->getTitle());
-        $carsEN->setCarsDesc($cars->getCarsDesc());
-    }else {
+        $carsTitle=$cars->getTitle();
+        $carsDesc=$cars->getCarsDesc();
+    }elseif($lang=='ar'){
+        
         $repo7=$em->getRepository(LuxuryCars::class);
         $carsEN= $repo7->findOneBy(array('title'=>$Resname));
+        $repo6=$em->getRepository(LuxuryCarsAR::class);
+        $cars= $repo6->findOneBy(array('id'=>$carsEN->getId()));
+        $CarId=$carsEN->getId();
+        $carsTitle=$cars->getTitle();
+        $carsDesc=$cars->getCarsDesc();
+    }
+    else {
+        $repo7=$em->getRepository(LuxuryCars::class);
+        $carsEN= $repo7->findOneBy(array('title'=>$Resname));
+        $carsTitle=$carsEN->getTitle();
+        $carsDesc=$carsEN->getCarsDesc();
         $CarId=$carsEN->getId();
     }
         $repo4=$em->getRepository(CarsImages::class);
@@ -111,7 +152,9 @@ class LuxuryCarsController extends AbstractController
                      }
         return $this->render('luxury_cars/cars.html.twig', [
             'CarsImages' => $CarsImages,'Cars' => $carsEN,
-            'form' => $form->createView()
+            'form' => $form->createView(),'carsTitle'=>$carsTitle,
+            'carsDesc'=>$carsDesc
+
         ]);
     }
 }

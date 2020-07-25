@@ -97,13 +97,13 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{Trip.TripName}} </h3>
-   <p style="font-family:'Brush Script MT';  font-size:30px; ">  {{Trip.PackPlanning}}  </p>
+   <h3 > {{VTripName}} </h3>
+   <p style="font-family:'Brush Script MT';  font-size:30px; ">  {{TripPlanning}}  </p>
    
    
    </div>
    <div class="facilitie">
-   <p  style=""> &nbsp; &#10003;  {{Trip.TripDescription|replace({',': "\n &nbsp; &#10003; "})|raw|nl2br}}  </p>
+   <p  style=""> &nbsp; &#10003;  {{TripDesc|replace({',': "\n &nbsp; &#10003; "})|raw|nl2br}}  </p>
     </div>
  </div>
  <center><div class="container">

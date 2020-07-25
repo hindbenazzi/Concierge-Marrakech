@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\PrivateResidence;
+use App\Entity\PrivateResidenceAR;
 use App\Entity\PrivateResidenceFR;
 use App\Entity\RequetePersonalisable;
 use App\Entity\RequetePersonalisableRepository;
@@ -29,23 +30,65 @@ class PrivateResidenceController extends AbstractController
     {
         $repo=$em->getRepository(PrivateResidence::class);
         $Residence= $repo->findAll();
+        $ResidenceTo=array();
+        $ResidenceName=array();
+        $ResidenceDesc=array();
+        $ResidenceFaci=array();
+        $ResidenceAdress=array();
+        foreach($Residence as $key => $value){
+            $ResidenceTo[$key]=$value->getName();
+        }
         $lang=$request->getSession()->get('_locale');
         if($lang=='fr'){
         $repo1=$em->getRepository(PrivateResidenceFR::class);
         $ResidenceFR= $repo1->findAll();
-        foreach($Residence as $key=>$value){
-            $value->setName($ResidenceFR[$key]->getName());
-            $value->setDescription($ResidenceFR[$key]->getDescription());
-            $value->setFacilities($ResidenceFR[$key]->getFacilities());
-            $value->setAdress($ResidenceFR[$key]->getAdress());
+        foreach($ResidenceFR as $key=>$value){
+            $ResidenceName[$key]=$value->getName();
+            $ResidenceDesc[$key]=$value->getDescription();
+            $ResidenceFaci[$key]=$value->getFacilities();
+            $ResidenceAdress[$key]=$value->getAdress();
+            
 
         }
-
-        }else{
-
+        foreach($ResidenceFR as $key => $value){
+            $ResidenceTo[$key]=$value->getName();
+        }
+        }elseif($lang=='ar'){
+            $repo1=$em->getRepository(PrivateResidenceAR::class);
+            $ResidenceAR= $repo1->findAll();
+            foreach($ResidenceAR as $key=>$value){
+                $ResidenceName[$key]=$value->getName();
+                $ResidenceDesc[$key]=$value->getDescription();
+                $ResidenceFaci[$key]=$value->getFacilities();
+                $ResidenceAdress[$key]=$value->getAdress();
+                
+    
+            }
+            $repo6=$em->getRepository(PrivateResidence::class);
+            $Residence= $repo6->findAll();
+            foreach($Residence as $key => $value){
+                $ResidenceTo[$key]=$value->getName();
+            }
+    
+            }else{
+          
+            $repo1=$em->getRepository(PrivateResidence::class);
+            $Residence= $repo1->findAll();
+            foreach($Residence as $key=>$value){
+                $ResidenceName[$key]=$value->getName();
+                $ResidenceDesc[$key]=$value->getDescription();
+                $ResidenceFaci[$key]=$value->getFacilities();
+                $ResidenceAdress[$key]=$value->getAdress();
+                
+    
+            }
+            foreach($Residence as $key => $value){
+                $ResidenceTo[$key]=$value->getName();
+            }
         }
         return $this->render('private_residence/index.html.twig', [
-            'Residences' => $Residence,
+            'Residences' => $Residence,'ResidenceTo'=>$ResidenceTo,'ResidenceName'=>$ResidenceName,
+            'ResidenceDesc'=>$ResidenceDesc,'ResidenceFaci'=>$ResidenceFaci,'ResidenceAdress'=>$ResidenceAdress
         ]);
     }
     /**
@@ -60,14 +103,30 @@ class PrivateResidenceController extends AbstractController
         $repo=$em->getRepository(PrivateResidence::class);
         $ResidenceEN= $repo->findOneBy(array('id'=>$Residence->getId()));
         $ResId=$ResidenceEN->getId();
-        $ResidenceEN->setName($Residence->getName());
-        $ResidenceEN->setDescription($Residence->getDescription());
-        $ResidenceEN->setFacilities($Residence->getFacilities());
-        $ResidenceEN->setAdress($Residence->getAdress());
-        }else{
+        $ResidenceName=$Residence->getName();
+        $ResidenceDesc=$Residence->getDescription();
+        $ResidenceFaci=$Residence->getFacilities();
+        $ResidenceAdress=$Residence->getAdress();
+        }elseif($lang=='ar'){
+            
+            $repo=$em->getRepository(PrivateResidence::class);
+            $ResidenceEN= $repo->findOneBy(array('Name'=>$Resname));
+            $repo2=$em->getRepository(PrivateResidenceAR::class);
+            $Residence= $repo2->findOneBy(array('id'=>$ResidenceEN->getId()));
+            $ResId=$ResidenceEN->getId();
+            $ResidenceName=$Residence->getName();
+            $ResidenceDesc=$Residence->getDescription();
+            $ResidenceFaci=$Residence->getFacilities();
+            $ResidenceAdress=$Residence->getAdress();
+            }
+        else{
         $repo=$em->getRepository(PrivateResidence::class);
         $ResidenceEN= $repo->findOneBy(array('Title'=>$Resname));
         $ResId=$ResidenceEN->getId();
+            $ResidenceName=$ResidenceEN->getName();
+            $ResidenceDesc=$ResidenceEN->getDescription();
+            $ResidenceFaci=$ResidenceEN->getFacilities();
+            $ResidenceAdress=$ResidenceEN->getAdress();
         }
         $repo1=$em->getRepository(ResidenceImages::class);
         $ResidenceImages=$repo1->findBy(array('ResidenceId'=>$ResId));
@@ -112,7 +171,8 @@ class PrivateResidenceController extends AbstractController
                      }
         return $this->render('private_residence/Residence.html.twig', [
             'ResidencesImages' => $ResidenceImages,'Residence' => $ResidenceEN,
-            'form' => $form->createView()
+            'form' => $form->createView(),'ResidenceName'=>$ResidenceName,'ResidenceDesc'=>$ResidenceDesc,
+            'ResidenceFaci'=>$ResidenceFaci,'ResidenceAdress'=>$ResidenceAdress
         ]);
     }
 }

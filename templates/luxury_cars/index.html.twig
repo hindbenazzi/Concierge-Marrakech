@@ -88,7 +88,7 @@
 {{message}}
 </div>
 {% endfor %}
-<center style="font-size: 23px" ><b> Our Luxury Cars<b></center><br>
+<center style="font-size: 23px" ><b> {% trans %}Our Luxury Cars{% endtrans %}<b></center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
   {% for image in images %}  
@@ -96,11 +96,11 @@
   <div class="card">
   <img id="img" class="card-img-top"  src="{{asset('../img/cars/' ~ image.ImgUrl)}}"/> 
   <div class="card-body">
-   <center> <b class="card-title">{{image.Title}}</b><center>
+   <center> <b class="card-title">{{CarsTitle[image.Id -1]}}</b><center>
     <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{image.Price}} MAD/Day</b><center>
     <div class="card-text">
-    <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{image.CarsDesc}}</p> </div>
-    <a href="{{path('luxury_cars_details',{Resname:image.Title})}}">
+    <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{CarsDescription[image.Id -1]}}</p> </div>
+    <a href="{{path('luxury_cars_details',{Resname:CarsTitleTO[image.Id -1]})}}">
     <button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a> 
   </div>
 </div>                  

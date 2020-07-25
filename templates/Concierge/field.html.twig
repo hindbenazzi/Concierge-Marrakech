@@ -98,8 +98,8 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{field.fieldDesc}} </h3>
-   <p>  {{field.Contenue}}  </p>
+   <h3 > {{fieldDescription}} </h3>
+   <p>  {{fieldContenue}}  </p>
    </div>
  </div>
  {% for fieldImage in fieldImages%}
@@ -123,8 +123,8 @@ margin: 0px;
     <label>{% trans %}Which services are you interested in?{% endtrans %}</label>
     <div class="selectWrapper">
     <select name="serviceSelected">
-    {% for service in services %}
-        <option>{{service.Title}}</option>
+    {% for key, value in serviceTitle %}
+        <option>{{value}}</option>
     {% endfor %}
     </select>
     </div>

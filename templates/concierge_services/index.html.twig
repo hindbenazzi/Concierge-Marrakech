@@ -90,12 +90,12 @@ margin: 0px;
              <img  style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/conciergeServices/' ~ Service.ImageURL)}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
-                  <a href="{{path('concierge_services_reservation',{Servicename:Service.title})}}" class="btn light">{% trans %}Go to Reservation {% endtrans %}</a>
+                  <a href="{{path('concierge_services_reservation',{Servicename:ServicesTo[Service.Id -1]})}}" class="btn light">{% trans %}Go to Reservation {% endtrans %}</a>
                 </div>
               </div>
             </div>
-            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ Service.title}}</h5>
-         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ Service.description}}</p>
+            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ serviceTitle[Service.Id -1]}}</h5>
+         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ serviceDescription[Service.Id -1]}}</p>
         
           </div>
           {% endfor %}
