@@ -11,6 +11,8 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
+
 
 
 
@@ -88,7 +90,11 @@
 {{message}}
 </div>
 {% endfor %}
-<center style="font-size: 23px" ><b> {% trans %}Our Luxury Cars{% endtrans %}<b></center><br>
+<center style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #ababab;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;" > {% trans %}Our Luxury Cars{% endtrans %}</center><br>
 </div>
         <div style="margin-top: 3%" class="row">        
   {% for image in images %}  
@@ -101,13 +107,13 @@
     <div class="card-text">
     <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{CarsDescription[image.Id -1]}}</p> </div>
     <a href="{{path('luxury_cars_details',{Resname:CarsTitleTO[image.Id -1]})}}">
-    <button class="form-control" id="reserv-btn">{% trans %}Reserve{% endtrans %}</button></a> 
+    <button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a> 
   </div>
 </div>                  
   </div>
   {%endfor%}
   </div>
-  <center><button class="form-control" id="reserv-btn">{% trans %}Reserve other cars{% endtrans %}</button></center>
+  
   </div>
   <div style="margin:20px;"></div>
 {%endblock%}

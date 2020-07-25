@@ -11,6 +11,7 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
 
 
 
@@ -89,7 +90,11 @@
 {{message}}
 </div>
 {% endfor %}
-<center style="font-size: 23px" ><b> {% trans %}Our Private Residences{% endtrans %}<b></center><br>
+<center style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #ababab;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;" > {% trans %}Our Private Residences{% endtrans %}</center><br>
 </div>
 <div style="margin-top: 3%" class="row">        
   {% for Residence in Residences %}  
@@ -106,7 +111,7 @@
     
     </div><a href="{{path('private_residence_details',{Resname:ResidenceTo[Residence.Id -1]})}}"> 
     
-    <button class="form-control" id="reserv-btn">{% trans %}Show Details{% endtrans %}</button></a>
+    <button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a>
   </div>
 </div>                
   </div>
