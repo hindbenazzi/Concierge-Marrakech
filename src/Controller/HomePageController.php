@@ -60,7 +60,7 @@ class HomePageController extends AbstractController
         }
         
         }
-        if($lang=='ar'){
+        elseif($lang=='ar'){
             $repo3=$em->getRepository(FieldsAR::class);
             $fieldsar=$repo3->findAll();
             $repo4=$em->getRepository(TestimonialsAR::class);
@@ -78,7 +78,7 @@ class HomePageController extends AbstractController
         
                 }
             }
-        if($lang=='en'){
+        else{
         $repo5=$em->getRepository(Fields::class);
         $fieldsen=$repo5->findAll();
         $repo6=$em->getRepository(Testimonials::class);

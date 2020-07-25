@@ -82,7 +82,7 @@
                   <div class="header-language">
                     <button class="header-btn">
                     <i class="fa fa-globe"></i>
-                    EN
+                    {{ app.session.get('_locale')|upper}}
                     </button>
                     <nav class="header-form" >
                       <ul class="custom-list" style="width:80px;">
