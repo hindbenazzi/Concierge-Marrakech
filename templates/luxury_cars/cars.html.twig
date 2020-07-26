@@ -12,6 +12,7 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
     <style>
    
     .img-res{
@@ -86,10 +87,14 @@ margin: 0px;
 {% block body %}
 <div class="row" style="margin-top:30px;">
   <div class="col-lg-12 preamble">
-   <h3 > {{carsTitle}} </h3>
-   <h3 > {{Cars.Price}} MAD/Day </h3>
+   <h3  style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #b30000;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;"> {{carsTitle}} </h3><br>
+   <h3 > {{Cars.Price}} MAD/Day </h3><br> 
    </div>
-   <p style="margin-left:350px; font-family:'Brush Script MT';  font-size:30px;"> &#10003;  {{carsDesc|replace({',': "\n &#10003; "})|raw|nl2br}}  </p>
+   <p style="margin-left:350px; font-family:'Montserrat', sans-serif;  font-size:30px;"> &#10003;  {{carsDesc|replace({',': "\n &#10003; "})|raw|nl2br}}  </p>
  </div>
  <center><div class="container">
  {% for carImage in CarsImages %}
@@ -99,7 +104,11 @@ margin: 0px;
  </div></center>
 <div class="separator" >
 <center>
-<h1 style="font-family:'Brush Script MT';  font-size:80px; color:white;">{% trans %}Reserve{% endtrans %}</h1>
+<h1 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: white;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 70px;
+    line-height: 1em;">{% trans %}Reservation & Infos{% endtrans %}</h1>
 </center>
 </div>
 

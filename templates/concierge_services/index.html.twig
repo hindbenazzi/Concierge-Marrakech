@@ -11,6 +11,7 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
     
   
     <style>
@@ -80,7 +81,11 @@ margin: 0px;
 {{message}}
 </div>
 {% endfor %}
-   <center><h1>{% trans %}Concierge services{% endtrans %}</h1></center>
+   <center><h1 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #ababab;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;">{% trans %}Concierge Services{% endtrans %}</h1></center>
    </div>
   
  {% for Service in Services%}
@@ -94,8 +99,12 @@ margin: 0px;
                 </div>
               </div>
             </div>
-            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ serviceTitle[Service.Id -1]}}</h5>
-         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ serviceDescription[Service.Id -1]}}</p>
+            <h5 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #b34d4d;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1em;">{{ serviceTitle[Service.Id -1]}}</h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{{ serviceDescription[Service.Id -1]}}</p>
         
           </div>
           {% endfor %}

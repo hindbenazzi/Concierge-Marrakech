@@ -12,6 +12,7 @@
     <link href='../css/owl.carousel.css' rel="stylesheet">
     <link href='../css/style.css' rel="stylesheet">
     <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
     
   
     <style>
@@ -76,22 +77,30 @@
         <div class="row">
           <!-- Start Preamble -->
           <div class="col-lg-12 preamble">
-            <h1 style="font-family:'Brush Script MT';">{% trans %}About Concierge{% endtrans %}<span lang="fr"> {% trans %}Marrakech{% endtrans %}</span></h3>
+            <h1 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #ababab;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;">{% trans %}About Concierge{% endtrans %}<span lang="fr"> {% trans %}Marrakech{% endtrans %}</span></h3>
             <img src="img/divisor.png" alt="" class="divisor">
-            <p style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.{% endtrans %}</p>
-            <p style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
+            <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}Located in Marrakech , we offer luxury concierge services all over Morocco. We propose a variety of services starting from door to door concierge service to luxury cars and palaces location.{% endtrans %}</p>
+            <p style="font-family:'Montserrat', sans-serif;  font-size:24px;"> {% trans %}We invite you to indulge your passions on an immersive, small group journey, offering the perfect blend 
             of guided and independent exploration.{% endtrans %}</p>
             
-            <p style="font-family:'Brush Script MT'; font-size:26px;"> {% trans %}It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
+            <p style="font-family:'Montserrat', sans-serif;  font-size:24px;"> {% trans %}It’s now easier than ever to plan and book your whole vacation—where you have the whole house to yourself,
              and the only thing you have to share is creating memories.{% endtrans %}
              </p>
-            <p> <h2 style="font-family:'Brush Script MT';">{% trans %}Our promises:{% endtrans %} </h3>
+            <p> <h2 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #ababab;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;">{% trans %}Our promises:{% endtrans %} </h3>
              </p>
-             <p ><h5 style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}0% client comission {% endtrans %} <BR>
+             <p ><h5 style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}0% client comission {% endtrans %} <BR>
              {% trans %}You pay the same price if go directly to services providers{% endtrans %}</h5>
              </p>
-            <p> <h5 style="font-family:'Brush Script MT';  font-size:26px;"> {% trans %}We trust our clients No prepayment is needed payment on arrival {% endtrans %}</h5></p>
-             <p><h5 style="font-family:'Brush Script MT';  font-size:26px;">{% trans %}We get you the bests deals for the best products {% endtrans %}</h5></p>
+            <p> <h5 style="font-family:'Montserrat', sans-serif;  font-size:24px;"> {% trans %}We trust our clients No prepayment is needed payment on arrival {% endtrans %}</h5></p>
+             <p><h5 style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}We get you the bests deals for the best products {% endtrans %}</h5></p>
           </div>
           <!-- End Preamble -->
              {% for field in fields%}
@@ -105,8 +114,12 @@
                 </div>
               </div>
             </div>
-            <h5 style="font-family:'Brush Script MT';  font-size:35px;">{{ fieldName[field.Id -1]}}</h5>
-         <p style="font-family:'Brush Script MT';  font-size:26px;">{{ fieldDescription[field.Id -1]}}</p>
+            <h5 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #b34d4d;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1em;">{{ fieldName[field.Id -1]}}</h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{{ fieldDescription[field.Id -1]}}</p>
         
           </div>
           {% endfor %}
