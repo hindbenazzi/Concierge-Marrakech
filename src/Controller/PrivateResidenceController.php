@@ -121,7 +121,7 @@ class PrivateResidenceController extends AbstractController
             }
         else{
         $repo=$em->getRepository(PrivateResidence::class);
-        $ResidenceEN= $repo->findOneBy(array('Title'=>$Resname));
+        $ResidenceEN= $repo->findOneBy(array('Name'=>$Resname));
         $ResId=$ResidenceEN->getId();
             $ResidenceName=$ResidenceEN->getName();
             $ResidenceDesc=$ResidenceEN->getDescription();
