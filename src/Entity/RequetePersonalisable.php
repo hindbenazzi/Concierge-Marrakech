@@ -77,6 +77,11 @@ class RequetePersonalisable
      */
     private $TripId;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $NumberOfPersons;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -198,6 +203,18 @@ class RequetePersonalisable
     public function setTripId(?VIPTrips $TripId): self
     {
         $this->TripId = $TripId;
+
+        return $this;
+    }
+
+    public function getNumberOfPersons(): ?int
+    {
+        return $this->NumberOfPersons;
+    }
+
+    public function setNumberOfPersons(?int $NumberOfPersons): self
+    {
+        $this->NumberOfPersons = $NumberOfPersons;
 
         return $this;
     }

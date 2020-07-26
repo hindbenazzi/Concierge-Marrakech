@@ -16,6 +16,14 @@
     
   
     <style>
+    .btnT{
+      width:150px;
+      height:45px;
+      border-radius:5px;
+      background-color: #1e2e42;
+      color:white;
+      font-size:20px;
+    }
     @media screen and (max-width:900px){
     .part{
         min-width: 95%;
@@ -37,10 +45,11 @@
 {% block banner%}
 <div id="banner">
         <div class="banner-bg">
-          <div class="banner-bg-item"><img src="img/banner-bg-1X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-2X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-3X.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/banner-bg-4X.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/slider/akinslid2.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/slider/slide1.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/slider/slide.jpg" alt=""></div>
+          <div class="banner-bg-item"><img src="img/slider/transEvenement.jfif" alt=""></div>
+          <div class="banner-bg-item"><img src="img/slider/royal_mansour_marrakech.jpg" alt=""></div>
         </div>
 
 
@@ -103,14 +112,14 @@
              <p><h5 style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}We get you the bests deals for the best products {% endtrans %}</h5></p>
           </div>
           <!-- End Preamble -->
-             {% for field in fields%}
+             <!--luxury cars -->
           <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
             <div class="overlay">
               
-             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/field/' ~ field.FieldPictureURL)}}"/>
+             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/luxurycars.jpg')}}"/>
               <div  class="overlay-shadow">
                 <div  class="overlay-content">
-                  <a href="{{path('fields',{id:field.id})}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
+                  <a href="{{path('app_luxuryCars')}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
                 </div>
               </div>
             </div>
@@ -118,11 +127,72 @@
     text-rendering: optimizeLegibility;
     text-transform: none;
     font-size: 35px;
-    line-height: 1em;">{{ fieldName[field.Id -1]}}</h5>
-         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{{ fieldDescription[field.Id -1]}}</p>
+    line-height: 1em;"><b>{% trans %}Luxury Cars{% endtrans %}</b></h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}You will find at Concierge Marrakech luxury cars for purchase or rental{% endtrans %}</p>
         
           </div>
-          {% endfor %}
+
+         <!--private residence -->
+          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
+            <div class="overlay">
+              
+             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/Residence3main.jpeg')}}"/>
+              <div  class="overlay-shadow">
+                <div  class="overlay-content">
+                  <a href="{{path('private_residence')}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
+                </div>
+              </div>
+            </div>
+            <h5 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #b34d4d;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1em;"><b>{% trans %}Private Residence{% endtrans %}</b></h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best  in the ocher city{% endtrans %}</p>
+        
+          </div>
+         
+         <!--private palace -->
+          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
+            <div class="overlay">
+              
+             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/mimouna.jpg')}}"/>
+              <div  class="overlay-shadow">
+                <div  class="overlay-content">
+                  <a href="{{path('app_privatepalace')}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
+                </div>
+              </div>
+            </div>
+            <h5 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #b34d4d;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1em;"><b>{% trans %}Private Palace{% endtrans %}</b></h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}With family, friends or lovers; To visit, discover, practice an activity or rest, we offer you the best palaces in the ocher city{% endtrans %}</p>
+        
+          </div>
+
+
+         <!--Vip Trips -->
+          <div class="col-lg-3 col-md-3 col-sm-6 feature text-center">
+            <div class="overlay">
+              
+             <img style="width:330px;height: 273px;border-radius: 10px;" class="img-center" src="{{asset('../img/Trip21.jpeg')}}"/>
+              <div  class="overlay-shadow">
+                <div  class="overlay-content">
+                  <a href="{{path('app_vipTrips')}}" class="btn light">{% trans %}Read More{% endtrans %}</a>
+                </div>
+              </div>
+            </div>
+            <h5 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:10% ; color: #b34d4d;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1em;"><b>{% trans %}Vip Trips{% endtrans %}</b></h5>
+         <p style="font-family:'Montserrat', sans-serif;  font-size:24px;">{% trans %}With family, friends or lovers; To visit, discover Morocco especially Marrakech , we offer you the best trips in the world{% endtrans %}</p>
+        
+          </div>
+          
           
         </div>
       </div>
@@ -195,6 +265,10 @@
                 <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
                 <p>{% trans %}Experience and Class{% endtrans %}</p>
               </li>
+              <li data-href="#services">
+                <h5>{% trans %}Concierge Services{% endtrans %}</h5>
+                <p>{% trans %}Everithing your need{% endtrans %}</p>
+              </li>
               <li data-href="#ourlocs">
                 <h5>{% trans %}Our Locations{% endtrans %}</h5>
                 <p>{% trans %}We Are Available{% endtrans %}</p>
@@ -213,27 +287,42 @@
               <li id="fleet" data-bgimage="img/marrakech-night.jpg">
                 <div class="heading">
                   <h5>{% trans %}Marrakech by night{% endtrans %}</h5>
-                  <p>{% trans %}Modern. Safe. Luxurious.{% endtrans %}</p>
+                  <p>{% trans %}Modern. Safe. Luxurious.{% endtrans %}</p><br>
+                  <a><button class="btnT">Show Details</button></a>
                 </div>
                 <cite></cite>
               </li>
               <!-- End Fleet -->
 
+             
               <!-- Start Drivers -->
               <li id="drivers" data-bgimage="img/driver.JPG">
                 <div class="heading">
                   <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
-                  <p>{% trans %}Experience and Class{% endtrans %}</p>
+                  <p>{% trans %}Experience and Class{% endtrans %}</p><br>
+                  <a><button class="btnT">Show Details</button></a>
                 </div>
+                
                 <cite></cite>
               </li>
               <!-- End Drivers -->
-
+             <!-- Start Services -->
+              <li id="services" data-bgimage="img/driver.JPG">
+                <div class="heading">
+                  <h5>{% trans %}Concierge Services{% endtrans %}</h5>
+                  <p>{% trans %}Everithing your need{% endtrans %}</p><br>
+                  <a href="{{path('concierge_services')}}"><button class="btnT">Show Details</button></a>
+                </div>
+                
+                <cite></cite>
+              </li>
+              <!-- End Services -->
               <!-- Start Ourlocs -->
               <li id="ourlocs" data-bgimage="img/location.JPG">
                 <div class="heading">
                   <h5>{% trans %}Our Locations{% endtrans %}</h5>
-                  <p>{% trans %}We Are Available{% endtrans %}</p>
+                  <p>{% trans %}We Are Available{% endtrans %}</p><br>
+                  <a><button class="btnT">Show Details</button></a>
                 </div>
                 <cite></cite>
               </li>          

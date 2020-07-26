@@ -98,14 +98,14 @@
         <div style="margin-top: 3%" class="row">        
   {% for Trip in Trips %}  
   <div class="col-md-3">
-  <div class="card">
+  <div class="card" style="margin-bottom:20px;">
   <img id="img" class="card-img-top"  src="{{asset('../img/Trips/' ~ Trip.TripImageURL)}}"/> 
   <div class="card-body">
    <center> <b class="card-title">{{TripName[Trip.Id -1]}}</b><center>
     <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{Trip.Price}} </b><center>
     <div class="card-text">
     <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{TripPlanning[Trip.Id -1]}}</p> </div>
-    <a href="{{path('Trips_details',{TripName:TripTo[Trip.Id -1]})}}"><button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a>
+    <a href="{{path('Trips_details',{TripName:TripTo[Trip.Id -1]})}}"><button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a><br>
   </div>
 </div>                  
   </div>

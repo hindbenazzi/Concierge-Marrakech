@@ -126,6 +126,7 @@ class VipTripsController extends AbstractController
                      ->add('Full_Name', TextType::class)
                      ->add('Telephone', TextType::class)
                      ->add('Email', TextType::class)
+                     ->add('NumberOfPersons', TextType::class)
                      ->add('StartingON', DateTimeType::class, [
                       'time_label' => 'From'
                   ])

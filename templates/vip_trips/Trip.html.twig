@@ -123,7 +123,7 @@ margin: 0px;
     text-rendering: optimizeLegibility;
     text-transform: none;
     font-size: 70px;
-    line-height: 1em;">{% trans %}Reservation & Infos {% endtrans %}</h1>
+    line-height: 1em; padding-top:10px;">{% trans %}Reservation & Infos {% endtrans %}</h1>
 </center>
 </div>
 
@@ -137,6 +137,8 @@ margin: 0px;
     {{ form_widget(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
     <b>{% trans %}Email:{% endtrans %}</b>
     {{ form_widget(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
+    <b>{% trans %}Number of persons:{% endtrans %}</b>
+    {{ form_widget(form.NumberOfPersons) }}
     <b>{% trans %}From:{% endtrans %}</b>
     {{ form_widget(form.StartingON) }}
     <b>{% trans %}To:{% endtrans %}</b>

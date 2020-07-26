@@ -101,7 +101,7 @@ margin: 10px;
   <div class="col-md-3">
   <div class="card">
   <img id="img" class="card-img-top"  src="{{asset('../img/palace/' ~ photo.ImgUrl)}}"/> 
-  <div class="card-body">
+  <div class="card-body" style="margin-bottom:20px;">
    <center> <b class="card-title">{{PalaceTitle[photo.Id -1]}}</b><center>
     <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{photo.Price}}</b><center>
     <div id="description" class="card-text">
@@ -113,7 +113,7 @@ margin: 10px;
     
     </div>
     <a href="{{path('private_palace_details',{Resname:PalaceTo[photo.Id -1]})}}"> 
-    <button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a> 
+    <button class="form-control" id="reserv-btn">{% trans %}Show More Details{% endtrans %}</button></a><br>
   </div>
 </div>                  
   </div>
