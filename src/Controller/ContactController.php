@@ -24,21 +24,22 @@ class ContactController extends AbstractController
         $rec=new Reclamation();
         $repo2=$em->getRepository(Partners::class);
         $Partners=$repo2->findAll();
+        $submiMessage=$translator->trans('Send_Request');
         $form = $this->createFormBuilder($rec)
         ->add('Name', TextType::class)
         ->add('Phone', TextType::class)
         ->add('Email', TextType::class)
         ->add('Topic', TextType::class)
         ->add('Message', TextareaType::class)
-        ->add('Send_Request', SubmitType::class)
+        ->add($submiMessage, SubmitType::class)
         ->getForm();
 $form->handleRequest($request);
 if ($form->isSubmitted() && $form->isValid()) {
     $em->persist($rec);
     $em->flush();
     $message = (new \Swift_Message('Emaile de Reclamation/Demande d\'information '))
-    ->setFrom('hindouxa.hida@gmail.com')
-    ->setTo('hindb788@gmail.com')
+    ->setFrom('useremail@concierge-marrakech.ma')
+    ->setTo('contact@concierge-marrakech.ma')
     ->setBody( $this->renderView(
       'contact/email.txt.twig',
       ['Name' => $rec->getName(),'Phone' => $rec->getPhone(),'Email' => $rec->getEmail()

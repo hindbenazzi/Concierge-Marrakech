@@ -43,7 +43,7 @@
 
           <!-- Start Header-Tool-Bar -->
           <div class="header-tool-bar">
-            <div class="container">
+            <div class="container" style="width:95%;">
               <div class="row">
 
                 <!-- Start Header-Left -->
@@ -88,10 +88,10 @@
                       <ul class="custom-list" style="width:80px;">
                         <li ><a href="{{path('translation',{locale:'en'})}}"><img style="width:30px; height:30px; " src="img/flags/united-states.png" style="display:inline-block;">EN</a></li>
                         <li ><a href="{{path('translation',{locale:'fr'})}}" ><img style="width:30px; height:30px; " src="img/flags/france.png" style="display:inline-block;">FR</a></li>
-                        <li><a href="{{path('translation',{locale:'es'})}}"><img style="width:30px; height:30px; " src="img/flags/spain.png" style="display:inline-block;">ES</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="img/flags/spain.png" style="display:inline-block;">ES</a></li>
                         <li><a href="{{path('translation',{locale:'ar'})}}"><img style="width:30px; height:30px; " src="img/flags/morocco.png" style="display:inline-block;">AR</a></li>
-                        <li><a href="{{path('translation',{locale:'rus'})}}"><img style="width:30px; height:30px; " src="img/flags/russia.png" style="display:inline-block;">Rus</a></li>
-                        <li><a href="{{path('translation',{locale:'chi'})}}"><img style="width:30px; height:30px; "src="img/flags/china.png" style="display:inline-block;">Chi</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="img/flags/russia.png" style="display:inline-block;">Rus</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; "src="img/flags/china.png" style="display:inline-block;">Chi</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -201,7 +201,7 @@
               <div class="col-lg-4 col-md-4 widget widget-newsletter">
                 <h5>{% trans %}Newsletter{% endtrans %}</h5>
                 <form class="default-form">
-                  <input type="text" name="newsletter" placeholder="Your Email Here">
+                  <input type="text" name="newsletter" >
                   <button class="btn light">{% trans %}Sign Up{% endtrans %}</button>
                 </form>
               </div>

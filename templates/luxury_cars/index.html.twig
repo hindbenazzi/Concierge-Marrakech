@@ -103,7 +103,7 @@
   <img id="img" class="card-img-top"  src="{{asset('../img/cars/' ~ image.ImgUrl)}}"/> 
   <div class="card-body">
    <center> <b class="card-title">{{CarsTitle[image.Id -1]}}</b><center>
-    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{image.Price}} MAD/Day</b><center>
+    <center><b class="card-title"> {% trans %}Price:{% endtrans %}{{image.Price}} {% trans %}MAD/Day{% endtrans %}</b><center>
     <div class="card-text">
     <p id="description"><b> {% trans %}Characteristics:{% endtrans %}</b>{{CarsDescription[image.Id -1]}}</p> </div>
     <a href="{{path('luxury_cars_details',{Resname:CarsTitleTO[image.Id -1]})}}">

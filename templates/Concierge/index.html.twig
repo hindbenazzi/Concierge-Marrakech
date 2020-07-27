@@ -2,7 +2,7 @@
 
 {% block title %}Concierge Home{% endblock %}
 {% block stylesheets %}
-           <!-- GOOGLE FONTS-->
+    <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
     
@@ -267,7 +267,7 @@
               </li>
               <li data-href="#services">
                 <h5>{% trans %}Concierge Services{% endtrans %}</h5>
-                <p>{% trans %}Everithing your need{% endtrans %}</p>
+                <p>{% trans %}Everything you need {% endtrans %}</p>
               </li>
               <li data-href="#ourlocs">
                 <h5>{% trans %}Our Locations{% endtrans %}</h5>
@@ -288,7 +288,7 @@
                 <div class="heading">
                   <h5>{% trans %}Marrakech by night{% endtrans %}</h5>
                   <p>{% trans %}Modern. Safe. Luxurious.{% endtrans %}</p><br>
-                  <a><button class="btnT">Show Details</button></a>
+                  <a href="{{path('Marrakech-by-night')}}"><button class="btnT">{% trans %}Show Details{% endtrans %}</button></a>
                 </div>
                 <cite></cite>
               </li>
@@ -300,7 +300,7 @@
                 <div class="heading">
                   <h5>{% trans %}Drivers On Call{% endtrans %}</h5>
                   <p>{% trans %}Experience and Class{% endtrans %}</p><br>
-                  <a><button class="btnT">Show Details</button></a>
+                  <a href="#"><button class="btnT">{% trans %}Show Details{% endtrans %}</button></a>
                 </div>
                 
                 <cite></cite>
@@ -310,8 +310,8 @@
               <li id="services" data-bgimage="img/driver.JPG">
                 <div class="heading">
                   <h5>{% trans %}Concierge Services{% endtrans %}</h5>
-                  <p>{% trans %}Everithing your need{% endtrans %}</p><br>
-                  <a href="{{path('concierge_services')}}"><button class="btnT">Show Details</button></a>
+                  <p>{% trans %}Everything you need{% endtrans %}</p><br>
+                  <a href="{{path('concierge_services')}}"><button class="btnT">{% trans %}Show Details{% endtrans %}</button></a>
                 </div>
                 
                 <cite></cite>
@@ -322,7 +322,7 @@
                 <div class="heading">
                   <h5>{% trans %}Our Locations{% endtrans %}</h5>
                   <p>{% trans %}We Are Available{% endtrans %}</p><br>
-                  <a><button class="btnT">Show Details</button></a>
+                  <a href="#"><button class="btnT">{% trans %}Show Details{% endtrans %}</button></a>
                 </div>
                 <cite></cite>
               </li>          

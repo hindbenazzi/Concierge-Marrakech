@@ -117,18 +117,19 @@ margin: 0px;
  {{ form_start(form) }}
     
     <b>{% trans %}Full Name:{% endtrans %}</b>
-    {{ form_widget(form.Full_Name,{'attr':{'placeholder':"Your Full Name"}}) }}
+    {{ form_widget(form.Full_Name) }}
     <b>{% trans %}Telephone:{% endtrans %}</b>
-    {{ form_widget(form.Telephone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
+    {{ form_widget(form.Telephone) }}
     <b>{% trans %}Email:{% endtrans %}</b>
-    {{ form_widget(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
+    {{ form_widget(form.Email) }}
     <b>{% trans %}Number of persons:{% endtrans %}</b>
     {{ form_widget(form.NumberOfPersons) }}
     <b>{% trans %}From:{% endtrans %}</b>
     {{ form_widget(form.StartingON) }}
     <b>{% trans %}To:{% endtrans %}</b>
     {{ form_widget(form.FinishingON) }}
-    {{ form_row(form.message,{'attr':{'placeholder':"Describe the service you desire with more details",'rows':"10"}}) }}
+    <b>{% trans %}Message:{% endtrans %}</b>
+    {{ form_widget(form.message,{'attr':{'rows':"10"}}) }}<br>
     {{ form_end(form) }}
 </div>
 
@@ -144,20 +145,20 @@ margin: 0px;
  {% endblock %}
  {% block lang %}
       
-                 <!-- Start Header-Language -->
+                  <!-- Start Header-Language -->
                   <div class="header-language">
                     <button class="header-btn">
                     <i class="fa fa-globe"></i>
-                    EN
+                    {{ app.session.get('_locale')|upper}}
                     </button>
                     <nav class="header-form" >
                       <ul class="custom-list" style="width:80px;">
                         <li ><a href="{{path('translation',{locale:'en'})}}"><img style="width:30px; height:30px; " src="../img/flags/united-states.png" style="display:inline-block;">EN</a></li>
                         <li ><a href="{{path('translation',{locale:'fr'})}}" ><img style="width:30px; height:30px; " src="../img/flags/france.png" style="display:inline-block;">FR</a></li>
-                        <li><a href="{{path('translation',{locale:'es'})}}"><img style="width:30px; height:30px; " src="../img/flags/spain.png" style="display:inline-block;">ES</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="../img/flags/spain.png" style="display:inline-block;">ES</a></li>
                         <li><a href="{{path('translation',{locale:'ar'})}}"><img style="width:30px; height:30px; " src="../img/flags/morocco.png" style="display:inline-block;">AR</a></li>
-                        <li><a href="{{path('translation',{locale:'rus'})}}"><img style="width:30px; height:30px; " src="../img/flags/russia.png" style="display:inline-block;">Rus</a></li>
-                        <li><a href="{{path('translation',{locale:'chi'})}}"><img style="width:30px; height:30px; "src="../img/flags/china.png" style="display:inline-block;">Chi</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="../img/flags/russia.png" style="display:inline-block;">Rus</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; "src="../img/flags/china.png" style="display:inline-block;">Chi</a></li>
                       </ul>
                     </nav>
                   </div>

@@ -125,16 +125,16 @@ height:148px;
                   <div class="header-language">
                     <button class="header-btn">
                     <i class="fa fa-globe"></i>
-                    EN
+                    {{ app.session.get('_locale')|upper}}
                     </button>
                     <nav class="header-form" >
                       <ul class="custom-list" style="width:80px;">
                         <li ><a href="{{path('translation',{locale:'en'})}}"><img style="width:30px; height:30px; " src="img/flags/united-states.png" style="display:inline-block;">EN</a></li>
                         <li ><a href="{{path('translation',{locale:'fr'})}}" ><img style="width:30px; height:30px; " src="img/flags/france.png" style="display:inline-block;">FR</a></li>
-                        <li><a href="{{path('translation',{locale:'es'})}}"><img style="width:30px; height:30px; " src="img/flags/spain.png" style="display:inline-block;">ES</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="img/flags/spain.png" style="display:inline-block;">ES</a></li>
                         <li><a href="{{path('translation',{locale:'ar'})}}"><img style="width:30px; height:30px; " src="img/flags/morocco.png" style="display:inline-block;">AR</a></li>
-                        <li><a href="{{path('translation',{locale:'rus'})}}"><img style="width:30px; height:30px; " src="img/flags/russia.png" style="display:inline-block;">Rus</a></li>
-                        <li><a href="{{path('translation',{locale:'chi'})}}"><img style="width:30px; height:30px; "src="img/flags/china.png" style="display:inline-block;">Chi</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="img/flags/russia.png" style="display:inline-block;">Rus</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; "src="img/flags/china.png" style="display:inline-block;">Chi</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -216,15 +216,15 @@ height:148px;
           </div>
            {{ form_start(form) }}
     <b>{% trans %}Full Name:{% endtrans %}</b>
-    {{ form_widget(form.Name,{'attr':{'placeholder':"Your Full Name"}}) }}
+    {{ form_widget(form.Name) }}
     <b>{% trans %}Telephone:{% endtrans %}</b>
-    {{ form_widget(form.Phone,{'attr':{'placeholder':"Your Telephone Number"}}) }}
+    {{ form_widget(form.Phone) }}
     <b>{% trans %}Email:{% endtrans %}</b>
-    {{ form_widget(form.Email,{'attr':{'placeholder':"Your Email Adresse"}}) }}
+    {{ form_widget(form.Email) }}
     <b>{% trans %}Topic:{% endtrans %}</b>
-    {{ form_widget(form.Topic,{'attr':{'placeholder':"Topic of the message"}}) }}
+    {{ form_widget(form.Topic) }}
     <b>{% trans %}How can we help you ?{% endtrans %}</b>
-    {{ form_widget(form.Message,{'attr':{'placeholder':"How can we help you ?",'rows':"7"}}) }}
+    {{ form_widget(form.Message,{'attr':{'rows':"7"}}) }}
     <br>
     {{ form_end(form) }}
           
@@ -291,7 +291,7 @@ height:148px;
               <div class="col-lg-4 col-md-4 widget widget-newsletter">
                 <h5>{% trans %}Newsletter{% endtrans %}</h5>
                 <form class="default-form">
-                  <input type="text" name="newsletter" placeholder="Your Email Here">
+                  <input type="text" name="newsletter" >
                   <button class="btn light">{% trans %}Sign Up{% endtrans %}</button>
                 </form>
               </div>

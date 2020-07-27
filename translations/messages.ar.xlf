@@ -351,7 +351,7 @@ get back to you immediately. Alternatively, you can email</source>
       </trans-unit>
       <trans-unit id="zjc.iu9" resname="Send_Request">
         <source>Send_Request</source>
-        <target>__Send_Request</target>
+        <target>Send_Request</target>
       </trans-unit>
       <trans-unit id="Bz39cRn" resname="Mr Monsif Senhaji">
         <source>Mr Monsif Senhaji</source>
@@ -376,6 +376,66 @@ get back to you immediately. Alternatively, you can email</source>
       <trans-unit id="hYorkBI" resname="Experience and Class">
         <source>Experience and Class</source>
         <target>الخبرة والفخامة</target>
+      </trans-unit>
+      <trans-unit id="41mdKvd" resname="Concierge Services">
+        <source>Concierge Services</source>
+        <target>خدمات كونسيرج</target>
+      </trans-unit>
+      <trans-unit id="rDTbS8c" resname="Everithing your need">
+        <source>Everithing your need</source>
+        <target>__Everithing your need</target>
+      </trans-unit>
+      <trans-unit id="cyHq_LZ" resname="Do you want to go out in Marrakech ?">
+        <source>Do you want to go out in Marrakech ?</source>
+        <target>هل تريد الخروج في مراكش؟</target>
+      </trans-unit>
+      <trans-unit id="KmZyc9L" resname="Marrakech concierge makes it easy for you to book (Moroccan Fantasia Chez Ali , Restaurants , night  Club including transport services)">
+        <source>Marrakech concierge makes it easy for you to book (Moroccan Fantasia Chez Ali , Restaurants , night  Club including transport services)</source>
+        <target>كونسيرج مراكش يسهل عليك الحجز (فانتازيا عند علي ، المطاعم ، النوادي الليلية مع في ذلك خدمات النقل)</target>
+      </trans-unit>
+      <trans-unit id="Q9CG6Vp" resname="Your Private Concierge in Marrakech , we make your vacations …the best">
+        <source>Your Private Concierge in Marrakech , we make your vacations …the best</source>
+        <target>بوابتك الخاصة نحو مراكش ، نجعل عطلاتك ... الأفضل</target>
+      </trans-unit>
+      <trans-unit id="qBZF7oB" resname="Reservation &amp; Infos">
+        <source>Reservation &amp; Infos</source>
+        <target>للمعلومات أو الحجز</target>
+      </trans-unit>
+      <trans-unit id="vigHoSN" resname="Reservation Place:">
+        <source>Reservation Place:</source>
+        <target>مكان الحجز:</target>
+      </trans-unit>
+      <trans-unit id="Y9YzXkV" resname="Number of persons:">
+        <source>Number of persons:</source>
+        <target>عدد الأشخاص:</target>
+      </trans-unit>
+      <trans-unit id="AhLk0bz" resname="Transport:">
+        <source>Transport:</source>
+        <target>المواصلات:</target>
+      </trans-unit>
+      <trans-unit id="9TlPcnn" resname="Message:">
+        <source>Message:</source>
+        <target>رسالة:</target>
+      </trans-unit>
+      <trans-unit id="gR9fTtN" resname="Our Luxury Cars">
+        <source>Our Luxury Cars</source>
+        <target>سياراتنا الفاخرة</target>
+      </trans-unit>
+      <trans-unit id="1iCi0Us" resname="MAD/Day">
+        <source>MAD/Day</source>
+        <target>درهم/ يوم</target>
+      </trans-unit>
+      <trans-unit id=".kJbJwz" resname="Show More Details">
+        <source>Show More Details</source>
+        <target>إظهار مزيد من التفاصيل</target>
+      </trans-unit>
+      <trans-unit id="4qJAZ0B" resname="Everything you need">
+        <source>Everything you need</source>
+        <target>كل ما تحتاجه</target>
+      </trans-unit>
+      <trans-unit id="fdBIezK" resname="yes, I also want transport to and from the place">
+        <source>yes, I also want transport to and from the place</source>
+        <target>نعم ، أريد أيضًا النقل من وإلى مكان الحجز</target>
       </trans-unit>
     </body>
   </file>

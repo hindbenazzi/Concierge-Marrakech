@@ -142,8 +142,8 @@ class VipTripsController extends AbstractController
           $em->persist($req);
           $em->flush();
           $message = (new \Swift_Message('Emaile de Reservation '))
-          ->setFrom('hindouxa.hida@gmail.com')
-          ->setTo('hindb788@gmail.com')
+          ->setFrom('useremail@concierge-marrakech.ma')
+          ->setTo('contact@concierge-marrakech.ma')
           ->setBody( $this->renderView(
             'vip_trips/email.txt.twig',
             ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail()
