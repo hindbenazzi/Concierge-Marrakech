@@ -484,6 +484,39 @@ vous contactera immédiatement. Vous pouvez également envoyer un e-mail</target
         <source>Number of Guests:</source>
         <target>Nombre d'invités:</target>
       </trans-unit>
+      <trans-unit id="Rg7IkU3" resname="Drivers on call">
+        <source>Drivers on call</source>
+        <target>Chauffeurs sur appel</target>
+      </trans-unit>
+      <trans-unit id="SgfallD" resname="You want to go out any hour of the day or night in Morocco ?">
+        <source>You want to go out any hour of the day or night in Morocco ?</source>
+        <target>Vous souhaitez sortir à toute heure du jour ou de la nuit au Maroc?</target>
+      </trans-unit>
+      <trans-unit id="zbGfuE9" resname="Dont  think too much , we have ererything  you needed  for you travels , juste choose the type of &#10;vehicles you want (class VIP cars , class van Vip)and driver language speaking , 30 minutes befor your &#10;departure to any destination you desire .">
+        <source>Dont  think too much , we have ererything  you needed  for you travels , juste choose the type of 
+vehicles you want (class VIP cars , class van Vip)and driver language speaking , 30 minutes befor your 
+departure to any destination you desire .</source>
+        <target>Ne réfléchissez pas trop, nous avons tout ce dont vous avez besoin pour vos voyages, 
+        il suffit de choisir le type des véhicules que vous souhaitez (voitures de classe VIP, fourgon
+         de classe Vip) et la langue du conducteur parlant, 30 minutes avant votre départ vers n'importe 
+         quelle destination que vous désirez.</target>
+      </trans-unit>
+      <trans-unit id="J7gHmP." resname="We are here to make your holidays very easy">
+        <source>We are here to make your holidays very easy</source>
+        <target>Nous sommes là pour rendre vos vacances très faciles</target>
+      </trans-unit>
+      <trans-unit id="Ku_wBVw" resname="Vehicule Type">
+        <source>Vehicule Type</source>
+        <target>Type de véhicule</target>
+      </trans-unit>
+      <trans-unit id="X3jr1j7" resname="Arrival place:">
+        <source>Arrival place:</source>
+        <target>Lieu d'arrivée:</target>
+      </trans-unit>
+      <trans-unit id="0wvNMFN" resname="Driver's language:">
+        <source>Driver's language:</source>
+        <target>Langue du chauffeur:</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

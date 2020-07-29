@@ -455,35 +455,65 @@ get back to you immediately. Alternatively, you can email</source>
       </trans-unit>
       <trans-unit id="iD4NfLr" resname="You will be impressed.">
         <source>You will be impressed.</source>
-        <target></target>
+        <target>ستكون راضيا.</target>
       </trans-unit>
       <trans-unit id="AMn_8lf" resname="You will receive competitive and current design trends.">
         <source>You will receive competitive and current design trends.</source>
-        <target>__You will receive competitive and current design trends.</target>
+        <target>سوف نوفر لك اخر صيحات الموضة.</target>
       </trans-unit>
       <trans-unit id="ZpVk4k." resname="You will enjoy convenience and time saving by using our services">
         <source>You will enjoy convenience and time saving by using our services</source>
-        <target>__You will enjoy convenience and time saving by using our services</target>
+        <target>سوف تستمتع بالراحة وتوفير الوقت باستخدام خدماتنا.</target>
       </trans-unit>
       <trans-unit id="NB7zcI5" resname="You will not be unfavorably surprised or disappointed.">
         <source>You will not be unfavorably surprised or disappointed.</source>
-        <target>__You will not be unfavorably surprised or disappointed.</target>
+        <target></target>
       </trans-unit>
       <trans-unit id="dKLyFSr" resname="You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.">
         <source>You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.</source>
-        <target>__You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.</target>
+        <target>سيتم منحك منتج حدث واحد من البداية إلى النهاية ، والذي يتم دعمه من قبل طاقم من المحترفين.</target>
       </trans-unit>
       <trans-unit id="Ac2ZAqP" resname="What Type of Events are you requesting ?">
         <source>What Type of Events are you requesting ?</source>
-        <target>__What Type of Events are you requesting ?</target>
+        <target>ما نوع المناسبات التي تطلبها؟</target>
       </trans-unit>
       <trans-unit id="QwDJLJS" resname="Number Guests:">
         <source>Number Guests:</source>
-        <target>__Number Guests:</target>
+        <target>عدد الضيوف:</target>
       </trans-unit>
       <trans-unit id="HzFY8XB" resname="Number of Guests:">
         <source>Number of Guests:</source>
-        <target>__Number of Guests:</target>
+        <target>عدد الضيوف:</target>
+      </trans-unit>
+      <trans-unit id="Rg7IkU3" resname="Drivers on call">
+        <source>Drivers on call</source>
+        <target>السائقين تحت الطلب</target>
+      </trans-unit>
+      <trans-unit id="SgfallD" resname="You want to go out any hour of the day or night in Morocco ?">
+        <source>You want to go out any hour of the day or night in Morocco ?</source>
+        <target>هل تريد الخروج في أي ساعة من النهار أو الليل في المغرب؟</target>
+      </trans-unit>
+      <trans-unit id="zbGfuE9" resname="Dont  think too much , we have ererything  you needed  for you travels , juste choose the type of &#10;vehicles you want (class VIP cars , class van Vip)and driver language speaking , 30 minutes befor your &#10;departure to any destination you desire .">
+        <source>Dont  think too much , we have ererything  you needed  for you travels , juste choose the type of 
+vehicles you want (class VIP cars , class van Vip)and driver language speaking , 30 minutes befor your 
+departure to any destination you desire .</source>
+        <target>لا تفكر كثيرا ، لدينا كل ما تحتاجه للسفر ، فقط اختر نوعالمركبات التي تريدها (سيارات VIP  ، فان فان فيب) وحدد لغة السائق ، 30 دقيقة قبل المغادرة إلى أي وجهة تريدها.</target>
+      </trans-unit>
+      <trans-unit id="J7gHmP." resname="We are here to make your holidays very easy">
+        <source>We are here to make your holidays very easy</source>
+        <target>نحن هنا لجعل عطلتك سهلة للغاية.</target>
+      </trans-unit>
+      <trans-unit id="Ku_wBVw" resname="Vehicule Type">
+        <source>Vehicule Type</source>
+        <target>نوع السيارة</target>
+      </trans-unit>
+      <trans-unit id="X3jr1j7" resname="Arrival place:">
+        <source>Arrival place:</source>
+        <target>المكان المقصود:</target>
+      </trans-unit>
+      <trans-unit id="0wvNMFN" resname="Driver's language:">
+        <source>Driver's language:</source>
+        <target>لغة السائق:</target>
       </trans-unit>
     </body>
   </file>

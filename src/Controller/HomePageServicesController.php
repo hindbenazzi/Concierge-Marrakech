@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\DriversOnCallRequete;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\MarrakechNightRequete;
@@ -72,6 +73,59 @@ class HomePageServicesController extends AbstractController
                      }
         return $this->render('home_page_services/MarrakechByNight.html.twig',['form' => $form->createView()]);
     }
+    /**
+     * @Route("/Drivers-on-call", name="Drivers-on-call")
+     */
+    public function DriversOnCall(EntityManagerInterface $em,Request $request,\Swift_Mailer $mailer,TranslatorInterface $translator)
+    {
+        $req=new DriversOnCallRequete();
+        $submiMessage=$translator->trans('Send_Request');
+       
+        $form = $this->createFormBuilder($req)
+                     ->add('Full_Name', TextType::class)
+                     ->add('Telephone', TextType::class)
+                     ->add('Email', TextType::class)
+                     ->add('VehiculeType', TextType::class)
+                     ->add('NumberOfPerson', TextType::class)
+                     ->add('ArrivalPlace', TextType::class)
+                     ->add('language', TextType::class)
+                     ->add('StartDate', DateTimeType::class, [
+                      'time_label' => 'From'
+                  ])
+                  ->add('EndDate', DateTimeType::class, [
+                      'time_label' => 'To'
+                  ])
+                     ->add('Message', TextareaType::class)
+                     ->add($submiMessage, SubmitType::class)
+                     ->getForm();
+                     $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+           
+          $em->persist($req);
+          $em->flush();
+          $message = (new \Swift_Message('Emaile de Reservation '))
+          ->setFrom('useremail@concierge-marrakech.ma')
+          ->setTo('contact@concierge-marrakech.ma')
+          ->setBody( $this->renderView(
+            'home_page_services/DriversOnCallEmail.txt.twig',
+            ['FullName' => $req->getFullName(),'Telephone' => $req->getTelephone(),'Email' => $req->getEmail(),'VehiculeType' =>$trans
+            ,'ArrivalPlace'=>$req->getArrivalPlace(),'language'=>$req->getLanguage(),'message' => $req->getMessage(), 'Du'=>date_format($req->getStartDate(),"Y/m/d H:i:s"),
+            'until'=>date_format($req->getEndDate(),"Y/m/d H:i:s")]
+        )
+          )
+      ;
+      $mailer->send($message);
+      $flashMessage=$translator->trans('Reserved Successfuly');
+      $this->addFlash(
+          'info',
+          $flashMessage
+      );
+          return $this->RedirectToRoute("app_home");
+                     }
+        return $this->render('home_page_services/DriversOnCall.html.twig',['form' => $form->createView()]);
+    }
+
+    
     /**
      * @Route("/Private-events", name="Private-events")
      */
