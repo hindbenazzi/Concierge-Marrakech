@@ -1,0 +1,196 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Concierge-Marrakech By Night{% endblock %}
+{% block stylesheets %}
+           <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    
+    <!-- STYLESHEETS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/owl.carousel.css' rel="stylesheet">
+    <link href='../css/style.css' rel="stylesheet">
+    <link href='../css/responsive.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <style>
+   
+    .img-res{
+  background: none;
+  width:350px;
+  height: 300px;
+  margin: 30px;
+  border-radius: 10px;
+  min-width: 270px;
+  min-height: 270px;
+
+}
+.separator{
+  width:100%;
+  height:100px;
+  background-color:#1e2e42;
+}
+.form-wrapper{
+  background-color:white;
+  border:solid #1e2e42; 
+  border-radius: 10px; 
+  margin:10px;
+  display:inline-block;
+}
+.contain{
+    width: 95%;
+    overflow: hidden;
+    margin: 20px ;
+    padding: 20px;
+}
+.list{
+padding: 0px;
+margin: 0px;
+}
+.part{
+    list-style: none;
+    float: left;
+    width: 45%;
+    margin: 30px;
+    
+}
+.img-res{
+    transition:1s;
+}
+.img-res:hover{
+    
+    width:50%;
+    height:450px;
+    margin:3px;
+    
+    
+}
+@media screen and (max-width:900px){
+    .part{
+        min-width: 95%;
+        margin-left: 10px;
+    }
+    .img-res{
+      min-width: 85%;
+      min-height: 400px;
+      
+    }
+}
+    </style>
+{% endblock %}
+{% block headerlogo%}
+              <img src="../img/logo.png" alt="logo">
+              {% endblock %}
+{% block logo %}
+            <img src="../img/footer-logo.png" alt="">
+            {% endblock %}
+{% block body %}
+<div class="row" style="margin-top:30px;">
+  <div class="col-lg-12 preamble">
+   <h3 style="font-family: Scriptina,'Great Vibes', cursive; margin-top:5% ; color: #b30000;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 72px;
+    line-height: 1em;"> {% trans %}Private Events{% endtrans %}</h3>
+   <p style="font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}For all tour events. You will feel secure in knowing that you are working with a team of professionals.{% endtrans %} </p>
+   <p style="font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}You will be impressed. {% endtrans %} </p>
+   <p style="font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}You will receive competitive and current design trends. {% endtrans %} </p>
+   <p style="font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}You will enjoy convenience and time saving by using our services  {% endtrans %} </p>
+   <p style="font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}You will not be unfavorably surprised or disappointed. {% endtrans %} </p>
+   </div>
+   <center>
+   <p style=" font-family:'Montserrat', sans-serif;  font-size:26px;"> {% trans %}You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.{% endtrans %}
+ </p>
+ </center>
+ </div>
+
+<center><div class="container">
+ 
+             <img  class="img-res" src="{{asset('../img/Events/bahia.jpg')}}"/>
+             <img  class="img-res" src="{{asset('../img/Events/conference.jpg')}}"/><br>
+             <img  class="img-res" src="{{asset('../img/Events/Hamra.jpg')}}"/>
+             <img  class="img-res" src="{{asset('../img/Events/Palais.jpg')}}"/><br>
+             <img  class="img-res" src="{{asset('../img/Events/wed.jpg')}}"/>
+             <img  class="img-res" src="{{asset('../img/Events/fin.jpeg')}}"/>
+
+             
+ 
+ </div></center>
+
+<div class="separator" >
+<center>
+<h1 style="font-family: Scriptina,'Great Vibes', cursive ; color: white;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    font-size: 70px;
+    line-height: 1em; padding-top:10px;">{% trans %}Reservation & Infos{% endtrans %}</h1>
+</center>
+</div><br><br>
+<div class="form-wrapper contain">
+<div style=" width:100%;   ">
+ {{ form_start(form) }}
+    
+    <b>{% trans %}Full Name:{% endtrans %}</b>
+    {{ form_widget(form.Full_Name) }}
+    <b>{% trans %}Telephone:{% endtrans %}</b>
+    {{ form_widget(form.Telephone) }}
+    <b>{% trans %}Email:{% endtrans %}</b>
+    {{ form_widget(form.Email) }}
+    <b>{% trans %}What Type of Events are you requesting ?{% endtrans %}</b>
+    {{ form_widget(form.ServiceType) }}
+    <b>{% trans %}Number of Guests:{% endtrans %}</b>
+    {{ form_widget(form.NumberOfPersons) }}
+    <b>{% trans %}Transport:{% endtrans %}</b>
+    {{ form_widget(form.Transport) }}
+    <b>{% trans %}From:{% endtrans %}</b>
+    {{ form_widget(form.StartDate) }}
+    <b>{% trans %}To:{% endtrans %}</b>
+    {{ form_widget(form.EndDate) }}
+    <b>{% trans %}Message:{% endtrans %}</b>
+    {{ form_widget(form.Message,{'attr':{'rows':"10"}}) }}<br>
+    {{ form_end(form) }}
+</div>
+
+</div>
+
+ 
+ {% endblock %}
+ {% block banner %}
+<div  style="height:130px;" >
+
+</div>
+ {% endblock %}
+ {% block lang %}
+      
+                 <!-- Start Header-Language -->
+                  <div class="header-language">
+                    <button class="header-btn">
+                    <i class="fa fa-globe"></i>
+                    {{ app.session.get('_locale')|upper}}
+                    </button>
+                    <nav class="header-form" >
+                      <ul class="custom-list" style="width:80px;">
+                        <li ><a href="{{path('translation',{locale:'en'})}}"><img style="width:30px; height:30px; " src="../img/flags/united-states.png" style="display:inline-block;">EN</a></li>
+                        <li ><a href="{{path('translation',{locale:'fr'})}}" ><img style="width:30px; height:30px; " src="../img/flags/france.png" style="display:inline-block;">FR</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="../img/flags/spain.png" style="display:inline-block;">ES</a></li>
+                        <li><a href="{{path('translation',{locale:'ar'})}}"><img style="width:30px; height:30px; " src="../img/flags/morocco.png" style="display:inline-block;">AR</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; " src="../img/flags/russia.png" style="display:inline-block;">Rus</a></li>
+                        <li><a href="#"><img style="width:30px; height:30px; "src="../img/flags/china.png" style="display:inline-block;">Chi</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <!-- End Header-Language -->
+
+                  {% endblock %}
+ {% block javascripts %}
+        <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.vide.min.js"></script>
+    <script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/jquery.ba-outside-events.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.placeholder.js"></script>
+<script src="https://kit.fontawesome.com/23bc112b5b.js" crossorigin="anonymous"></script>
+{% endblock %}

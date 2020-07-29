@@ -436,6 +436,54 @@ vous contactera immédiatement. Vous pouvez également envoyer un e-mail</target
         <source>yes, I also want transport to and from the place</source>
         <target>oui, je veux aussi le transport vers et depuis le lieu de reservation </target>
       </trans-unit>
+      <trans-unit id="4oBqQd_" resname="I also want the special events transport for my event">
+        <source>I also want the special events transport for my event</source>
+        <target>Je veux aussi le transport des événements spéciaux pour mon événement</target>
+      </trans-unit>
+      <trans-unit id="XubnxSv" resname="Private Events">
+        <source>Private Events</source>
+        <target>Événements privés</target>
+      </trans-unit>
+      <trans-unit id="dnLgW66" resname="let us do the work">
+        <source>let us do the work</source>
+        <target>laissez-nous faire le travail</target>
+      </trans-unit>
+      <trans-unit id="z03HNRz" resname="For all tour events. You will feel secure in knowing that you are working with a team of professionals.">
+        <source>For all tour events. You will feel secure in knowing that you are working with a team of professionals.</source>
+        <target>Pour tous les événements de tournée. Vous vous sentirez en sécurité en sachant que vous travaillez avec une équipe de professionnels.</target>
+      </trans-unit>
+      <trans-unit id="iD4NfLr" resname="You will be impressed.">
+        <source>You will be impressed.</source>
+        <target>Vous serez impressionné.</target>
+      </trans-unit>
+      <trans-unit id="AMn_8lf" resname="You will receive competitive and current design trends.">
+        <source>You will receive competitive and current design trends.</source>
+        <target>Vous recevrez des tendances de conception concurrentielles et actuelles.</target>
+      </trans-unit>
+      <trans-unit id="ZpVk4k." resname="You will enjoy convenience and time saving by using our services">
+        <source>You will enjoy convenience and time saving by using our services</source>
+        <target>Vous apprécierez la commodité et le gain de temps en utilisant nos services</target>
+      </trans-unit>
+      <trans-unit id="NB7zcI5" resname="You will not be unfavorably surprised or disappointed.">
+        <source>You will not be unfavorably surprised or disappointed.</source>
+        <target>Vous ne serez ni surpris de manière défavorable ni déçu .</target>
+      </trans-unit>
+      <trans-unit id="dKLyFSr" resname="You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.">
+        <source>You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.</source>
+        <target>Vous serez nommé un producteur d'événements du début à la fin, qui est soutenu par une équipe de professionnels.</target>
+      </trans-unit>
+      <trans-unit id="Ac2ZAqP" resname="What Type of Events are you requesting ?">
+        <source>What Type of Events are you requesting ?</source>
+        <target>Quel type d'événements demandez-vous?</target>
+      </trans-unit>
+      <trans-unit id="QwDJLJS" resname="Number Guests:">
+        <source>Number Guests:</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="HzFY8XB" resname="Number of Guests:">
+        <source>Number of Guests:</source>
+        <target>Nombre d'invités:</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

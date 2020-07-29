@@ -437,6 +437,54 @@ get back to you immediately. Alternatively, you can email</source>
         <source>yes, I also want transport to and from the place</source>
         <target>نعم ، أريد أيضًا النقل من وإلى مكان الحجز</target>
       </trans-unit>
+      <trans-unit id="4oBqQd_" resname="I also want the special events transport for my event">
+        <source>I also want the special events transport for my event</source>
+        <target>أريد أيضًا خدمات النقل  الخاص بالمناسبات</target>
+      </trans-unit>
+      <trans-unit id="XubnxSv" resname="Private Events">
+        <source>Private Events</source>
+        <target>المناسبات الخاصة</target>
+      </trans-unit>
+      <trans-unit id="dnLgW66" resname="let us do the work">
+        <source>let us do the work</source>
+        <target>اترك العمل علينا</target>
+      </trans-unit>
+      <trans-unit id="z03HNRz" resname="For all tour events. You will feel secure in knowing that you are working with a team of professionals.">
+        <source>For all tour events. You will feel secure in knowing that you are working with a team of professionals.</source>
+        <target>لجميع المناسبات . ستشعر بالأمان عندما تعلم أنك تعمل مع فريق من المحترفين.</target>
+      </trans-unit>
+      <trans-unit id="iD4NfLr" resname="You will be impressed.">
+        <source>You will be impressed.</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="AMn_8lf" resname="You will receive competitive and current design trends.">
+        <source>You will receive competitive and current design trends.</source>
+        <target>__You will receive competitive and current design trends.</target>
+      </trans-unit>
+      <trans-unit id="ZpVk4k." resname="You will enjoy convenience and time saving by using our services">
+        <source>You will enjoy convenience and time saving by using our services</source>
+        <target>__You will enjoy convenience and time saving by using our services</target>
+      </trans-unit>
+      <trans-unit id="NB7zcI5" resname="You will not be unfavorably surprised or disappointed.">
+        <source>You will not be unfavorably surprised or disappointed.</source>
+        <target>__You will not be unfavorably surprised or disappointed.</target>
+      </trans-unit>
+      <trans-unit id="dKLyFSr" resname="You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.">
+        <source>You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.</source>
+        <target>__You will be appointed one event producer from start to finish, who is being supported by a staff of professionals.</target>
+      </trans-unit>
+      <trans-unit id="Ac2ZAqP" resname="What Type of Events are you requesting ?">
+        <source>What Type of Events are you requesting ?</source>
+        <target>__What Type of Events are you requesting ?</target>
+      </trans-unit>
+      <trans-unit id="QwDJLJS" resname="Number Guests:">
+        <source>Number Guests:</source>
+        <target>__Number Guests:</target>
+      </trans-unit>
+      <trans-unit id="HzFY8XB" resname="Number of Guests:">
+        <source>Number of Guests:</source>
+        <target>__Number of Guests:</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
