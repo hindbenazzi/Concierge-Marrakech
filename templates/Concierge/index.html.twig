@@ -45,11 +45,12 @@
 {% block banner%}
 <div id="banner">
         <div class="banner-bg">
-          <div class="banner-bg-item"><img src="img/slider/akinslid2.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/slider/slide1.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/slider/slide.jpg" alt=""></div>
-          <div class="banner-bg-item"><img src="img/slider/transEvenement.jfif" alt=""></div>
-          <div class="banner-bg-item"><img src="img/slider/royal_mansour_marrakech.jpg" alt=""></div>
+          
+          {% for Slider in Sliders%}
+          
+          <div class="banner-bg-item"><img src="{{asset('../img/slider/' ~ Slider.ImageUrl)}}" alt=""></div>
+          
+          {% endfor %}
         </div>
 
 

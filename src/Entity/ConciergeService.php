@@ -6,9 +6,12 @@ use App\Repository\ConciergeServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich ;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=ConciergeServiceRepository::class)
+ * @Vich\Uploadable()
  */
 class ConciergeService
 {
@@ -33,6 +36,16 @@ class ConciergeService
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $ImageURL;
+    
+     /**
+     * @Vich\UploadableField(mapping="ConciergeServices",fileNameProperty="ImageUrl")
+     */
+     private $ImageUrlFile;
+
+     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $UpdatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity=ConciergeServiceRequete::class, mappedBy="Service")
@@ -42,6 +55,7 @@ class ConciergeService
     public function __construct()
     {
         $this->conciergeServiceRequetes = new ArrayCollection();
+        $this->UpdatedAt=new \DateTime();
     }
 
     public function getId(): ?int
@@ -112,6 +126,34 @@ class ConciergeService
                 $conciergeServiceRequete->setService(null);
             }
         }
+
+        return $this;
+    }
+    public function getImageUrlFile(): ?UploadedFile
+    {
+        return $this->ImageUrlFile;
+    }
+
+    public function setImageUrlFile( $ImageUrlFile): self
+    {
+        $this->ImageUrlFile = $ImageUrlFile;
+
+
+         if($ImageUrlFile){
+            $this->UpdatedAt=new \DateTime();
+         }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->UpdatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $UpdatedAt): self
+    {
+        $this->UpdatedAt = $UpdatedAt;
 
         return $this;
     }

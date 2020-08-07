@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\PalaceImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich ;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=PalaceImagesRepository::class)
+ * @Vich\Uploadable()
  */
 class PalaceImages
 {
@@ -21,6 +24,18 @@ class PalaceImages
      * @ORM\Column(type="string", length=255)
      */
     private $ImageUrl;
+    /**
+     * @Vich\UploadableField(mapping="PalacesImages",fileNameProperty="ImageUrl")
+     */
+    private $ImageUrlFile;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $UpdatedAt;
+    public function __construct()
+    {
+        $this->UpdatedAt=new \DateTime();
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity=PrivatePalace::class, inversedBy="palaceImages")
@@ -37,7 +52,7 @@ class PalaceImages
         return $this->ImageUrl;
     }
 
-    public function setImageUrl(string $ImageUrl): self
+    public function setImageUrl(?string $ImageUrl): self
     {
         $this->ImageUrl = $ImageUrl;
 
@@ -52,6 +67,34 @@ class PalaceImages
     public function setPalaceId(?PrivatePalace $PalaceId): self
     {
         $this->PalaceId = $PalaceId;
+
+        return $this;
+    }
+    public function getImageUrlFile(): ?UploadedFile
+    {
+        return $this->ImageUrlFile;
+    }
+
+    public function setImageUrlFile( $ImageUrlFile): self
+    {
+        $this->ImageUrlFile = $ImageUrlFile;
+
+
+         if($ImageUrlFile){
+            $this->UpdatedAt=new \DateTime();
+         }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->UpdatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $UpdatedAt): self
+    {
+        $this->UpdatedAt = $UpdatedAt;
 
         return $this;
     }

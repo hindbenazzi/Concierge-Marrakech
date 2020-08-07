@@ -6,9 +6,12 @@ use App\Repository\PrivatePalaceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich ;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=PrivatePalaceRepository::class)
+ * @Vich\Uploadable()
  */
 class PrivatePalace
 {
@@ -60,6 +63,15 @@ class PrivatePalace
     private $img_Url;
 
     /**
+     * @Vich\UploadableField(mapping="Palaces",fileNameProperty="img_Url")
+     */
+    private $ImageUrlFile;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $UpdatedAt;
+
+    /**
      * @ORM\OneToMany(targetEntity=RequetePersonalisable::class, mappedBy="PalaceId")
      */
     private $requetePersonalisables;
@@ -67,6 +79,7 @@ class PrivatePalace
     public function __construct()
     {
         $this->requetePersonalisables = new ArrayCollection();
+        $this->UpdatedAt=new \DateTime();
     }
 
     public function getId(): ?int
@@ -163,7 +176,7 @@ class PrivatePalace
         return $this->img_Url;
     }
 
-    public function setImgUrl(string $img_Url): self
+    public function setImgUrl(?string $img_Url): self
     {
         $this->img_Url = $img_Url;
 
@@ -199,5 +212,37 @@ class PrivatePalace
         }
 
         return $this;
+    }
+    public function getImageUrlFile(): ?UploadedFile
+    {
+        return $this->ImageUrlFile;
+    }
+
+    public function setImageUrlFile( $ImageUrlFile): self
+    {
+        $this->ImageUrlFile = $ImageUrlFile;
+
+
+         if($ImageUrlFile){
+            $this->UpdatedAt=new \DateTime();
+         }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->UpdatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $UpdatedAt): self
+    {
+        $this->UpdatedAt = $UpdatedAt;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->Title;
     }
 }

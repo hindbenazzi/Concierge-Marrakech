@@ -1,0 +1,37 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        ConciergeServices:
+            uri_prefix: /img/conciergeServices
+            upload_destination: '%kernel.project_dir%/public/img/conciergeServices'
+        Cars:
+            uri_prefix: /img/Cars
+            upload_destination: '%kernel.project_dir%/public/img/Cars'
+        CarsImages:
+            uri_prefix: /img/Cars
+            upload_destination: '%kernel.project_dir%/public/img/Cars'
+        Palaces:
+            uri_prefix: /img/palace
+            upload_destination: '%kernel.project_dir%/public/img/palace'
+        PalacesImages:
+            uri_prefix: /img/palace
+            upload_destination: '%kernel.project_dir%/public/img/palace'
+        Residences:
+            uri_prefix: /img/Residence
+            upload_destination: '%kernel.project_dir%/public/img/Residence'
+        ResidencesImages:
+            uri_prefix: /img/Residence
+            upload_destination: '%kernel.project_dir%/public/img/Residence'
+        Trips:
+            uri_prefix: /img/Trips
+            upload_destination: '%kernel.project_dir%/public/img/Trips'
+        TripsImages:
+            uri_prefix: /img/Trips
+            upload_destination: '%kernel.project_dir%/public/img/Trips'
+        Partners:
+            uri_prefix: /img/partners
+            upload_destination: '%kernel.project_dir%/public/img/partners'
+        SliderImages:
+            uri_prefix: /img/slider
+            upload_destination: '%kernel.project_dir%/public/img/slider'

@@ -12,6 +12,7 @@ use App\Repository\FieldsRepository;
 use App\Entity\Testimonials;
 use App\Repository\TestimonialsRepository;
 use App\Entity\Partners;
+use App\Entity\Slider;
 use App\Entity\TestimonialsFR;
 use App\Entity\TestimonialsAR;
 use App\Repository\PartnersRepository;
@@ -31,6 +32,8 @@ class HomePageController extends AbstractController
         $testimonials=$repo1->findAll();
         $repo2=$em->getRepository(Partners::class);
         $Partners=$repo2->findAll();
+        $repo10=$em->getRepository(Slider::class);
+        $Sliders=$repo10->findAll();
         $fieldName=array();
         $fieldContenue=array();
         $fieldDescription=array();
@@ -100,7 +103,7 @@ class HomePageController extends AbstractController
         
         }
         return $this->render('Concierge/index.html.twig',
-        ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners,'fieldName'=>$fieldName,
+        ['fields'=>$fields,'testimonials'=>$testimonials,'Partners'=>$Partners,'Sliders'=>$Sliders,'fieldName'=>$fieldName,
         'fieldContenue'=>$fieldContenue,'fieldDescription'=>$fieldDescription,
         'testClient'=>$testClient,'testClientPos'=>$testClientPos,'testTest'=>$testClientPos]);
     }

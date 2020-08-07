@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\CarsImagesRepository;
+use App\Repository\SliderRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich ;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
- * @ORM\Entity(repositoryClass=CarsImagesRepository::class)
+ * @ORM\Entity(repositoryClass=SliderRepository::class)
  * @Vich\Uploadable()
  */
-class CarsImages
+class Slider
 {
     /**
      * @ORM\Id()
@@ -20,11 +21,11 @@ class CarsImages
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $ImageUrl;
     /**
-     * @Vich\UploadableField(mapping="CarsImages",fileNameProperty="ImageUrl")
+     * @Vich\UploadableField(mapping="SliderImages",fileNameProperty="ImageUrl")
      */
     private $ImageUrlFile;
     /**
@@ -36,15 +37,6 @@ class CarsImages
         $this->UpdatedAt=new \DateTime();
     }
 
-    /**
-     * @ORM\ManyToOne(targetEntity=LuxuryCars::class, inversedBy="carsImages")
-     */
-    private $CarsId;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $t;
 
     public function getId(): ?int
     {
@@ -59,30 +51,6 @@ class CarsImages
     public function setImageUrl(?string $ImageUrl): self
     {
         $this->ImageUrl = $ImageUrl;
-
-        return $this;
-    }
-
-    public function getCarsId(): ?LuxuryCars
-    {
-        return $this->CarsId;
-    }
-
-    public function setCarsId(?LuxuryCars $CarsId): self
-    {
-        $this->CarsId = $CarsId;
-
-        return $this;
-    }
-
-    public function getT(): ?string
-    {
-        return $this->t;
-    }
-
-    public function setT(string $t): self
-    {
-        $this->t = $t;
 
         return $this;
     }
